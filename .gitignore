@@ -1,0 +1,20 @@
+###################
+# compiled source #
+###################
+*.com
+*.class
+*.exe
+*.pdb
+*.dll.config
+*.cache
+*.suo
+*.txt
+*.cache
+*.p7s
+*.ps1
+# Directories #
+###############
+*/**/bin/Debug
+*/**/bin/Release
+*/**/obj/Debug
+*/**/obj/Release
