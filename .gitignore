@@ -14,9 +14,11 @@
 *.ps1
 # Directories #
 ###############
+.vs/
 */**/bin/Debug
 */**/bin/Release
 */**/obj/Debug
 */**/obj/Release
 */**/bin/
-*/**/obj/
+*/**/obj
+
