@@ -1,0 +1,49 @@
+.row {
+    width: 100%;
+    height: inherit;
+    color: #6c757d;
+}
+
+.backtopbtn {
+    background-color: #dee2e6;
+    border-radius: 4px;
+    text-decoration: none;
+    padding: 0.7rem 1.8rem;
+    color: black;
+    cursor: pointer;
+}
+
+.socials {
+    list-style: none;
+    padding: 0px;
+    margin: -3px 0px;
+}
+
+.socials li {
+    display: inline-block;
+}
+
+.socials li a {
+    display: block;
+    width: 30px;
+    margin: 0 5px;
+    color: #495057;
+}
+
+footer {
+    height: 40px;
+    position: absolute;
+    right: 0;
+    bottom: -60px;
+    @media screen and (min-width: 400px) and (max-width: 767px) {
+        bottom: auto;        
+    }
+    left: 0;
+    background-color: #e9ecef;
+    text-align: center;
+}
+
+.custom-footer-bar {
+    background-color: #e9ecef;
+    height: 60px;
+}
