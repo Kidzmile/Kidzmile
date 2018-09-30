@@ -14,10 +14,11 @@
 //     }
 // }
 .shippingbtn {
-    font-size: 1.3em !important;
+    font-size: 1.1em !important;
     background-color: inherit;
+    color: #6c757d;
     i {
-        font-size: 20px;
+        font-size: 14px;
         color: #ffff;
         -moz-transform: scaleX(-1);
         -o-transform: scaleX(-1);
@@ -301,10 +302,43 @@
     background-color: #e9ecef;
 }
 
+.custom-height {
+    height: 44px;
+}
+
+.custom-height-2 {
+    height: 42px;
+}
+
 .custom-search-styling {
     padding-top: 17px;
     flex: 0.8;
     display: flex;
     justify-content: flex-start;
+    width: auto;
     //     align-items: center;
+}
+
+.navbar-height-2 {
+    height: 68px;
+}
+
+.nav-link {
+    font-size: 1rem;
+}
+
+@media only screen and (max-width: 990px) {
+    .navbar-height-2 {
+        height: auto;
+    }
+    .custom-height-2 {
+        height: auto;
+    }
+    .custom-height {
+        height: auto;
+    }
+}
+
+.header {
+    position: relative;
 }

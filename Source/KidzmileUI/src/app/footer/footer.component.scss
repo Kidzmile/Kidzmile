@@ -1,3 +1,4 @@
+$break-small: 320px;
 .row {
     width: 100%;
     height: inherit;
@@ -17,10 +18,29 @@
     list-style: none;
     padding: 0px;
     margin: -3px 0px;
+    text-align: right;
+    @media screen and (min-width: 320px) and (max-width: 767px) {
+        text-align: center
+    }
+    ul {
+        li {
+            @media screen and (min-width: $break-small) and (max-width: 767px) {
+                widows: 100%;
+                padding: 10px;
+                display: inline-block;
+                text-align: left;
+            }
+        }
+    }
+}
+
+.socials ul {
+    display: inline;
 }
 
 .socials li {
     display: inline-block;
+    padding: 0.5rem
 }
 
 .socials li a {
@@ -30,20 +50,102 @@
     color: #495057;
 }
 
-footer {
-    height: 40px;
-    position: absolute;
+.footer {
+    position: relative;
     right: 0;
     bottom: -60px;
-    @media screen and (min-width: 400px) and (max-width: 767px) {
-        bottom: auto;        
-    }
     left: 0;
     background-color: #e9ecef;
     text-align: center;
+    height: 55px;
 }
 
 .custom-footer-bar {
     background-color: #e9ecef;
-    height: 60px;
+    height: auto;
+}
+
+@media screen and (min-width: 320px) and (max-width: 767px) {
+    .quicklinks .row {
+        margin: 0px
+    }
+    .cpy1 {
+        ul.copy {
+            li {
+                width: 100%;
+                text-align: center;
+                padding: 3px;
+            }
+        }
+        ul.term {
+            li {
+                width: 50%;
+                text-align: center;
+                padding: 3px;
+            }
+        }
+    }
+    .footer-link-list {
+        text-align: center;
+    }
+}
+
+.line {
+    display: inline;
+    padding: 10px;
+}
+
+.qlinks {
+    ul {
+        padding: 0px;
+        margin: 0px;
+        list-style: none;
+        li {
+            display: inline-block;
+            padding: 1REM;
+            a {
+                color: #6c757d;
+                font-size: 15PX;
+            }
+            @media screen and (min-width: $break-small) and (max-width: 767px) {
+                widows: 100%;
+                padding: 10px;
+                display: inline-block;
+                text-align: left;
+            }
+        }
+    }
+}
+
+.footer-copyright {
+    border-top: 1px solid black;
+    position: static;
+    bottom: auto;
+    height: 10px;
+}
+
+@media screen and (min-width: 400px) and (max-width: 990px) {
+    bottom: auto;
+    height: auto;
+}
+
+.footer-link-list {
+    height: auto;
+    margin-left: 5px;
+    margin-right: 5px;
+    @media screen and (min-width: 320px) and (max-width: 990px) {
+        text-align: left;
+    }
+}
+
+@media screen and(min-width: 320px) and(max-width: 768px) {
+    .backtopbtn {
+        background-color: #dee2e6;
+        border-radius: 4px;
+        text-align: center;
+        text-decoration: none;
+        padding: 0.7rem 1.8rem;
+        color: inherit;
+        display: block
+    }
 }
