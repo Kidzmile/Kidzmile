@@ -9,8 +9,7 @@ import { RouterModule, Routes } from '@angular/router';
 // the route to redirect to if the client side path is empty.
 const appRoutes: Routes = [
   { path: 'login', component: LoginComponent },
-  {  },
-  { path: '', redirectTo: '/list', pathMatch: 'full' }
+  { path: '', redirectTo: '/login', pathMatch: 'full' }
 ];
 
 // Pass the configured routes to the forRoot() method
