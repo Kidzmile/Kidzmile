@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { AppComponent } from './app.component';
-import { HeaderComponent } from './header/header.component'
-import { FooterComponent } from './footer/footer.component';
+import { HeaderComponent } from './Header/header.component'
+import { FooterComponent } from './Footer/footer.component';
 import { LoginComponent } from './Login/login.component';
 import { RouterModule, Routes } from '@angular/router';
 // The last route is the empty path route. This specifies
