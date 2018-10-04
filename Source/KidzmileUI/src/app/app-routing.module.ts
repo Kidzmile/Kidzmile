@@ -5,6 +5,7 @@ import { HeaderComponent } from './Header/header.component'
 import { FooterComponent } from './Footer/footer.component';
 import { LoginComponent } from './Login/login.component';
 import { RouterModule, Routes } from '@angular/router';
+import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 // The last route is the empty path route. This specifies
 // the route to redirect to if the client side path is empty.
 const appRoutes: Routes = [
@@ -17,7 +18,8 @@ const appRoutes: Routes = [
 // Export the imported RouterModule so router directives
 // are available to the module that imports this AppRoutingModule
 @NgModule({
-  imports: [ RouterModule.forRoot(appRoutes) ],
+  providers: [{provide: LocationStrategy, useClass: HashLocationStrategy}],
+  imports: [ RouterModule.forRoot(appRoutes, { useHash: true }) ],
   exports: [ RouterModule ]
 })
 export class AppRoutingModule { }
