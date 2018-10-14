@@ -20,6 +20,7 @@ export class LoginComponent implements OnInit {
 
   OnSubmit(userName, password) {
     this.userService.userAuthentication(userName, password).subscribe((data: any) => {
+      console.log(" userAuthentication called");
       localStorage.setItem('userToken', data.access_token);
       this.isAuthenticated = true;
       this.toaster.info("Login", "Login successful");
