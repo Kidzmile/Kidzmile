@@ -2,16 +2,16 @@ import { Component, OnInit } from '@angular/core';
 import { User } from '../Model/User/user.model';
 import { NgForm } from '@angular/forms';
 import { UserService } from '../Service/User/user.service'
-import { ToasterServiceService } from '../toaster-service.service';
+import { ToasterServiceService } from '../Service/Toaster/toaster';
 import { Observable } from 'rxjs';
 import { AppRoutingModule } from '../app-routing.module';
 @Component({
-  selector: 'app-product-details',
-  templateUrl: './product-details.component.html',
-  styleUrls: ['./product-details.component.scss'],
+  selector: 'app-signup',
+  templateUrl: './signup.component.html',
+  styleUrls: ['./signup.component.scss'],
 
 })
-export class ProductDetailsComponent implements OnInit {
+export class SignupComponent implements OnInit {
   user: User;
   errors:string;
   ngOnInit() {
