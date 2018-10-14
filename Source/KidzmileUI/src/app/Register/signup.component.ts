@@ -13,7 +13,7 @@ import { AppRoutingModule } from '../app-routing.module';
 })
 export class SignupComponent implements OnInit {
   user: User;
-  errors:string;
+  errors: string;
   ngOnInit() {
     this.resetForm();
   }
@@ -34,7 +34,7 @@ export class SignupComponent implements OnInit {
   constructor(private userService: UserService, private toastr: ToasterServiceService) { }
 
   OnSubmit(form: NgForm) {
-    
+
     this.userService.registerUser(form.value)
       .subscribe((data: any) => {
         console.log(data);
@@ -42,23 +42,23 @@ export class SignupComponent implements OnInit {
           this.resetForm(form);
           this.toastr.success("User registration successful");
         }
-        else {          
-          this.toastr.error("Data Error",data);
-          
+        else {
+          this.toastr.error("Data Error", data);
+
         }
       }, (error) => {
         this.handleError(error);
-        this.toastr.info("Error",error.statusText);
+        this.toastr.info("Error", error.statusText);
       },
-      ()=>{
+        () => {
           console.log("no errors write route here");
           //this.router.navigate(['/login']);
-      }
-    );
-} 
-private handleError(error: any) { 
-  console.log(error);
-  let errMsg = (error.message) ? error.message : error.ModelState ? `${error.status} - ${error.statusText}` : 'Server error';
-  this.toastr.error("Error",errMsg);
-}
+        }
+      );
+  }
+  private handleError(error: any) {
+    console.log(error);
+    let errMsg = (error.message) ? error.message : error.ModelState ? `${error.status} - ${error.statusText}` : 'Server error';
+    this.toastr.error("Error", errMsg);
+  }
 }
