@@ -7,6 +7,8 @@ import { FooterComponent } from './Footer/footer.component';
 import { LoginComponent } from './Login/login.component';
 import { AppRoutingModule } from './app-routing.module';
 import { SignupComponent } from './Register/signup.component';
+import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 @NgModule({
   declarations: [
     AppComponent,
@@ -17,7 +19,9 @@ import { SignupComponent } from './Register/signup.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

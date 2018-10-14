@@ -9,7 +9,7 @@ export class LoginComponent implements OnInit {
 
   constructor() {
 
-    console.log('login callwd');
+    console.log('LoginComponent called');
    }
 
   ngOnInit() {
