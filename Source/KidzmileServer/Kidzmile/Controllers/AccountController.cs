@@ -16,6 +16,7 @@ using Microsoft.Owin.Security.OAuth;
 using Kidzmile.Models;
 using Kidzmile.Providers;
 using Kidzmile.Results;
+using System.Linq;
 
 namespace Kidzmile.Controllers
 {
@@ -321,23 +322,32 @@ namespace Kidzmile.Controllers
         // POST api/Account/Register
         [AllowAnonymous]
         [Route("Register")]
-        public async Task<IHttpActionResult> Register(RegisterBindingModel model)
+        public async Task<string> Register(RegisterBindingModel model)
         {
-            if (!ModelState.IsValid)
-            {
-                return BadRequest(ModelState);
-            }
+            //if (!ModelState.IsValid)
+            //{
+            //    return BadRequest(ModelState);
+            //}
 
-            var user = new ApplicationUser() { UserName = model.Email, Email = model.Email };
+            var user = new ApplicationUser()
+            {
+                UserName = model.Email,
+                Email = model.Email,
+                FirstName = model.FirstName,
+                LastName = model.LastName,
+                PhoneNumber = model.PhoneNumber,
+                CreatedTS = DateTime.UtcNow,
+                UpdatedTS = DateTime.UtcNow
+            };
 
             IdentityResult result = await UserManager.CreateAsync(user, model.Password);
 
             if (!result.Succeeded)
             {
-                return GetErrorResult(result);
+                return result.Errors.FirstOrDefault();
             }
 
-            return Ok();
+            return "Success";
         }
 
         // POST api/Account/RegisterExternal
