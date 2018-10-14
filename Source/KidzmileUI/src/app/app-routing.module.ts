@@ -8,12 +8,14 @@ import { RouterModule, Routes } from '@angular/router';
 import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 import { SignupComponent } from './Register/signup.component';
 import { HomeComponent } from './Home/home.component';
+import { ProductDetailsComponent } from './Product/product-details/product-details.component';
 // The last route is the empty path route. This specifies
 // the route to redirect to if the client side path is empty.
 const appRoutes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'signup', component: SignupComponent },
   { path: 'home', component: HomeComponent },
+  { path: 'product', component: ProductDetailsComponent },
   { path: '', redirectTo: '/login', pathMatch: 'full' }
 ];
 
