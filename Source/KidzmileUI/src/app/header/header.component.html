@@ -13,7 +13,7 @@
 
                 <span class="input-group-addon search-icon-dim ">
                             
-                                    <i class="fas fa-search h6 "></i>
+                                    <i class="fa fa-search h6 "></i>
                                 
                     </span>
 
@@ -50,19 +50,19 @@
                             <i class="fa pl-3 fa-chevron-down "></i> </a>
                         <div class="dropdown-menu " aria-labelledby="navbarDropdown2 ">
                             <a class="dropdown-item " href="# ">
-                                
+
                                 <h6><a routerLink="login">Login</a></h6>
                             </a>
                             <div class="dropdown-divider "></div>
                             <a class="dropdown-item " routerLink="signup">
-                                <h6 >Sign Up</h6>
+                                <h6>Sign Up</h6>
                             </a>
                         </div>
                     </li>
                     <li class="nav-item custom-row-spacing ">
 
-                        <div> <button class="btn cart "><a class="nav-link " href="# "><i aria-hidden="true " class="fa fa-shopping-cart "></i>Cart
-                        <span class="badge "></span></a></button>
+                        <div> <button class="btn cart"><a class="nav-link" href="#" routerLink="product"><i aria-hidden="true " class="fa fa-shopping-cart "></i>Cart
+                            <span class="badge badge badge-pill shadow-sm">{{_cartDataService.getData()}}</span></a></button>
                         </div>
 
                     </li>
