@@ -1,4 +1,5 @@
-import { Component, OnInit, Output , EventEmitter} from '@angular/core';
+import { Component, OnInit} from '@angular/core';
+import { CartUpdateService } from '../../Shared/cartupdate.service';
 
 @Component({
   selector: 'app-product-details',
@@ -23,11 +24,10 @@ ratingFour = 50;
 ratingFive = 0;
 
 updateItemsCount: Number = 0;
-@Output() updateItemsCountEvent = new EventEmitter<Number>();
 
 
 
-constructor() {}
+constructor( private _cartService: CartUpdateService) {}
 
   content = [ {
     rating: 4,
@@ -75,8 +75,7 @@ constructor() {}
  }
 
  addToCartEvent () {
-   this.updateItemsCount = this.updateItemsCount + this.countItems ;
-   this.updateItemsCountEvent.emit(this.updateItemsCount);
+   this._cartService.addData(this.countItems );
 
  }
 

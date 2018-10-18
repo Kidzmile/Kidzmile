@@ -8,7 +8,7 @@ import { DatePipe, CommonModule } from '@angular/common';
 
 
 import { AppComponent } from './app.component';
-import { HeaderComponent } from './Header/header.component'
+import { HeaderComponent } from './Header/header.component';
 import { FooterComponent } from './Footer/footer.component';
 import { LoginComponent } from './Login/login.component';
 import { AppRoutingModule } from './app-routing.module';
@@ -16,6 +16,7 @@ import { SignupComponent } from './Register/signup.component';
 import { HttpClientModule } from '@angular/common/http';
 import { HomeComponent } from './Home/home.component';
 import { ProductDetailsComponent } from './Product/product-details/product-details.component';
+import { CartUpdateService } from './Shared/cartupdate.service';
 
 @NgModule({
   declarations: [
@@ -44,7 +45,8 @@ import { ProductDetailsComponent } from './Product/product-details/product-detai
       color: '#ffa728',
       background: '#ffa728'
     }
-  }, DatePipe],
+  }, DatePipe,
+  CartUpdateService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

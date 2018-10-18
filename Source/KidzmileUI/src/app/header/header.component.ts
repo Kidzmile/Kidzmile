@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { CartUpdateService} from '../Shared/cartupdate.service';
 
 @Component({
   selector: 'app-header',
@@ -9,10 +10,9 @@ import { Component, Input } from '@angular/core';
 })
 
 export class HeaderComponent {
-  @Input()
-  cartUpdated: Number;
-  constructor() {
-
+  @Input() cartUpdated: Number;
+  cartUpdate: Number;
+  constructor(private _cartDataService: CartUpdateService) {
 
   }
 }
