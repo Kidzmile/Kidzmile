@@ -3,6 +3,7 @@ import { CartUpdateService } from '../Shared/cartupdate.service';
 import { Router } from '@angular/router';
 import { ToasterServiceService } from '../Service/Toaster/toaster';
 import { HomeService } from '../Shared/home.service';
+import { Login } from '../Model/Login/login.model';
 
 
 @Component({
@@ -18,9 +19,9 @@ export class HeaderComponent implements OnInit {
   @Input() cartUpdated: Number;
   
   isUserAuthenticated: boolean = false;
-  loggedInUserDetails: {};
+  loggedInUserDetails: Login;
   cartUpdate: Number;
-  constructor(private _cartDataService: CartUpdateService, private router: Router,private homeSharedService:HomeService , private toaster: ToasterServiceService) {
+  constructor(public _cartDataService: CartUpdateService, private router: Router,private homeSharedService:HomeService , private toaster: ToasterServiceService) {
 
   }
 
@@ -30,16 +31,11 @@ export class HeaderComponent implements OnInit {
   });
   }
 
-
-  // handleNotify(isAuthenticated: boolean) {
-  //   console.log("handleNotify called ");
-  //   this.isUserAuthenticated = isAuthenticated;
-  // }
   logout() {
     console.log("logout");
     localStorage.removeItem("userToken");
     this.isUserAuthenticated = false;
-    this.loggedInUserDetails={};
+    this.loggedInUserDetails=null;
     this.toaster.success("Log Out", "Logged Out successfully");
     this.router.navigate(["\login"]);
   }
