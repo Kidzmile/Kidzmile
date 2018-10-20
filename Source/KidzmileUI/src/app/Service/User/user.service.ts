@@ -36,7 +36,7 @@ export class UserService {
     return this.http.post(environment.api + '/api/Account/Register', body,
       { headers: new HttpHeaders({ 'No-Auth': 'True' }) });
   }
-
+ 
   getUserClaims() {
     return this.http.get(environment.api + '/api/Account/GetUserClaims', { headers: new HttpHeaders({ 'Authorization': 'Bearer' + localStorage.getItem('userToken') }) });
   }

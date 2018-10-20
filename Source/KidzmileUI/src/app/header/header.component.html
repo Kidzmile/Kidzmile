@@ -3,19 +3,21 @@
     <nav class="navbar navbar-expand-lg navbar-light custom-bg-color navbar-height-2">
         <a class="navbar-brand" href="# ">
             <img class="d-inline-block align-top " src="# " />Kidzmile</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent " aria-expanded="false " aria-label="Toggle navigation ">
-                  <span class="navbar-toggler-icon "></span>
-                </button>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent " aria-expanded="false " aria-label="Toggle navigation ">
+            <span class="navbar-toggler-icon "></span>
+        </button>
         <div class="collapse navbar-collapse row" id="navbarSupportedContent">
 
             <div class="input-group stylish-input-group col-6 custom-search-styling ">
-                <input class="form-control mb-3 form-control-borderless" type="search " placeholder="Search " aria-label="Search ">
+                <input class="form-control mb-3 form-control-borderless" type="search " placeholder="Search "
+                    aria-label="Search ">
 
                 <span class="input-group-addon search-icon-dim ">
-                            
-                                    <i class="fa fa-search h6 "></i>
-                                
-                    </span>
+
+                    <i class="fa fa-search h6 "></i>
+
+                </span>
 
             </div>
 
@@ -28,7 +30,8 @@
 
                 <ul class="navbar-nav mr-auto align-items-end ">
                     <li class="nav-item dropdown custom-row-spacing ">
-                        <a class="nav-link " href="# " id="navbarDropdown1 " role="button" data-toggle="dropdown" aria-haspopup="true " aria-expanded="false ">
+                        <a class="nav-link " href="# " id="navbarDropdown1 " role="button" data-toggle="dropdown"
+                            aria-haspopup="true " aria-expanded="false ">
                             <strong>24/7 help</strong>
                             <i class="fa pl-3 fa-chevron-down "></i> </a>
 
@@ -44,8 +47,9 @@
                         </div>
                     </li>
 
-                    <li class="nav-item dropdown custom-row-spacing ">
-                        <a class="nav-link " href="# " id="navbarDropdown2 " role="button" data-toggle="dropdown" aria-haspopup="true " aria-expanded="false ">
+                    <li class="nav-item dropdown custom-row-spacing " *ngIf="loggedInUserDetails==undefined || !loggedInUserDetails.IsAuthenticated">
+                        <a class="nav-link " href="# " id="navbarDropdown2 " role="button" data-toggle="dropdown"
+                            aria-haspopup="true " aria-expanded="false ">
                             <strong>Login & SignUp</strong>
                             <i class="fa pl-3 fa-chevron-down "></i> </a>
                         <div class="dropdown-menu " aria-labelledby="navbarDropdown2 ">
@@ -59,10 +63,27 @@
                             </a>
                         </div>
                     </li>
+                    <li class="nav-item dropdown custom-row-spacing " *ngIf="loggedInUserDetails && loggedInUserDetails.IsAuthenticated">
+                        <a class="nav-link " href="# " id="navbarDropdown2 " role="button" data-toggle="dropdown"
+                            aria-haspopup="true " aria-expanded="false ">
+                            <strong>Hello,{{loggedInUserDetails.FirstName}} </strong>
+                            <i class="fa pl-3 fa-chevron-down "></i> </a>
+                        <div class="dropdown-menu " aria-labelledby="navbarDropdown2 ">
+                            <a class="dropdown-item " href="# ">
+                                <h6><a>Dashboard</a></h6>
+                            </a>
+                        
+                            <div class="dropdown-divider "></div>
+                            <a class="dropdown-item " href="#">
+                                <h6><a (click)="logout()">Log Out</a></h6>
+                            </a>
+                        </div>
+                    </li>
                     <li class="nav-item custom-row-spacing ">
 
-                        <div> <button class="btn cart"><a class="nav-link" href="#" routerLink="product"><i aria-hidden="true " class="fa fa-shopping-cart "></i>Cart
-                            <span class="badge badge badge-pill shadow-sm">{{_cartDataService.getData()}}</span></a></button>
+                        <div> <button class="btn cart"><a class="nav-link" href="#" routerLink="product"><i aria-hidden="true "
+                                        class="fa fa-shopping-cart "></i>Cart
+                                    <span class="badge badge badge-pill shadow-sm">{{_cartDataService.getData()}}</span></a></button>
                         </div>
 
                     </li>
@@ -92,8 +113,9 @@
                 <div class="collapse navbar-collapse left-content-start ">
                     <div class="col text-right ">
 
-                        <button type="button " class="btn shippingbtn "> FREE 1-2 DAY SHIPPING OVER <i class="fa ml-2 fa-truck " aria-hidden="true "></i>
-    </button>
+                        <button type="button " class="btn shippingbtn "> FREE 1-2 DAY SHIPPING OVER <i class="fa ml-2 fa-truck "
+                                aria-hidden="true "></i>
+                        </button>
                     </div>
                 </div>
             </div>
