@@ -49,7 +49,7 @@ import { HomeService } from './Shared/home.service';
   }, DatePipe,
     CartUpdateService, AuthGuard,
   { provide: HTTP_INTERCEPTORS, useClass: AppHttpInterceptorService, multi: true },
-  HomeService], 
+  HomeService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
