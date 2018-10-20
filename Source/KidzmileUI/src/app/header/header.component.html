@@ -47,7 +47,7 @@
                         </div>
                     </li>
 
-                    <li class="nav-item dropdown custom-row-spacing " *ngIf="loggedInUserDetails==undefined || !loggedInUserDetails.IsAuthenticated">
+                    <li class="nav-item dropdown custom-row-spacing " *ngIf="loggedInUserDetails==undefined || !loggedInUserDetails.isUserAuthenticated">
                         <a class="nav-link " href="# " id="navbarDropdown2 " role="button" data-toggle="dropdown"
                             aria-haspopup="true " aria-expanded="false ">
                             <strong>Login & SignUp</strong>
@@ -63,7 +63,7 @@
                             </a>
                         </div>
                     </li>
-                    <li class="nav-item dropdown custom-row-spacing " *ngIf="loggedInUserDetails && loggedInUserDetails.IsAuthenticated">
+                    <li class="nav-item dropdown custom-row-spacing " *ngIf="loggedInUserDetails && loggedInUserDetails.isUserAuthenticated">
                         <a class="nav-link " href="# " id="navbarDropdown2 " role="button" data-toggle="dropdown"
                             aria-haspopup="true " aria-expanded="false ">
                             <strong>Hello,{{loggedInUserDetails.FirstName}} </strong>
