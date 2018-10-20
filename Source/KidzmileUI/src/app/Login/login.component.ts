@@ -10,6 +10,8 @@ import { HttpErrorResponse } from '@angular/common/http';
 })
 export class LoginComponent implements OnInit {
   isLoginError: boolean = false;
+  username:string="";
+  password:string="";
   constructor(private userService: UserService, private router: Router, private toaster: ToasterServiceService) {
 
   }
