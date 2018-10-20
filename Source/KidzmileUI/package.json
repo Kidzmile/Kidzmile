@@ -28,6 +28,7 @@
     "jquery": "^3.3.1",
     "ngx-input-star-rating": "0.0.3",
     "rxjs": "~6.2.0",
+    "rxjs-compat": "^6.3.3",
     "toastr": "^2.1.4",
     "zone.js": "~0.8.26"
   },
