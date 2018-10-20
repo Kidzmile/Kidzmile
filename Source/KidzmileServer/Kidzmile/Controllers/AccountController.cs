@@ -80,7 +80,7 @@ namespace Kidzmile.Controllers
                 Email = userDetails.Email,
                 FirstName = userDetails.FirstName,
                 LastName = userDetails.LastName,
-                IsAuthenticated = identityClaims.IsAuthenticated
+                isUserAuthenticated = identityClaims.IsAuthenticated
                 //LastLoggedInTS = identityClaims.FindFirst("LoggedOn").Value
             };
             return Ok(model);
