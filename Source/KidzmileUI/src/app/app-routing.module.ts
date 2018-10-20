@@ -9,14 +9,15 @@ import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 import { SignupComponent } from './Register/signup.component';
 import { HomeComponent } from './Home/home.component';
 import { ProductDetailsComponent } from './Product/product-details/product-details.component';
+import { AuthGuard } from './Auth/auth.guard';
 // The last route is the empty path route. This specifies
 // the route to redirect to if the client side path is empty.
 const appRoutes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'signup', component: SignupComponent },
-  { path: 'home', component: HomeComponent },
+  { path: 'home', component: HomeComponent ,canActivate:[AuthGuard]},
   { path: 'product', component: ProductDetailsComponent },
-  { path: '', redirectTo: '/login', pathMatch: 'full' }
+  { path: '', redirectTo: '/home', pathMatch: 'full' }
 ];
 
 // Pass the configured routes to the forRoot() method
@@ -24,7 +25,7 @@ const appRoutes: Routes = [
 // Export the imported RouterModule so router directives
 // are available to the module that imports this AppRoutingModule
 @NgModule({
-  providers: [{provide: LocationStrategy, useClass: HashLocationStrategy}],
+  providers: [{provide: LocationStrategy, useClass: HashLocationStrategy},],
   imports: [ RouterModule.forRoot(appRoutes, { useHash: true }) ],
   exports: [ RouterModule ]
 })
