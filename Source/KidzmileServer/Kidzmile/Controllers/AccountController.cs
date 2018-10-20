@@ -6,7 +6,6 @@ using System.Security.Cryptography;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Http;
-using System.Web.Http.ModelBinding;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.AspNet.Identity.Owin;
@@ -67,6 +66,25 @@ namespace Kidzmile.Controllers
             };
         }
 
+        [HttpGet]
+        [Authorize]
+        [Route("GetUserClaims")]
+        public async Task<IHttpActionResult> GetUserClaims()
+        {
+            var identityClaims = (ClaimsIdentity)User.Identity;
+            IEnumerable<Claim> claims = identityClaims.Claims;
+            var userDetails = await UserManager.FindByEmailAsync(User.Identity.Name);
+            UserInfo model = new UserInfo()
+            {
+
+                Email = userDetails.Email,
+                FirstName = userDetails.FirstName,
+                LastName = userDetails.LastName,
+                IsAuthenticated = identityClaims.IsAuthenticated
+                //LastLoggedInTS = identityClaims.FindFirst("LoggedOn").Value
+            };
+            return Ok(model);
+        }
         // POST api/Account/Logout
         [Route("Logout")]
         public IHttpActionResult Logout()
@@ -126,7 +144,7 @@ namespace Kidzmile.Controllers
 
             IdentityResult result = await UserManager.ChangePasswordAsync(User.Identity.GetUserId(), model.OldPassword,
                 model.NewPassword);
-            
+
             if (!result.Succeeded)
             {
                 return GetErrorResult(result);
@@ -259,9 +277,9 @@ namespace Kidzmile.Controllers
             if (hasRegistered)
             {
                 Authentication.SignOut(DefaultAuthenticationTypes.ExternalCookie);
-                
-                 ClaimsIdentity oAuthIdentity = await user.GenerateUserIdentityAsync(UserManager,
-                    OAuthDefaults.AuthenticationType);
+
+                ClaimsIdentity oAuthIdentity = await user.GenerateUserIdentityAsync(UserManager,
+                   OAuthDefaults.AuthenticationType);
                 ClaimsIdentity cookieIdentity = await user.GenerateUserIdentityAsync(UserManager,
                     CookieAuthenticationDefaults.AuthenticationType);
 
@@ -378,7 +396,7 @@ namespace Kidzmile.Controllers
             result = await UserManager.AddLoginAsync(user.Id, info.Login);
             if (!result.Succeeded)
             {
-                return GetErrorResult(result); 
+                return GetErrorResult(result);
             }
             return Ok();
         }
