@@ -17,7 +17,7 @@ import { HomeComponent } from './Home/home.component';
 import { ProductDetailsComponent } from './Product/product-details/product-details.component';
 import { CartUpdateService } from './Shared/cartupdate.service';
 import { AuthGuard } from './Auth/auth.guard';
-import { AppHttpInterceptorService } from './Auth/HttpInterceptor/app-http-interceptor.service';
+import { AppHttpInterceptorService } from './HttpInterceptor/app-http-interceptor.service';
 import { HomeService } from './Shared/home.service';
 @NgModule({
   declarations: [
