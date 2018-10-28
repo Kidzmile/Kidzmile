@@ -1,102 +1,97 @@
 <div class="header custom-bg-color">
 
     <nav class="navbar navbar-expand-lg navbar-light custom-bg-color navbar-height-2">
-            <div class="container">
-        <a class="navbar-brand" class="navbar-brand ng-star-inserted">
-            <img class="d-inline-block align-top "  alt="kidzmile logo" src="/assets/default/logo.svg" width="140" height="40"/></a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent " aria-expanded="false " aria-label="Toggle navigation ">
+        <div class="container">
+            <a class="navbar-brand" class="navbar-brand ng-star-inserted">
+                <img class="d-inline-block align-top " alt="kidzmile logo" src="/assets/default/logo.svg" width="140" height="40" /></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent " aria-expanded="false " aria-label="Toggle navigation ">
             <span class="navbar-toggler-icon "></span>
         </button>
-        <div class="collapse navbar-collapse row" id="navbarSupportedContent">
+            <div class="collapse navbar-collapse row" id="navbarSupportedContent">
 
-            <div class="input-group stylish-input-group col-6 custom-search-styling ">
-                <input class="form-control mb-3 form-control-borderless" type="search " placeholder="Search "
-                    aria-label="Search ">
+                <div class="input-group stylish-input-group col-6 custom-search-styling ">
+                    <input class="form-control mb-3 form-control-borderless" type="search " placeholder="Search " aria-label="Search ">
 
-                <span class="input-group-addon search-icon-dim ">
+                    <span class="input-group-addon search-icon-dim ">
 
                     <i class="fa fa-search h6 "></i>
 
                 </span>
 
-            </div>
+                </div>
 
 
 
 
 
 
-            <div class="col-6 ">
+                <div class="col-6 ">
 
-                <ul class="navbar-nav mr-auto align-items-end " >
-                    <li class="nav-item dropdown custom-row-spacing " class="pl-2 border-left">
-                        <a class="nav-link " href="# " id="navbarDropdown1 " role="button" data-toggle="dropdown"
-                            aria-haspopup="true " aria-expanded="false ">
-                            <strong>24/7 help</strong>
-                            <i class="fa pl-3 fa-chevron-down "></i> </a>
+                    <ul class="navbar-nav mr-auto align-items-end ">
+                        <li class="nav-item dropdown custom-row-spacing " class="pl-2 border-left">
+                            <a class="nav-link " href="# " id="navbarDropdown1 " role="button" data-toggle="dropdown" aria-haspopup="true " aria-expanded="false ">
+                                <strong>24/7 help</strong>
+                                <i class="fa pl-3 fa-chevron-down "></i> </a>
 
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdown1">
-                            <span class="dropdown-item ">Get help from our experts 24/7</span>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown1">
+                                <span class="dropdown-item ">Get help from our experts 24/7</span>
 
 
-                            <a class="dropdown-item" href="# ">
-                                <h4>888-888-xxx</h4>
-                            </a>
-                            <div class="dropdown-divider "></div>
-                            <a class="dropdown-item " href="# ">Contact Us</a>
-                        </div>
-                    </li>
+                                <a class="dropdown-item" href="# ">
+                                    <h4>888-888-xxx</h4>
+                                </a>
+                                <div class="dropdown-divider "></div>
+                                <a class="dropdown-item " href="# ">Contact Us</a>
+                            </div>
+                        </li>
 
-                    <li  class="nav-item dropdown custom-row-spacing " *ngIf="loggedInUserDetails==undefined || !loggedInUserDetails.isUserAuthenticated" >
-                        <div class="pl-2 border-left">
-                        <a class="nav-link " href="# " id="navbarDropdown2 " role="button" data-toggle="dropdown"
-                            aria-haspopup="true " aria-expanded="false ">
-                            <strong>Login & SignUp</strong>
-                            <i class="fa pl-3 fa-chevron-down "></i> </a>
-                        <div  class="dropdown-menu " aria-labelledby="navbarDropdown2 ">
-                            <a class="dropdown-item " href="# ">
+                        <li class="nav-item dropdown custom-row-spacing " *ngIf="loggedInUserDetails==undefined || !loggedInUserDetails.isUserAuthenticated">
+                            <div class="pl-2 border-left">
+                                <a class="nav-link " href="# " id="navbarDropdown2 " role="button" data-toggle="dropdown" aria-haspopup="true " aria-expanded="false ">
+                                    <strong>Login & SignUp</strong>
+                                    <i class="fa pl-3 fa-chevron-down "></i> </a>
+                                <div class="dropdown-menu " aria-labelledby="navbarDropdown2 ">
+                                    <a class="dropdown-item " href="# ">
 
-                                <h6><a routerLink="login">Login</a></h6>
-                            </a>
-                            <div class="dropdown-divider "></div>
-                            <a class="dropdown-item " routerLink="signup">
-                                <h6>Sign Up</h6>
-                            </a>
-                        </div>
-                    </div>
-                    </li>
-                    <li class="nav-item dropdown custom-row-spacing " *ngIf="loggedInUserDetails && loggedInUserDetails.isUserAuthenticated">
-                        <a class="nav-link " href="# " id="navbarDropdown2 " role="button" data-toggle="dropdown"
-                            aria-haspopup="true " aria-expanded="false ">
-                            <strong>Hello,{{loggedInUserDetails.FirstName}} </strong>
-                            <i class="fa pl-3 fa-chevron-down "></i> </a>
-                        <div class="dropdown-menu " aria-labelledby="navbarDropdown2 ">
-                            <a class="dropdown-item " href="# ">
-                                <h6><a>Dashboard</a></h6>
-                            </a>
+                                        <h6><a routerLink="login">Login</a></h6>
+                                    </a>
+                                    <div class="dropdown-divider "></div>
+                                    <a class="dropdown-item " routerLink="signup">
+                                        <h6>Sign Up</h6>
+                                    </a>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="nav-item dropdown custom-row-spacing " *ngIf="loggedInUserDetails && loggedInUserDetails.isUserAuthenticated">
+                            <a class="nav-link " href="# " id="navbarDropdown2 " role="button" data-toggle="dropdown" aria-haspopup="true " aria-expanded="false ">
+                                <strong>Hello,{{loggedInUserDetails.FirstName}} </strong>
+                                <i class="fa pl-3 fa-chevron-down "></i> </a>
+                            <div class="dropdown-menu " aria-labelledby="navbarDropdown2 ">
+                                <a class="dropdown-item " href="# ">
+                                    <h6><a>Dashboard</a></h6>
+                                </a>
 
-                            <div class="dropdown-divider "></div>
-                            <a class="dropdown-item " href="#">
-                                <h6><a (click)="logout()">Log Out</a></h6>
-                            </a>
-                        </div>
-                    </li>
-                    <div class="collapse navbar-collapse justify-content-end" id="navbarNavDropdown">
-                        <div class="pl-2 border-left"> <button class="btn cart"><a class="nav-link" href="#" routerLink="product"><i aria-hidden="true "
+                                <div class="dropdown-divider "></div>
+                                <a class="dropdown-item " href="#">
+                                    <h6><a (click)="logout()">Log Out</a></h6>
+                                </a>
+                            </div>
+                        </li>
+                        <div class="collapse navbar-collapse justify-content-end" id="navbarNavDropdown">
+                            <div class="pl-2 border-left"> <button class="btn cart"><a class="nav-link" href="#" routerLink="product"><i aria-hidden="true "
                                         class="fa fa-shopping-cart "></i>Cart
-                                    <span class="badge badge badge-pill shadow-sm">{{_cartDataService.getData()}}</span></a></button>
+                                    <span class="badge badge badge-pill shadow-sm badge-cart">{{_cartDataService.getData()}}</span></a></button>
+                            </div>
+
                         </div>
 
-                    </div>
 
+                    </ul>
+                </div>
 
-                </ul>
             </div>
 
         </div>
-
-    </div>
 
     </nav>
 
@@ -110,16 +105,16 @@
 
 
     <!-- <div class="container custom-height "> -->
-        <nav class="navbar navbar-expand-lg navbar-light custom-bg-color custom-height-2 ">
-            <div class="container ">
-                <div class="collapse navbar-collapse left-content-start ">
-                    <div class="col text-right ">
-                        <button type="button " class="btn shippingbtn "> FREE 1-2 DAY SHIPPING OVER <i class="fa ml-2 fa-truck "
+    <nav class="navbar navbar-expand-lg navbar-light custom-bg-color custom-height-2 ">
+        <div class="container ">
+            <div class="collapse navbar-collapse left-content-start ">
+                <div class="col text-right ">
+                    <button type="button " class="btn shippingbtn "> FREE 1-2 DAY SHIPPING OVER <i class="fa ml-2 fa-truck "
                                 aria-hidden="true "></i>
                         </button>
-                    </div>
                 </div>
             </div>
-        </nav>
+        </div>
+    </nav>
     <!-- </div> -->
 </div>

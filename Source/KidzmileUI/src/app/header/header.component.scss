@@ -36,16 +36,20 @@
     padding-top: 0px;
     padding-bottom: 0px;
 }
+
 :host /deep/ .page-scroll-header .cust-menu-btn {
     border-radius: 0px;
     margin-right: 10px;
 }
+
 :host /deep/ .dropdown-menu {
     top: 3.1em !important
 }
+
 .selected-theme .navbar {
     box-shadow: none !important;
 }
+
 .header {
     background-color: #f0f0;
     .resheader {
@@ -55,6 +59,7 @@
         }
     }
 }
+
 // .profile {
 //     padding-top: 15px;
 //     flex: 0.2;
@@ -342,4 +347,8 @@
 .header {
     position: relative;
     box-shadow: 0 8px 6px -8px #212529
+}
+
+.badge-cart {
+    background-color: gold;
 }
