@@ -1,3 +1,18 @@
-<p>
-  home works!
-</p>
+<app-homebannercarousel></app-homebannercarousel>
+
+<div class="container my-5">
+    <section>
+        <div>
+            <!-- <a [routerLink]="['/search']" [queryParams]="{'q[name_cont]': dealsType, id: dealsId}" -->
+            <a class="section-title h3">Today's Deals</a>
+        </div>
+        <app-product-slider [productsList]="products" [showRating]="false"></app-product-slider>
+    </section>
+    <section>
+        <div>
+            <!-- <a [routerLink]="['/search']" [queryParams]="{'q[name_cont]': dealsType, id: dealsId}" -->
+            <a class="section-title h3">Top Rated</a>
+        </div>
+        <app-product-slider [productsList]="products" [showRating]="true"></app-product-slider>
+    </section>
+</div>

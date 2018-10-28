@@ -6,6 +6,8 @@ import { FormsModule } from '@angular/forms';
 import { ImageZoomModule } from 'angular2-image-zoom';
 import { DatePipe, CommonModule } from '@angular/common';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
+import { NguCarouselModule, NguCarousel } from '@ngu/carousel';
+
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './Header/header.component';
@@ -19,6 +21,10 @@ import { CartUpdateService } from './Shared/cartupdate.service';
 import { AuthGuard } from './Auth/auth.guard';
 import { AppHttpInterceptorService } from './HttpInterceptor/app-http-interceptor.service';
 import { HomeService } from './Shared/home.service';
+import { HomebannercarouselComponent } from './Home/homebannercarousel/homebannercarousel.component';
+import { SharedModule } from './Shared/index';
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -27,7 +33,8 @@ import { HomeService } from './Shared/home.service';
     LoginComponent,
     SignupComponent,
     HomeComponent,
-    ProductDetailsComponent
+    ProductDetailsComponent,
+	HomebannercarouselComponent
   ],
   imports: [
     BrowserModule,
@@ -37,7 +44,9 @@ import { HomeService } from './Shared/home.service';
     NgxInputStarRatingModule,
     RoundProgressModule,
     ImageZoomModule,
-    CommonModule
+    CommonModule,
+	NguCarouselModule,
+    SharedModule
 
   ],
   providers: [{
@@ -49,7 +58,7 @@ import { HomeService } from './Shared/home.service';
   }, DatePipe,
     CartUpdateService, AuthGuard,
   { provide: HTTP_INTERCEPTORS, useClass: AppHttpInterceptorService, multi: true },
-  HomeService],
+  HomeService,NguCarousel],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

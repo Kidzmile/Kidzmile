@@ -1,9 +1,9 @@
-// import { NgxInputStarRatingModule } from '@ngx-lite/input-star-rating';
-// import { RouterModule } from '@angular/router';
-// import { CommonModule } from '@angular/common';
-// import { NgModule } from '@angular/core';
-// import { NguCarouselModule } from '@ngu/carousel';
-// import { NgxJsonLdModule } from '@ngx-lite/json-ld';
+ import { NgxInputStarRatingModule } from '@ngx-lite/input-star-rating';
+ import { RouterModule } from '@angular/router';
+ import { CommonModule } from '@angular/common';
+ import { NgModule } from '@angular/core';
+ import { NguCarouselModule } from '@ngu/carousel';
+ import { NgxJsonLdModule } from '@ngx-lite/json-ld';
 
 // // Pipes
 // import { KeysPipe } from './pipes/keys.pipe';
@@ -13,26 +13,27 @@
 // // imports
 // import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 // import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-// import { ProductSliderComponent } from './components/product-slider/product-slider.component'
-// import { InnerIproductComponent } from './components/product-slider/inner-product/inner-product.component'
+ import { ProductSliderComponent } from './sharedHomeComponents/product-slider/product-slider.component';
+ import { InnerIproductComponent } from './sharedHomeComponents/product-slider/inner-product/inner-product.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 // // Directives
 // import { ZoomableDirective } from './directives/zoomable.directive';
 // import { SavedAddressComponent } from './components/saved-address/saved-address.component';
 // import { ReversePipe } from '../core/pipes/reverse.pipe';
 
-// @NgModule({
-//   declarations: [
+ @NgModule({
+   declarations: [
 //     // components
 //     // pipes
 //     KeysPipe,
 //     HumanizePipe,
 //     ReversePipe,
 //     ZoomableDirective,
-//     ProductSliderComponent,
-//     InnerIproductComponent,
+      ProductSliderComponent,
+      InnerIproductComponent,
 //     SavedAddressComponent
-//   ],
-//   exports: [
+   ],
+   exports: [
 //     // components
 //     // modules
 //     CommonModule,
@@ -45,19 +46,18 @@
 //     HumanizePipe,
 //     ReversePipe,
 //     ZoomableDirective,
-//     ProductSliderComponent,
+     ProductSliderComponent,
 //     SavedAddressComponent,
 //     NguCarouselModule
-//   ],
-//   imports: [
-//     FormsModule,
-//     ReactiveFormsModule,
-//     CommonModule,
-//     BsDropdownModule.forRoot(),
-//     RouterModule,
-//     NgxInputStarRatingModule,
-//     NguCarouselModule,
-//     NgxJsonLdModule
-//   ]
-// })
-// export class SharedModule { }
+  ],
+   imports: [
+    FormsModule,
+    ReactiveFormsModule,
+    CommonModule,
+    RouterModule,
+    NgxInputStarRatingModule,
+    NguCarouselModule,
+    NgxJsonLdModule
+  ]
+ })
+ export class SharedModule { }

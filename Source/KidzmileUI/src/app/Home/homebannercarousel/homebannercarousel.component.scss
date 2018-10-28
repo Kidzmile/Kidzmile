@@ -1,0 +1,74 @@
+    $white: #fff !default;
+    $gray-100: #f8f9fa !default;
+    $gray-200: #e9ecef !default;
+    $gray-300: #dee2e6 !default;
+    $gray-400: #ced4da !default;
+    $gray-500: #adb5bd !default;
+    $gray-600: #6c757d !default;
+    $gray-700: #495057 !default;
+    $gray-800: #343a40 !default;
+    $gray-900: #212529 !default;
+    $gray-10: #ccc !default;
+    $gray-11: #979797 !default;
+    $gray-12: #d4d4d4 !default;
+    $gray-13: #a7a7a7 !default;
+    $black: #000 !default;
+    $grays: () !default;
+    $grays: map-merge(( "100": $gray-100, "200": $gray-200, "300": $gray-300, "400": $gray-400, "500": $gray-500, "600": $gray-600, "700": $gray-700, "800": $gray-800, "900": $gray-900), $grays);
+    .banner {
+        .bannerStyle {
+            img {
+                height: 350px;
+                object-fit: fill;
+                background-color: whitesmoke;
+            }
+            @media (max-width: 768px) {
+                img {
+                    height: 150px;
+                    object-fit: fill;
+                }
+            }
+        }
+    }
+    
+    .leftRs,
+    .rightRs {
+        position: absolute;
+        margin: auto;
+        top: -10%;
+        bottom: 0;
+        border: none;
+        background-color: transparent;
+        opacity: 0.5;
+        background-repeat: no-repeat;
+        background-position: center;
+        padding: 0 4rem;
+        filter: drop-shadow(0 2px 2px #444);
+        background-size: 3rem;
+        @media (max-width: 768px) {
+            display: none !important;
+        }
+    }
+    
+    .leftRs {
+        left: 0;
+        background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23fff' viewBox='0 0 8 8'%3E%3Cpath d='M5.25 0l-4 4 4 4 1.5-1.5-2.5-2.5 2.5-2.5-1.5-1.5z'/%3E%3C/svg%3E");
+    }
+    
+    .rightRs {
+        right: 0;
+        background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23fff' viewBox='0 0 8 8'%3E%3Cpath d='M2.75 0l-1.5 1.5 2.5 2.5-2.5 2.5 1.5 1.5 4-4-4-4z'/%3E%3C/svg%3E");
+    }
+    
+    button:focus {
+        outline: none;
+    }
+    
+    div {
+        width: 100%;
+        margin-top: -0.45rem;
+    }
+    
+    li {
+        list-style: none;
+    }

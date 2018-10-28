@@ -16,8 +16,8 @@ import { Login } from '../Model/Login/login.model';
 
 export class HeaderComponent implements OnInit {
 
+
   @Input() cartUpdated: Number;
-  
   isUserAuthenticated: boolean = false;
   loggedInUserDetails: Login;
   cartUpdate: Number;
