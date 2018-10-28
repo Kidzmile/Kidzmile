@@ -1,4 +1,6 @@
 import { Component, OnInit} from '@angular/core';
+import { ToasterServiceService } from '../../Service/Toaster/toaster';
+
 import { CartUpdateService } from '../../Shared/cartupdate.service';
 
 @Component({
@@ -27,7 +29,7 @@ updateItemsCount: Number = 0;
 
 
 
-constructor( private _cartService: CartUpdateService) {}
+constructor( private _cartService: CartUpdateService, private toaster: ToasterServiceService) {}
 
   content = [ {
     rating: 4,
@@ -76,6 +78,7 @@ constructor( private _cartService: CartUpdateService) {}
 
  addToCartEvent () {
    this._cartService.addData(this.countItems );
+   this.toaster.success('cart successfully updated');
 
  }
 
