@@ -21,17 +21,35 @@ namespace Kidzmile.Controllers
             productDataService = new ProductDataService();
         }
      
+         [HttpGet]
         [Route("GetAsync")]   
-        public async Task<IList<Product>> GetAllProduct()
+        public async Task<IHttpActionResult> GetAllProduct()
         {
-           return await productDataService.GetAllProduct();
+            var lstPrdoucts = await productDataService.GetAllProduct();
+            if (lstPrdoucts.Count > 0)
+            {
+                return Ok(lstPrdoucts);
+            }
+            else
+            {
+                return ResponseMessage(Request.CreateErrorResponse(HttpStatusCode.NoContent, "Product List isEmpty"));
+            }
+            
         }
 
+        [HttpGet]
         [Route("GetAsync/code")]
-        public async Task<Product> GetProductByCode(string code)
+        public async Task<IHttpActionResult> GetProductByCode(string code)
         {
             var product= await productDataService.GetProductBySKUCode(code);
-            return product;
+            if (product!=null)
+            {
+                return Ok(product);
+            }
+            else
+            {
+                return ResponseMessage(Request.CreateErrorResponse(HttpStatusCode.NoContent, "Product with code " + code + " doesnt exist"));
+            }
         }
     }
 }
