@@ -10,6 +10,10 @@ using Microsoft.Owin.Security.OAuth;
 using Owin;
 using Kidzmile.Providers;
 using Kidzmile.Models;
+using AutoMapper;
+using Kidzmile.Common.AutoMapper;
+using Kidzmile.Common.Reflection;
+using System.Reflection;
 
 namespace Kidzmile
 {
@@ -18,6 +22,7 @@ namespace Kidzmile
         public static OAuthAuthorizationServerOptions OAuthOptions { get; private set; }
 
         public static string PublicClientId { get; private set; }
+        private ITypeFinder _typeFinder;
 
         // For more information on configuring authentication, please visit http://go.microsoft.com/fwlink/?LinkId=301864
         public void ConfigureAuth(IAppBuilder app)
@@ -64,6 +69,29 @@ namespace Kidzmile
             //    ClientId = "",
             //    ClientSecret = ""
             //});
+
+            //IAutoMapResolver
+
+            FindAndAutoMapTypes();
+
+
+
+    }
+        private void FindAndAutoMapTypes()
+        {
+            // private  ITypeFinder _typeFinder;
+            _typeFinder = new TypeFinder();
+         var types = _typeFinder.Find(type =>
+                type.IsDefined(typeof(AutoMapAttribute)) ||
+                type.IsDefined(typeof(AutoMapFromAttribute)) ||
+                type.IsDefined(typeof(AutoMapToAttribute))
+                );
+
+            foreach (var type in types)
+            {
+                AutoMapperHelper.CreateMap(type);
+            }
+            Mapper.Initialize(AutoMapperHelper.cfg);
         }
     }
 }

@@ -3,7 +3,17 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kidzmile", "Kidzmile\Kidzmile.csproj", "{D603FC24-CB9B-400F-9F05-9D7F3A09FDFC}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kidzmile-API", "Kidzmile\Kidzmile-API.csproj", "{D603FC24-CB9B-400F-9F05-9D7F3A09FDFC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kidzmile.Web.API.Resolver", "Kidzmile.Web.API.Resolver\Kidzmile.Web.API.Resolver.csproj", "{E39548C8-8EA1-4D77-901A-8B9F8834CA46}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kidzmile.Web.Repository", "Kidzmile.Web.Repository\Kidzmile.Web.Repository.csproj", "{FCD731BD-B2FC-4761-AD5D-DEE94F73E456}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kidzmile.Common", "Kidzmile.Common\Kidzmile.Common.csproj", "{7ECFCF07-DD41-439D-9CFB-578E7F0DB911}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kidzmile.Web.Service", "Kidzmile.Web.Service\Kidzmile.Web.Service.csproj", "{25D80496-13DB-4842-941D-33360D8C2CDA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kidzmile.Web.Models", "Kidzmile.Web.Models\Kidzmile.Web.Models.csproj", "{E3FFB8B1-5492-42D3-9A85-142C60F3FAE2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +25,26 @@ Global
 		{D603FC24-CB9B-400F-9F05-9D7F3A09FDFC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D603FC24-CB9B-400F-9F05-9D7F3A09FDFC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D603FC24-CB9B-400F-9F05-9D7F3A09FDFC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E39548C8-8EA1-4D77-901A-8B9F8834CA46}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E39548C8-8EA1-4D77-901A-8B9F8834CA46}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E39548C8-8EA1-4D77-901A-8B9F8834CA46}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E39548C8-8EA1-4D77-901A-8B9F8834CA46}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FCD731BD-B2FC-4761-AD5D-DEE94F73E456}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FCD731BD-B2FC-4761-AD5D-DEE94F73E456}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FCD731BD-B2FC-4761-AD5D-DEE94F73E456}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FCD731BD-B2FC-4761-AD5D-DEE94F73E456}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7ECFCF07-DD41-439D-9CFB-578E7F0DB911}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7ECFCF07-DD41-439D-9CFB-578E7F0DB911}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7ECFCF07-DD41-439D-9CFB-578E7F0DB911}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7ECFCF07-DD41-439D-9CFB-578E7F0DB911}.Release|Any CPU.Build.0 = Release|Any CPU
+		{25D80496-13DB-4842-941D-33360D8C2CDA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{25D80496-13DB-4842-941D-33360D8C2CDA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{25D80496-13DB-4842-941D-33360D8C2CDA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{25D80496-13DB-4842-941D-33360D8C2CDA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E3FFB8B1-5492-42D3-9A85-142C60F3FAE2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E3FFB8B1-5492-42D3-9A85-142C60F3FAE2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E3FFB8B1-5492-42D3-9A85-142C60F3FAE2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E3FFB8B1-5492-42D3-9A85-142C60F3FAE2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
