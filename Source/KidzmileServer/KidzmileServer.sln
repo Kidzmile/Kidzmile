@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kidzmile-API", "Kidzmile\Kidzmile-API.csproj", "{D603FC24-CB9B-400F-9F05-9D7F3A09FDFC}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kidzmile.API", "Kidzmile\Kidzmile.API.csproj", "{D603FC24-CB9B-400F-9F05-9D7F3A09FDFC}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kidzmile.Web.API.Resolver", "Kidzmile.Web.API.Resolver\Kidzmile.Web.API.Resolver.csproj", "{E39548C8-8EA1-4D77-901A-8B9F8834CA46}"
 EndProject
