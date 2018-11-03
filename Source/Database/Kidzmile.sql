@@ -24,6 +24,7 @@ product_description NVARCHAR(100) NOT NULL,
 material			NVARCHAR(50) ,
 created_ts			DATETIME DEFAULT GETDATE(),
 updated_ts			DATETIME DEFAULT GETDATE(),
+image_path			NVARCHAR(100) NOT NULL,
 Product_id			INT FOREIGN KEY REFERENCES Product(id)
 )
 GO
@@ -34,7 +35,7 @@ AS
 BEGIN								
 SELECT p.id,name,sku_code as skucode,units ,product_active as isproductactive,
 price_per_unit as priceperunit,color,size,
-product_description as [description],material
+product_description as [description],material,d.image_path as imagepath
 FROM dbo.Product p INNER JOIN dbo.ProductDetails d ON p.id=d.Product_id				
 END									
 GO
@@ -45,7 +46,7 @@ AS
 BEGIN								
 SELECT Top 1 p.id,name,sku_code as skucode,units ,product_active as isproductactive,
 price_per_unit as priceperunit,color,size,
-product_description as [description],material
+product_description as [description],material,d.image_path as imagepath
  FROM dbo.Product p INNER JOIN dbo.ProductDetails d ON p.id=d.Product_id
  WHERE  p.sku_code=@skucode	
 END									
@@ -61,6 +62,7 @@ CREATE PROCEDURE dbo.SpProductDetails_Insert
 @size NVARCHAR(20), 
 @product_description  NVARCHAR(100),
 @material NVARCHAR(50),
+@imagepath NVARCHAR(100),
 @id int OUTPUT
 --@statusmessage NVARCHAR(100) OUTPUT
 AS
@@ -70,7 +72,7 @@ BEGIN TRY
 		BEGIN
 		INSERT INTO Product (name,sku_code,units,product_active,price_per_unit) VALUES(@name,@sku_code,@units,@product_active,@price_per_unit)
 		Select @id=id FROM Product WHERE sku_code=@sku_code
-		INSERT INTO  dbo.ProductDetails (color,size,product_description,material,Product_id) VALUES(@color,@size,@product_description,@material,@id)
+		INSERT INTO  dbo.ProductDetails (color,size,product_description,material,image_path,Product_id) VALUES(@color,@size,@product_description,@material,@imagepath,@id)
 		--SET @statusmessage='Product'+  @sku_code+' added with id '+cast(@id AS NVARCHAR(15))
 		END
 	ELSE
@@ -87,7 +89,7 @@ GO
 
 ---------------
 
-ALTER PROCEDURE dbo.SpProductDetails_Update
+CREATE PROCEDURE dbo.SpProductDetails_Update
 @sku_code		NVARCHAR(20)=NULL ,
 @name NVARCHAR(20)=NULL,
 @units SMALLINT=NULL,
@@ -97,6 +99,7 @@ ALTER PROCEDURE dbo.SpProductDetails_Update
 @size NVARCHAR(20)=NULL, 
 @product_description  NVARCHAR(100)=NULL,
 @material NVARCHAR(50) = NULL,
+@imagepath NVARCHAR(100)= NULL,
 @statusmessage NVARCHAR(100) OUTPUT,
 @isupdated AS BIT OUTPUT
 AS
@@ -119,7 +122,7 @@ BEGIN TRY
 
 						UPDATE  ProductDetails 
 						SET color=@color,size=@size,product_description=@product_description,
-						material=@material,updated_ts=GETDATE()
+						material=@material,image_path=@imagepath,updated_ts=GETDATE()
 						WHERE Product_id=@pdid			
 						SET @statusmessage='Product with sku code '+  @sku_code+' updated ,its  id '+cast(@pid AS NVARCHAR(15))
 						SET @isupdated=1;

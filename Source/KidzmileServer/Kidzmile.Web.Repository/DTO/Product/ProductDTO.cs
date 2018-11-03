@@ -18,6 +18,7 @@ namespace Kidzmile.Web.Repository.DTO.Product
         public string Size { get; set; }
         public string Description { get; set; }
         public string Material { get; set; }
+        public string ImagePath { get; set; }
 
     }
 }
