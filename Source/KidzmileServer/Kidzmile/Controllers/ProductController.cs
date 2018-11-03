@@ -85,7 +85,7 @@ namespace Kidzmile.Controllers
             }
         }
 
-        [HttpPut]
+        [HttpDelete]
         [Route("DeleteAsync")]
         public async Task<IHttpActionResult> Delete(string code)
         {

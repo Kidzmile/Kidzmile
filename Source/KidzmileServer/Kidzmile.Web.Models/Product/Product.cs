@@ -17,7 +17,7 @@ namespace Kidzmile.Web.Models
         public string SKUCode { get; set; }
         public int? Units { get; set; }
         public bool IsActive { get; set; }
-        public Decimal? PricePerUnit { get; set; }
+        public decimal? PricePerUnit { get; set; }
         public string Color { get; set; }
         public string size { get; set; }
         public string Description { get; set; }
