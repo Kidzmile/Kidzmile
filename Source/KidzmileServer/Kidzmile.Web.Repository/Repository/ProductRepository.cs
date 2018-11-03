@@ -17,8 +17,6 @@ namespace Kidzmile.Web.Repository
 
         }
 
-        
-
         public async Task<IList<ProductDTO>> GetAll()
         {
             var lstProducts = await base.GetMasterDbConnection().QueryAsync<ProductDTO>("dbo.spProductDetails_Get",
@@ -48,6 +46,7 @@ namespace Kidzmile.Web.Repository
             queryParameters.Add("@size", productdto.Size);
             queryParameters.Add("@product_description", productdto.Description);
             queryParameters.Add("@material", productdto.Material);
+            queryParameters.Add("@imagepath", productdto.ImagePath); 
             queryParameters.Add("@id", productdto.ID, dbType: DbType.Int32, direction: ParameterDirection.Output);
             //queryParameters.Add("@statusmessage", "", dbType: DbType.String, direction: ParameterDirection.Output);
             var result = await base.GetMasterDbConnection().ExecuteAsync("dbo.SpProductDetails_Insert", param: queryParameters, commandType: CommandType.StoredProcedure);
@@ -66,6 +65,7 @@ namespace Kidzmile.Web.Repository
             queryParameters.Add("@size", productdto.Size);
             queryParameters.Add("@product_description", productdto.Description);
             queryParameters.Add("@material", productdto.Material);
+            queryParameters.Add("@imagepath", productdto.ImagePath);
             queryParameters.Add("@statusmessage", "", dbType: DbType.String, direction: ParameterDirection.Output);
             queryParameters.Add("@isupdated", dbType: DbType.Boolean, direction: ParameterDirection.Output);
             await base.GetMasterDbConnection().ExecuteAsync("dbo.SpProductDetails_Update", param: queryParameters, commandType: CommandType.StoredProcedure);

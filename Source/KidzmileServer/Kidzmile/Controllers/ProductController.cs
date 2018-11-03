@@ -20,29 +20,31 @@ namespace Kidzmile.Controllers
             this.productDataService = productDataService;
         }
 
-       
-         [HttpGet]
-        [Route("GetAsync")]   
+
+        [HttpGet]
+        [Route("GetAsync")]
         public async Task<IHttpActionResult> GetAll()
         {
             var lstPrdoucts = await productDataService.GetAll();
-            if (lstPrdoucts.Count > 0)
-            {
-                return Ok(lstPrdoucts);
-            }
-            else
-            {
-                return ResponseMessage(Request.CreateErrorResponse(HttpStatusCode.NoContent, "Product List isEmpty"));
-            }
-            
+            return Ok(lstPrdoucts);
+            //had to comment because no content is not sending any response.
+            /* if (lstPrdoucts.Count > 0)
+             {
+            return Ok(lstPrdoucts);
+             }
+             else
+             {
+                 return ResponseMessage(Request.CreateErrorResponse(HttpStatusCode.NoContent, "Product List isEmpty"));
+             }*/
+
         }
 
         [HttpGet]
         [Route("GetAsync/code")]
         public async Task<IHttpActionResult> GetBySKUCode(string code)
         {
-            var product= await productDataService.GetBySKUCode(code);
-            if (product!=null)
+            var product = await productDataService.GetBySKUCode(code);
+            if (product != null)
             {
                 return Ok(product);
             }
@@ -56,12 +58,12 @@ namespace Kidzmile.Controllers
         [Route("InsertAsync")]
         public async Task<IHttpActionResult> Insert([FromBody]Product product)
         {
-             int insertedId=await  productDataService.Insert(product);
-            if (insertedId!=-1)
+            int insertedId = await productDataService.Insert(product);
+            if (insertedId != -1)
             {
                 //var message = Request.CreateResponse(HttpStatusCode.Created,product);
-               // message.Headers.Location = new Uri(Request.RequestUri+product.ID.ToString());
-                return Content(HttpStatusCode.Created,insertedId);
+                // message.Headers.Location = new Uri(Request.RequestUri+product.ID.ToString());
+                return Content(HttpStatusCode.Created, insertedId);
             }
             else
             {
@@ -71,9 +73,9 @@ namespace Kidzmile.Controllers
 
         [HttpPut]
         [Route("UpdateAsync")]
-        public async Task<IHttpActionResult>  Update([FromBody]Product product)
+        public async Task<IHttpActionResult> Update([FromBody]Product product)
         {
-          bool isUpdate=  await productDataService.Update(product);
+            bool isUpdate = await productDataService.Update(product);
             if (isUpdate)
             {
                 return Ok(HttpStatusCode.Created);
@@ -97,10 +99,10 @@ namespace Kidzmile.Controllers
             else
             {
 
-                return ResponseMessage(Request.CreateErrorResponse(HttpStatusCode.BadRequest, "Product with code " +code + " didnt get deleted"));
+                return ResponseMessage(Request.CreateErrorResponse(HttpStatusCode.BadRequest, "Product with code " + code + " didnt get deleted"));
             }
         }
 
 
-        }
+    }
 }
