@@ -11,9 +11,9 @@ namespace Kidzmile.Web.Repository
    public class BaseAppRepository
     {
         private IDatabaseProvider database;
-        public BaseAppRepository()
+        public BaseAppRepository(IDatabaseProvider database)
         {
-            database = new DatabaseProvider();
+            this.database = database;
         }
 
         public IDbConnection GetMasterDbConnection()

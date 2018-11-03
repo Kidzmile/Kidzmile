@@ -1,5 +1,9 @@
+using Kidzmile.Common.Uow;
+using Kidzmile.Web.Repository;
+using Kidzmile.Web.Service;
 using System.Web.Http;
 using Unity;
+using Unity.Lifetime;
 using Unity.WebApi;
 
 namespace Kidzmile
@@ -9,12 +13,15 @@ namespace Kidzmile
         public static void RegisterComponents()
         {
 			var container = new UnityContainer();
-            
+
             // register all your components with the container here
             // it is NOT necessary to register your controllers
-            
+
             // e.g. container.RegisterType<ITestService, TestService>();
-            
+
+            container.RegisterType<IDatabaseProvider, DatabaseProvider>(new ContainerControlledLifetimeManager());
+            container.RegisterType<IProductRepository, ProductRepository>();
+            container.RegisterType<IProductDataService, ProductDataService>();
             GlobalConfiguration.Configuration.DependencyResolver = new UnityDependencyResolver(container);
         }
     }

@@ -1,6 +1,5 @@
 ﻿using Kidzmile.Web.Models;
 using Kidzmile.Web.Service;
-using Kidzmile.Web.Service.IService;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,11 +15,12 @@ namespace Kidzmile.Controllers
     {
         private IProductDataService productDataService;
 
-        public ProductController()
+        public ProductController(IProductDataService productDataService)
         {
-            productDataService = new ProductDataService();
+            this.productDataService = productDataService;
         }
-     
+
+       
          [HttpGet]
         [Route("GetAsync")]   
         public async Task<IHttpActionResult> GetAllProduct()

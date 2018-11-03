@@ -1,5 +1,4 @@
-﻿using Kidzmile.Web.Service.IService;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -14,9 +13,9 @@ namespace Kidzmile.Web.Service
     public class ProductDataService : IProductDataService
     {
         private IProductRepository productRepository;
-        public ProductDataService()
+        public ProductDataService(IProductRepository productRepository)
         {
-            productRepository = new ProductRepository();
+            this.productRepository = productRepository;
         }
         public async Task<IList<Product>> GetAllProduct()
         {
@@ -28,14 +27,14 @@ namespace Kidzmile.Web.Service
         public async Task<Product> GetProductBySKUCode(string code)
         {
             Product productdto = new Product();
-            var product=await productRepository.GetBySKUCode(code);
+            var product = await productRepository.GetBySKUCode(code);
             return product.MapTo(productdto);
         }
 
         public async Task<int> InsertProduct(Product product)
         {
             ProductDTO productDTO = new ProductDTO();
-           var productid=await productRepository.InsertAsync(product.MapTo(productDTO));
+            var productid = await productRepository.InsertAsync(product.MapTo(productDTO));
             return productid;
         }
     }

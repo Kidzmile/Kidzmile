@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Kidzmile.Web.Service.IService
+namespace Kidzmile.Web.Service
 {
    public interface IProductDataService
     {

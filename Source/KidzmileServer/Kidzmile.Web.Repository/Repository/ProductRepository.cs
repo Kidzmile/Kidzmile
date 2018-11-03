@@ -6,11 +6,15 @@ using System.Threading.Tasks;
 using Kidzmile.Web.Repository.DTO.Product;
 using Dapper;
 using System.Data;
+using Kidzmile.Common.Uow;
 
 namespace Kidzmile.Web.Repository
 {
     public class ProductRepository : BaseAppRepository, IProductRepository
     {
+        public ProductRepository(IDatabaseProvider databaseProvider) :base(databaseProvider)
+        {
+        }
         public async Task<IList<ProductDTO>> GetAll()
         {
             var lstProducts = await base.GetMasterDbConnection().QueryAsync<ProductDTO>("dbo.spProductDetails_Get",
