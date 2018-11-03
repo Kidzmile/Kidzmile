@@ -1,12 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using System.Collections.Generic;
 using System.Threading.Tasks;
 using Kidzmile.Web.Models;
 using Kidzmile.Web.Repository;
 using Kidzmile.Common.AutoMapper;
 using Kidzmile.Web.Repository.DTO.Product;
+using System;
 
 namespace Kidzmile.Web.Service
 {
@@ -17,25 +15,32 @@ namespace Kidzmile.Web.Service
         {
             this.productRepository = productRepository;
         }
-        public async Task<IList<Product>> GetAllProduct()
+        public async Task<IList<Product>> GetAll()
         {
             List<Product> product = new List<Product>();
             var allProduct = await productRepository.GetAll();
             return allProduct.MapTo(product);
         }
 
-        public async Task<Product> GetProductBySKUCode(string code)
+        public async Task<Product> GetBySKUCode(string code)
         {
             Product productdto = new Product();
             var product = await productRepository.GetBySKUCode(code);
             return product.MapTo(productdto);
         }
 
-        public async Task<int> InsertProduct(Product product)
+        public async Task<int> Insert(Product product)
         {
             ProductDTO productDTO = new ProductDTO();
-            var productid = await productRepository.InsertAsync(product.MapTo(productDTO));
+            int productid = await productRepository.Insert(product.MapTo(productDTO));
             return productid;
+        }
+
+        public async Task<bool> Update(Product product)
+        {
+            ProductDTO productDTO = new ProductDTO();
+           bool isUpdated= await productRepository.Update(product.MapTo(productDTO));
+            return isUpdated;
         }
     }
 }

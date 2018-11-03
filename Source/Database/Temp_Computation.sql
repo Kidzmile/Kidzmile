@@ -46,10 +46,28 @@ execute SpProductDetails_INSERT
 '9',
 '9',
 'b',
-'9', 
+'9',SpProductDetails_Update
 'b',
 'c',
 @id  output 
 print @id
 --@statusmessage output
 print @statusmessage
+
+
+declare @isupdated  bit
+ declare @statusmessage nvarchar(100)
+execute SpProductDetails_Update
+'abnc',
+'a',
+'9',
+'9',
+'9',
+'b',
+'',
+'10000.1234567898',
+'c',
+@statusmessage output
+--@id  output 
+print @statusmessage
+

@@ -12,6 +12,8 @@ namespace Kidzmile.Web.Repository
 
         Task<ProductDTO> GetBySKUCode(string code);
 
-        Task<int> InsertAsync(ProductDTO product);
+        Task<int> Insert(ProductDTO product);
+
+        Task<bool> Update(ProductDTO product);
     }
 }

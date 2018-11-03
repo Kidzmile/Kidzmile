@@ -23,9 +23,9 @@ namespace Kidzmile.Controllers
        
          [HttpGet]
         [Route("GetAsync")]   
-        public async Task<IHttpActionResult> GetAllProduct()
+        public async Task<IHttpActionResult> GetAll()
         {
-            var lstPrdoucts = await productDataService.GetAllProduct();
+            var lstPrdoucts = await productDataService.GetAll();
             if (lstPrdoucts.Count > 0)
             {
                 return Ok(lstPrdoucts);
@@ -39,9 +39,9 @@ namespace Kidzmile.Controllers
 
         [HttpGet]
         [Route("GetAsync/code")]
-        public async Task<IHttpActionResult> GetProductByCode(string code)
+        public async Task<IHttpActionResult> GetBySKUCode(string code)
         {
-            var product= await productDataService.GetProductBySKUCode(code);
+            var product= await productDataService.GetBySKUCode(code);
             if (product!=null)
             {
                 return Ok(product);
@@ -54,9 +54,9 @@ namespace Kidzmile.Controllers
 
         [HttpPost]
         [Route("InsertAsync")]
-        public async Task<IHttpActionResult> InsertProduct([FromBody]Product product)
+        public async Task<IHttpActionResult> Insert([FromBody]Product product)
         {
-             int insertedId=await  productDataService.InsertProduct(product);
+             int insertedId=await  productDataService.Insert(product);
             if (insertedId!=-1)
             {
                 //var message = Request.CreateResponse(HttpStatusCode.Created,product);
@@ -69,6 +69,21 @@ namespace Kidzmile.Controllers
             }
         }
 
+        [HttpPut]
+        [Route("UpdateAsync")]
+        public async Task<IHttpActionResult>  Update([FromBody]Product product)
+        {
+          bool isUpdate=  await productDataService.Update(product);
+            if (isUpdate)
+            {
+                return Ok(HttpStatusCode.Created);
+            }
+            else
+            {
+
+                return ResponseMessage(Request.CreateErrorResponse(HttpStatusCode.BadRequest, "Product with code " + product.SKUCode + " doesnt exist"));
+            }
+        }
 
     }
 }

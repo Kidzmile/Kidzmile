@@ -14,7 +14,9 @@ namespace Kidzmile.Web.Repository
     {
         public ProductRepository(IDatabaseProvider databaseProvider) :base(databaseProvider)
         {
+
         }
+
         public async Task<IList<ProductDTO>> GetAll()
         {
             var lstProducts = await base.GetMasterDbConnection().QueryAsync<ProductDTO>("dbo.spProductDetails_Get",
@@ -32,7 +34,7 @@ namespace Kidzmile.Web.Repository
             return productDTO;
         }
 
-        public async Task<int> InsertAsync(ProductDTO productdto)
+        public async Task<int> Insert(ProductDTO productdto)
         {
             var queryParameters = new DynamicParameters();
             queryParameters.Add("@name", productdto.Name);
@@ -41,13 +43,31 @@ namespace Kidzmile.Web.Repository
             queryParameters.Add("@product_active", productdto.IsActive);
             queryParameters.Add("@price_per_unit", productdto.PricePerUnit);
             queryParameters.Add("@color", productdto.Color);
-            queryParameters.Add("@size", productdto.size);
+            queryParameters.Add("@size", productdto.Size);
             queryParameters.Add("@product_description", productdto.Description);
             queryParameters.Add("@material", productdto.Material);
             queryParameters.Add("@id", productdto.ID, dbType: DbType.Int32, direction: ParameterDirection.Output);
             //queryParameters.Add("@statusmessage", "", dbType: DbType.String, direction: ParameterDirection.Output);
             var result = await base.GetMasterDbConnection().ExecuteAsync("dbo.SpProductDetails_Insert", param: queryParameters, commandType: CommandType.StoredProcedure);
             return queryParameters.Get<int>("@id");
+        }
+
+        public async Task<bool> Update(ProductDTO productdto)
+        {
+            var queryParameters = new DynamicParameters();
+            queryParameters.Add("@name", productdto.Name);
+            queryParameters.Add("@sku_code", productdto.SKUCode);
+            queryParameters.Add("@units", productdto.Units);
+            queryParameters.Add("@product_active", productdto.IsActive);
+            queryParameters.Add("@price_per_unit", productdto.PricePerUnit);
+            queryParameters.Add("@color", productdto.Color);
+            queryParameters.Add("@size", productdto.Size);
+            queryParameters.Add("@product_description", productdto.Description);
+            queryParameters.Add("@material", productdto.Material);
+            queryParameters.Add("@statusmessage", "", dbType: DbType.String, direction: ParameterDirection.Output);
+            queryParameters.Add("@isupdated", dbType: DbType.Boolean, direction: ParameterDirection.Output);
+            await base.GetMasterDbConnection().ExecuteAsync("dbo.SpProductDetails_Update", param: queryParameters, commandType: CommandType.StoredProcedure);
+            return queryParameters.Get<bool>("@isupdated");
         }
     }
 }

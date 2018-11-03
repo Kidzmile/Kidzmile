@@ -87,7 +87,7 @@ GO
 
 ---------------
 
-CREATE PROCEDURE SpProductDetails_Update
+ALTER PROCEDURE dbo.SpProductDetails_Update
 @sku_code		NVARCHAR(20)=NULL ,
 @name NVARCHAR(20)=NULL,
 @units SMALLINT=NULL,
@@ -97,52 +97,51 @@ CREATE PROCEDURE SpProductDetails_Update
 @size NVARCHAR(20)=NULL, 
 @product_description  NVARCHAR(100)=NULL,
 @material NVARCHAR(50) = NULL,
-@statusmessage NVARCHAR(100) OUTPUT
+@statusmessage NVARCHAR(100) OUTPUT,
+@isupdated AS BIT OUTPUT
 AS
 BEGIN TRY
-	declare @pid AS INT
-	declare @pdid AS INT
-						Begin
-						SELECT @pid=id  from Product where sku_code=@sku_code
-						if(@pid<>'')
-						begin
-						SELECT @pdid=Product_id  from ProductDetails where Product_id=@pid	
-						print 'values'+ cast(@pid AS NVARCHAR(15)) + cast(@pdid AS NVARCHAR(15))
+	DECLARE @pid AS INT
+	DECLARE @pdid AS INT
+						BEGIN
+						SET @isupdated=0
+						SELECT @pid=id  FROM Product WHERE sku_code=@sku_code
+						IF(@pid<>'')
+						BEGIN
+						SELECT @pdid=Product_id  FROM ProductDetails WHERE Product_id=@pid	
 						if(@pdid=@pid)	
-						begin
-						begin transaction
+						BEGIN
+						BEGIN TRANSACTION
 						UPDATE Product 
-						SET name= @name,
-						units=@units,
-						product_active=@product_active,
-						price_per_unit=@price_per_unit,
-						updated_ts=GETDATE()
+						SET name= @name,units=@units,product_active=@product_active,
+						price_per_unit=@price_per_unit,updated_ts=GETDATE()
 						WHERE id=@pid
+
 						UPDATE  ProductDetails 
-						SET color=@color,
-						size=@size,
-						product_description=@product_description,
-						material=@material,
-						updated_ts=GETDATE()
+						SET color=@color,size=@size,product_description=@product_description,
+						material=@material,updated_ts=GETDATE()
 						WHERE Product_id=@pdid			
 						SET @statusmessage='Product with sku code '+  @sku_code+' updated ,its  id '+cast(@pid AS NVARCHAR(15))
-							commit	
+						SET @isupdated=1;
+							COMMIT	
 						END
 						ELSE
 						BEGIN
-						SET @statusmessage='Product with sku code '+  @sku_code+' have differnt ids being '+cast(@pid AS NVARCHAR(15))+cast(@pdid AS NVARCHAR(15))
+						--SET @statusmessage='Product with sku code '+  @sku_code+' have differnt ids being '+cast(@pid AS NVARCHAR(15))+cast(@pdid AS NVARCHAR(15))
+						SET @isupdated=0;
 						END
 						END
 						ELSE
 						BEGIN
-							SET @statusmessage='Product with sku code '+  @sku_code+' doesnt exist'
+							--SET @statusmessage='Product with sku code '+  @sku_code+' doesnt exist'
+							SET @isupdated=0
 						END
 						END
 END	TRY
 BEGIN CATCH
 begin
-SET @statusmessage='Product with sku code '+ @sku_code+' failed to update'
-RAISERROR(N' PRODUCT update failed %s',16,1,@sku_code)
+--SET @statusmessage='Product with sku code '+ @sku_code+' failed to update'
+SET @isupdated=0;
 ROLLBACK transaction
 end
 END CATCH

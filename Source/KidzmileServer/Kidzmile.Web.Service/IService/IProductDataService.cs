@@ -10,10 +10,12 @@ namespace Kidzmile.Web.Service
 {
    public interface IProductDataService
     {
-        Task<IList<Product>> GetAllProduct();
+        Task<IList<Product>> GetAll();
 
-        Task<Product> GetProductBySKUCode(string code);
+        Task<Product> GetBySKUCode(string code);
 
-        Task<int> InsertProduct(Product product);
+        Task<int> Insert(Product product);
+
+        Task<bool> Update(Product product);
     }
 }
