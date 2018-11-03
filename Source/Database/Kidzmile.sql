@@ -61,31 +61,27 @@ CREATE PROCEDURE dbo.SpProductDetails_Insert
 @size NVARCHAR(20), 
 @product_description  NVARCHAR(100),
 @material NVARCHAR(50),
-@id int OUTPUT,
-@statusmessage NVARCHAR(100) OUTPUT
+@id int OUTPUT
+--@statusmessage NVARCHAR(100) OUTPUT
 AS
 BEGIN TRY
 	BEGIN TRANSACTION
-	IF  EXISTS(Select 1 from dbo.Product where sku_code=@sku_code)
-	BEGIN
-	print 'after begin'
-	SET @statusmessage='Product with'+ @sku_code+' already exists'
-	RAISERROR('Duplicate entry',16,1)
-	END
+	IF NOT EXISTS(Select 1 from dbo.Product where sku_code=@sku_code)
+		BEGIN
+		INSERT INTO Product (name,sku_code,units,product_active,price_per_unit) VALUES(@name,@sku_code,@units,@product_active,@price_per_unit)
+		Select @id=id FROM Product WHERE sku_code=@sku_code
+		INSERT INTO  dbo.ProductDetails (color,size,product_description,material,Product_id) VALUES(@color,@size,@product_description,@material,@id)
+		--SET @statusmessage='Product'+  @sku_code+' added with id '+cast(@id AS NVARCHAR(15))
+		END
 	ELSE
 		BEGIN
-		print 'after else'
-		INSERT INTO Product (name,sku_code,units,product_active,price_per_unit) VALUES(@name,@sku_code,@units,@product_active,@price_per_unit)
-		Select @id=id from Product where sku_code=@sku_code
-		INSERT INTO  dbo.ProductDetails (color,size,product_description,material,Product_id) VALUES(@color,@size,@product_description,@material,@id)
-		SET @statusmessage='Product'+  @sku_code+' added with id '+cast(@id AS NVARCHAR(15))
+		SET @id=-1
+		--SET @statusmessage='Product with'+ @sku_code+' already exists'		
 		END
-	COMMIT
+	COMMIT TRANSACTION
 END	TRY
 BEGIN CATCH
-SET @id=-1
-SET @statusmessage='Product with'+ @sku_code+' already exists'
-ROLLBACK
+ROLLBACK TRANSACTION
 END CATCH
 GO
 

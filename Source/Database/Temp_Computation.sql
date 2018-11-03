@@ -8,7 +8,11 @@ select * from Product
 select * from ProductDetails
 
 -------------------
+delete ProductDetails
+delete Product
 
+
+-------------------
 spProductDetails_GetBySKUCode @skucode='CCA'
 
 INSERT INTO Product (name,sku_code,units,product_active,price_per_unit) values ('Teddy Bear','TDB',20,1,20)
@@ -33,8 +37,8 @@ INSERT INTO ProductDetails (color,size,product_description,material	,created_ts	
 
 
 --------------------------------
-declare @id int ,
- @statusmessage nvarchar(100)
+declare @id int 
+-- @statusmessage nvarchar(100)
 execute SpProductDetails_INSERT
 'Dol',
 'a',
@@ -45,6 +49,7 @@ execute SpProductDetails_INSERT
 '9', 
 'b',
 'c',
-@id  output ,
-@statusmessage output
+@id  output 
+print @id
+--@statusmessage output
 print @statusmessage
