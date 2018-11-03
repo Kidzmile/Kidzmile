@@ -48,8 +48,27 @@ namespace Kidzmile.Controllers
             }
             else
             {
-                return ResponseMessage(Request.CreateErrorResponse(HttpStatusCode.NoContent, "Product with code " + code + " doesnt exist"));
+                return ResponseMessage(Request.CreateErrorResponse(HttpStatusCode.NotFound, "Product with code " + code + " doesnt exist"));
             }
         }
+
+        [HttpPost]
+        [Route("InsertAsync")]
+        public async Task<IHttpActionResult> InsertProduct([FromBody]Product product)
+        {
+             int insertedId=await  productDataService.InsertProduct(product);
+            if (insertedId!=-1)
+            {
+                //var message = Request.CreateResponse(HttpStatusCode.Created,product);
+               // message.Headers.Location = new Uri(Request.RequestUri+product.ID.ToString());
+                return Content(HttpStatusCode.Created,insertedId);
+            }
+            else
+            {
+                return ResponseMessage(Request.CreateErrorResponse(HttpStatusCode.Conflict, "Product with code " + product.SKUCode + " already exist"));
+            }
+        }
+
+
     }
 }

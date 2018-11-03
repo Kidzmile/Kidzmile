@@ -1,4 +1,5 @@
 ﻿using Kidzmile.Web.Models;
+using Kidzmile.Web.Repository.DTO.Product;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,5 +13,7 @@ namespace Kidzmile.Web.Service.IService
         Task<IList<Product>> GetAllProduct();
 
         Task<Product> GetProductBySKUCode(string code);
+
+        Task<int> InsertProduct(Product product);
     }
 }

@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using Kidzmile.Web.Models;
 using Kidzmile.Web.Repository;
 using Kidzmile.Common.AutoMapper;
+using Kidzmile.Web.Repository.DTO.Product;
 
 namespace Kidzmile.Web.Service
 {
@@ -29,6 +30,13 @@ namespace Kidzmile.Web.Service
             Product productdto = new Product();
             var product=await productRepository.GetBySKUCode(code);
             return product.MapTo(productdto);
+        }
+
+        public async Task<int> InsertProduct(Product product)
+        {
+            ProductDTO productDTO = new ProductDTO();
+           var productid=await productRepository.InsertAsync(product.MapTo(productDTO));
+            return productid;
         }
     }
 }
