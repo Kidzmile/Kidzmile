@@ -15,6 +15,8 @@ namespace Kidzmile.Web.Service
         {
             this.productRepository = productRepository;
         }
+
+        
         public async Task<IList<Product>> GetAll()
         {
             List<Product> product = new List<Product>();
@@ -42,5 +44,12 @@ namespace Kidzmile.Web.Service
            bool isUpdated= await productRepository.Update(product.MapTo(productDTO));
             return isUpdated;
         }
+
+        public  async Task<bool> Delete(string code)
+        {
+            bool isDeleted = await productRepository.Delete(code);
+            return isDeleted;
+        }
+
     }
 }

@@ -15,5 +15,7 @@ namespace Kidzmile.Web.Repository
         Task<int> Insert(ProductDTO product);
 
         Task<bool> Update(ProductDTO product);
+
+        Task<bool> Delete(string code);
     }
 }

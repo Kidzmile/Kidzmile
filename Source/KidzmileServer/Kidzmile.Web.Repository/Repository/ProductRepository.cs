@@ -17,6 +17,8 @@ namespace Kidzmile.Web.Repository
 
         }
 
+        
+
         public async Task<IList<ProductDTO>> GetAll()
         {
             var lstProducts = await base.GetMasterDbConnection().QueryAsync<ProductDTO>("dbo.spProductDetails_Get",
@@ -68,6 +70,16 @@ namespace Kidzmile.Web.Repository
             queryParameters.Add("@isupdated", dbType: DbType.Boolean, direction: ParameterDirection.Output);
             await base.GetMasterDbConnection().ExecuteAsync("dbo.SpProductDetails_Update", param: queryParameters, commandType: CommandType.StoredProcedure);
             return queryParameters.Get<bool>("@isupdated");
+        }
+
+        public async Task<bool> Delete(string code)
+        {
+            var queryParameters = new DynamicParameters();
+            queryParameters.Add("@sku_code", code);
+            queryParameters.Add("@statusmessage", "", dbType: DbType.String, direction: ParameterDirection.Output);
+            queryParameters.Add("@isdeleted", dbType: DbType.Boolean, direction: ParameterDirection.Output);
+            await base.GetMasterDbConnection().ExecuteAsync("dbo.SpProductDelete", param: queryParameters, commandType: CommandType.StoredProcedure);
+            return queryParameters.Get<bool>("@isdeleted");
         }
     }
 }

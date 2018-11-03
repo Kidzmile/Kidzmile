@@ -139,11 +139,57 @@ BEGIN TRY
 						END
 END	TRY
 BEGIN CATCH
-begin
+BEGIN
 --SET @statusmessage='Product with sku code '+ @sku_code+' failed to update'
 SET @isupdated=0;
-ROLLBACK transaction
-end
+ROLLBACK TRANSACTION
+END
 END CATCH
 GO
 
+---------------------
+
+CREATE PROCEDURE dbo.SpProductDelete
+@sku_code		NVARCHAR(20)=NULL ,
+@statusmessage NVARCHAR(100) OUTPUT,
+@isdeleted AS BIT OUTPUT
+AS
+BEGIN TRY
+DECLARE @pid AS INT
+DECLARE @pdid AS INT
+BEGIN
+						SET @isdeleted=0
+						SELECT @pid=id  FROM Product WHERE sku_code=@sku_code
+						IF(@pid<>'')
+						BEGIN
+						SELECT @pdid=Product_id  FROM ProductDetails WHERE Product_id=@pid	
+						if(@pdid=@pid)	
+						BEGIN
+						BEGIN TRANSACTION
+						DELETE FROM ProductDetails WHERE Product_id=@pid
+						DELETE FROM Product WHERE id=@pid
+						SET @isdeleted=1
+						COMMIT TRANSACTION
+						END
+						ELSE
+						BEGIN
+						SET @statusmessage='Product with sku code '+  @sku_code+' have differnt ids being '+cast(@pid AS NVARCHAR(15))+cast(@pdid AS NVARCHAR(15))
+						SET @isdeleted=0
+						END
+						END
+						ELSE
+						BEGIN
+						SET @isdeleted=0
+						SET @statusmessage='Product with sku code '+  @sku_code+' doesnt exist'
+						END
+						
+END
+END TRY
+BEGIN CATCH
+BEGIN
+SET @isdeleted=0
+SET @statusmessage='Product with sku code '+  @sku_code+' didnt get deleted'
+ROLLBACK TRANSACTION
+END
+END CATCH
+GO

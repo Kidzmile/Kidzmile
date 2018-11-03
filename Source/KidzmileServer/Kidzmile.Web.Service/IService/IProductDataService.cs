@@ -17,5 +17,7 @@ namespace Kidzmile.Web.Service
         Task<int> Insert(Product product);
 
         Task<bool> Update(Product product);
+
+        Task<bool> Delete(string code);
     }
 }

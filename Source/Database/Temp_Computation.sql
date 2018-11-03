@@ -58,7 +58,7 @@ print @statusmessage
 declare @isupdated  bit
  declare @statusmessage nvarchar(100)
 execute SpProductDetails_Update
-'abnc',
+'abdc',
 'a',
 '9',
 '9',
@@ -67,7 +67,19 @@ execute SpProductDetails_Update
 '',
 '10000.1234567898',
 'c',
-@statusmessage output
+@statusmessage output,
+@isupdated output
 --@id  output 
 print @statusmessage
+print @isupdated
+---
 
+declare @isdeleted  bit
+ declare @statusmessage nvarchar(100)
+execute SpProductDelete
+'abc',
+@statusmessage output,
+@isdeleted output
+--@id  output 
+print @statusmessage
+print @isdeleted

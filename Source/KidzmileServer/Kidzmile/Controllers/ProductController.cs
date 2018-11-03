@@ -85,5 +85,22 @@ namespace Kidzmile.Controllers
             }
         }
 
-    }
+        [HttpPut]
+        [Route("DeleteAsync")]
+        public async Task<IHttpActionResult> Delete(string code)
+        {
+            bool isDeleted = await productDataService.Delete(code);
+            if (isDeleted)
+            {
+                return Ok(HttpStatusCode.OK);
+            }
+            else
+            {
+
+                return ResponseMessage(Request.CreateErrorResponse(HttpStatusCode.BadRequest, "Product with code " +code + " didnt get deleted"));
+            }
+        }
+
+
+        }
 }
