@@ -20,8 +20,8 @@ INSERT INTO ProductDetails (color,size,product_description,material	,created_ts	
 ('Red','20*20','teddy toy','NA',GETDATE(),GETDATE(),SCOPE_IDENTITY() )
 
 INSERT INTO Product (name,sku_code,units,product_active,price_per_unit) values ('Car','CCR',10,1,5)
-INSERT INTO ProductDetails (color,size,product_description,material	,created_ts	,updated_ts,Product_id)	values
-('blue','10*20','blue toy','NA',GETDATE(),GETDATE(),SCOPE_IDENTITY())
+INSERT INTO ProductDetails (color,size,product_description,material,image_path ,created_ts	,updated_ts,Product_id)	values
+('blue','10*20','blue toy','NA', 'c:/' ,GETDATE(),GETDATE(),SCOPE_IDENTITY())
 
 INSERT INTO Product (name,sku_code,units,product_active,price_per_unit) values ('Camel','CCA',5,1,20)
 INSERT INTO ProductDetails (color,size,product_description,material	,created_ts	,updated_ts,Product_id)	values
