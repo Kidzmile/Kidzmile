@@ -390,6 +390,26 @@ h1 {
     text-transform: capitalize;
 }
 
+.themebtnprimarysade {
+    background-color: #ffa728;
+    background-image: -webkit-gradient(linear, left top, left bottom, from(#ffe364), to(#ffa728));
+    background-image: -webkit-linear-gradient(top, #ffe364, #ffa728);
+    background-image: -moz-linear-gradient(top, #ffe364, #ffa728);
+    background-image: -ms-linear-gradient(top, #ffe364, #ffa728);
+    background-image: -o-linear-gradient(top, #ffe364, #ffa728);
+    background-image: linear-gradient(to bottom, #ffe364, #ffa728);
+}
+
+.themebtnprimary:active {
+    background-color: #ffa728;
+    background-image: -webkit-gradient(linear, left top, left bottom, from(#ffa728), to(#ffe364));
+    background-image: -webkit-linear-gradient(top, #ffa728, #ffe364);
+    background-image: -moz-linear-gradient(top, #ffa728, #ffe364);
+    background-image: -ms-linear-gradient(top, #ffa728, #ffe364);
+    background-image: -o-linear-gradient(top, #ffa728, #ffe364);
+    background-image: linear-gradient(to bottom, #ffa728, #ffe364);
+}
+
 .row-adjust {
     margin: 0.8rem;
 }

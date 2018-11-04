@@ -22,7 +22,9 @@ import { AuthGuard } from './Auth/auth.guard';
 import { AppHttpInterceptorService } from './HttpInterceptor/app-http-interceptor.service';
 import { HomeService } from './Shared/home.service';
 import { HomebannercarouselComponent } from './Home/homebannercarousel/homebannercarousel.component';
+import { EmptycartcomponentComponent} from './Cart/emptycartcomponent/emptycartcomponent.component';
 import { SharedModule } from './Shared/index';
+
 
 
 @NgModule({
@@ -34,7 +36,8 @@ import { SharedModule } from './Shared/index';
     SignupComponent,
     HomeComponent,
     ProductDetailsComponent,
-	HomebannercarouselComponent
+    HomebannercarouselComponent,
+    EmptycartcomponentComponent
   ],
   imports: [
     BrowserModule,
@@ -45,7 +48,7 @@ import { SharedModule } from './Shared/index';
     RoundProgressModule,
     ImageZoomModule,
     CommonModule,
-	NguCarouselModule,
+    NguCarouselModule,
     SharedModule
 
   ],
@@ -58,7 +61,7 @@ import { SharedModule } from './Shared/index';
   }, DatePipe,
     CartUpdateService, AuthGuard,
   { provide: HTTP_INTERCEPTORS, useClass: AppHttpInterceptorService, multi: true },
-  HomeService,NguCarousel],
+  HomeService, NguCarousel],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

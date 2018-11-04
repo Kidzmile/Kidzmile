@@ -1,0 +1,61 @@
+@import '../../Shared/scss/selected_theme_variables';
+.cart-empty {
+    min-height: 500px;
+    padding-top: 85px;
+    text-align: center;
+    .empty-cart-icon {
+        height: 85px;
+        width: 85px;
+        margin: 0 auto;
+        // background-image: url(/assets/shoppingbag.png);
+    }
+    .empty-cart-message {
+        font-size: 20px;
+        color: $gray-800;
+        font-weight: 600;
+        font-family: $primary-font;
+        line-height: 120px;
+        margin: 15px 0;
+    }
+    .empty-wishlist-link {
+        color: $blue;
+        font-size: 16px;
+        font-weight: 500;
+    }
+    .empty-card-btn {
+        background-color: $theme-action-color - 50;
+        border: 1px solid $theme-action-color - 50;
+    }
+    .themebtnprimary {
+        background-color: #ffa728;
+        border: 1px solid #ff9314;
+        border-radius: .4rem;
+        padding: .5rem;
+        font-weight: 300!important;
+        box-shadow: 0 2px 4.6px #ffcf50;
+        width: 100%;
+        color: #fff;
+        font-family: "Roboto Regular";
+        font-size: 1.4em;
+        margin: 10px auto;
+        text-transform: capitalize;
+    }
+    .themebtnprimarysade {
+        background-color: #ffa728;
+        background-image: -webkit-gradient(linear, left top, left bottom, from(#ffe364), to(#ffa728));
+        background-image: -webkit-linear-gradient(top, #ffe364, #ffa728);
+        background-image: -moz-linear-gradient(top, #ffe364, #ffa728);
+        background-image: -ms-linear-gradient(top, #ffe364, #ffa728);
+        background-image: -o-linear-gradient(top, #ffe364, #ffa728);
+        background-image: linear-gradient(to bottom, #ffe364, #ffa728);
+    }
+    .themebtnprimary:active {
+        background-color: #ffa728;
+        background-image: -webkit-gradient(linear, left top, left bottom, from(#ffa728), to(#ffe364));
+        background-image: -webkit-linear-gradient(top, #ffa728, #ffe364);
+        background-image: -moz-linear-gradient(top, #ffa728, #ffe364);
+        background-image: -ms-linear-gradient(top, #ffa728, #ffe364);
+        background-image: -o-linear-gradient(top, #ffa728, #ffe364);
+        background-image: linear-gradient(to bottom, #ffa728, #ffe364);
+    }
+}
