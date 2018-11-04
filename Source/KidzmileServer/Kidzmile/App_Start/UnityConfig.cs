@@ -20,8 +20,8 @@ namespace Kidzmile
             // e.g. container.RegisterType<ITestService, TestService>();
 
             container.RegisterType<IDatabaseProvider, DatabaseProvider>(new ContainerControlledLifetimeManager());
-            container.RegisterType<IProductRepository, ProductRepository>();
-            container.RegisterType<IProductDataService, ProductDataService>();
+            container.RegisterType<IProductRepository, ProductRepository>(new HierarchicalLifetimeManager());
+            container.RegisterType<IProductDataService, ProductDataService>(new HierarchicalLifetimeManager());
             GlobalConfiguration.Configuration.DependencyResolver = new UnityDependencyResolver(container);
         }
     }
