@@ -10,6 +10,7 @@ using System.Web.Http;
 
 namespace Kidzmile.Consistent_Handler
 {
+
     public class WrappingHandler : DelegatingHandler
     {
         protected override async Task<HttpResponseMessage> SendAsync(HttpRequestMessage request, CancellationToken cancellationToken)
@@ -19,6 +20,7 @@ namespace Kidzmile.Consistent_Handler
             return BuildApiResponse(request, response);
         }
 
+        private static readonly log4net.ILog log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
         private static HttpResponseMessage BuildApiResponse(HttpRequestMessage request, HttpResponseMessage response)
         {
             object content;
@@ -34,7 +36,9 @@ namespace Kidzmile.Consistent_Handler
                     errorMessage = error.Message;
 
 #if DEBUG
+                    
                     errorMessage = string.Concat(errorMessage, error.ExceptionMessage, error.StackTrace);
+                    log.Error(errorMessage);
 #endif
                 }
             }
