@@ -5,6 +5,8 @@ import { UserService } from '../Service/User/user.service'
 import { ToasterServiceService } from '../Service/Toaster/toaster';
 import { Observable } from 'rxjs';
 import { AppRoutingModule } from '../app-routing.module';
+import { ServerResponse } from '../Model/Common/serverresponse';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-signup',
   templateUrl: './signup.component.html',
@@ -31,24 +33,27 @@ export class SignupComponent implements OnInit {
     }
   }
 
-  constructor(private userService: UserService, private toastr: ToasterServiceService) { }
+  constructor(private userService: UserService,private router:Router, private toastr: ToasterServiceService) { }
 
   OnSubmit(form: NgForm) {
 
     this.userService.registerUser(form.value)
-      .subscribe((data: any) => {
-        console.log(data);
-        if (data == "Success") {
+      .subscribe((data: ServerResponse) => {
+        console.log(data['Result']);
+        if (data['Result'] == "Success") {
           this.resetForm(form);
           this.toastr.success("User registration successful");
+          this.router.navigate(['/home']);
         }
         else {
-          this.toastr.error("Data Error", data);
+          console.log(data.result);
+          this.toastr.error("Data Error", data['Result']);
 
         }
       }, (error) => {
         this.handleError(error);
         this.toastr.info("Error", error.statusText);
+        return Observable.throw(error);
       },
         () => {
           console.log("no errors write route here");
