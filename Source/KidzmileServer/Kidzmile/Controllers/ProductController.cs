@@ -50,7 +50,8 @@ namespace Kidzmile.Controllers
             }
             else
             {
-                return ResponseMessage(Request.CreateErrorResponse(HttpStatusCode.NotFound, "Product with code " + code + " doesnt exist"));
+                //return ResponseMessage(Request.CreateErrorResponse(HttpStatusCode.NotFound, "Product with code " + code + " doesnt exist"));
+                return NotFound();
             }
         }
 
