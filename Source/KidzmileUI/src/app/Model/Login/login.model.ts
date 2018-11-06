@@ -4,4 +4,5 @@ export class Login
     firstName: string;
     lastName: string;
     isUserAuthenticated:boolean;
+    lastLoggedInTS:Date;
 }  

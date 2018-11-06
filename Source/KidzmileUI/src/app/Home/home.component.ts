@@ -3,6 +3,8 @@ import { UserService } from '../Service/User/user.service';
 import { ToasterServiceService } from '../Service/Toaster/toaster';
 import { HomeService } from '../Shared/home.service';
 import { Product } from '../Model/ProductModel/product.model';
+import { Login } from '../Model/Login/login.model';
+import { ServerResponse } from '../Model/Common/serverresponse';
 
 @Component({
   selector: 'app-home',
@@ -24,14 +26,15 @@ export class HomeComponent implements OnInit {
   
 
   ngOnInit() {
-    this.userService.getUserClaims().subscribe((data) => {
-      this.loggedInUserDetails = data;
-      this.isUserAuthenticated = this.loggedInUserDetails.IsAuthenticated;
+    this.userService.getUserClaims().subscribe((data:ServerResponse) => {
+      this.loggedInUserDetails = data['Result'];
+      this.isUserAuthenticated = data['Result']['isUserAuthenticated'];
+      console.log("data-"+this.isUserAuthenticated);
       this.homeSharedService.isUserAuthenticated.next(this.loggedInUserDetails);
-    }, (error => {
-      this.toaster.error(error, "Something went wrong");
-      console.log(error);
-    }));
+    }, (error:ServerResponse) => {
+      this.toaster.error(error.errorMessage, "Something went wrong");
+      console.log(error.statusCode+error.errorMessage);
+    });
   }
 
 }
