@@ -1,8 +1,10 @@
 using Kidzmile.Common.Uow;
+using Kidzmile.Controllers;
 using Kidzmile.Web.Repository;
 using Kidzmile.Web.Service;
 using System.Web.Http;
 using Unity;
+using Unity.Injection;
 using Unity.Lifetime;
 using Unity.WebApi;
 
@@ -18,6 +20,7 @@ namespace Kidzmile
             // it is NOT necessary to register your controllers
 
             // e.g. container.RegisterType<ITestService, TestService>();
+            container.RegisterType<AccountController>(new InjectionConstructor());
 
             container.RegisterType<IDatabaseProvider, DatabaseProvider>(new ContainerControlledLifetimeManager());
             container.RegisterType<IProductRepository, ProductRepository>(new HierarchicalLifetimeManager());
