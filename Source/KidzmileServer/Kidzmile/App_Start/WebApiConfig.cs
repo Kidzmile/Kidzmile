@@ -8,6 +8,7 @@ using Newtonsoft.Json.Serialization;
 using System.Web.Http.ExceptionHandling;
 using System.Diagnostics;
 using Kidzmile.Exception_Handler;
+using Kidzmile.Consistent_Handler;
 
 namespace Kidzmile
 {
@@ -29,8 +30,11 @@ namespace Kidzmile
                 defaults: new { id = RouteParameter.Optional }
             );
 
+            //to make web API consistent
+
+            config.MessageHandlers.Add(new WrappingHandler());
             //catch and add exceptions to the logger
-            config.Services.Replace(typeof(IExceptionHandler),new GlobalExceptionHandler());
+           // config.Services.Replace(typeof(IExceptionHandler),new GlobalExceptionHandler());
         }
     }
 }
