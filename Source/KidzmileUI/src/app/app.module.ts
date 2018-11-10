@@ -10,8 +10,9 @@ import { NguCarouselModule, NguCarousel } from '@ngu/carousel';
 
 
 import { AppComponent } from './app.component';
-import { HeaderComponent } from './header/header.component';
-import { FooterComponent } from './footer/footer.component';
+
+import { HeaderComponent } from './core/Header/header.component';
+import { FooterComponent } from './core/Footer/footer.component';
 import { LoginComponent } from './Login/login.component';
 import { AppRoutingModule } from './app-routing.module';
 import { SignupComponent } from './Register/signup.component';
