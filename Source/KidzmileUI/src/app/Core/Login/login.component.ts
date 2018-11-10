@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from '../Service/User/user.service';
-import { ToasterServiceService } from '../Service/Toaster/toaster';
+import { ToasterService } from '../Service/Toaster/toaster';
 import { Router } from '@angular/router'
 import { HttpErrorResponse } from '@angular/common/http';
 @Component({
@@ -12,7 +12,7 @@ export class LoginComponent implements OnInit {
   isLoginError: boolean = false;
   username:string="";
   password:string="";
-  constructor(private userService: UserService, private router: Router, private toaster: ToasterServiceService) {
+  constructor(private userService: UserService, private router: Router, private toaster: ToasterService) {
 
   }
 

@@ -1,6 +1,6 @@
 import { Component, OnInit, Output, EventEmitter, ChangeDetectionStrategy } from '@angular/core';
 import { UserService } from '../Core/Service/User/user.service';
-import { ToasterServiceService } from '../Core/Service/Toaster/toaster';
+import { ToasterService } from '../Core/Service/Toaster/toaster';
 import { HomeService } from '../Shared/home.service';
 import { Product } from '../Model/ProductModel/product.model';
 import { Login } from '../Core/Model/Login/login.model';
@@ -18,7 +18,7 @@ export class HomeComponent implements OnInit {
 
   loggedInUserDetails: any = null;
   isUserAuthenticated: boolean = false;
-  constructor(private userService: UserService, private homeSharedService: HomeService, private toaster: ToasterServiceService) { }
+  constructor(private userService: UserService, private homeSharedService: HomeService, private toaster: ToasterService) { }
 
 
   products: Product [] = [{name : 'Pink', imageUrl: 'http://cdn.fcglcdn.com/brainbees/images/products/438x531/1301400a.jpg', average_rating: 4 },

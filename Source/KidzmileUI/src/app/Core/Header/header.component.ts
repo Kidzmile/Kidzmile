@@ -1,7 +1,7 @@
 import { Component, Input, Output, EventEmitter, OnChanges, SimpleChanges, OnInit } from '@angular/core';
 import { CartUpdateService } from '../../Shared/cartupdate.service';
 import { Router } from '@angular/router';
-import { ToasterServiceService } from '../Service/Toaster/toaster';
+import { ToasterService } from '../Service/Toaster/toaster';
 import { HomeService } from '../../Shared/home.service';
 import { Login } from '../Model/Login/login.model';
 
@@ -19,7 +19,7 @@ export class HeaderComponent implements OnInit {
   isUserAuthenticated: boolean = false;
   loggedInUserDetails: Login;
   cartUpdate: Number;
-  constructor(public _cartDataService: CartUpdateService, private router: Router,private homeSharedService:HomeService , private toaster: ToasterServiceService) {
+  constructor(public _cartDataService: CartUpdateService, private router: Router,private homeSharedService:HomeService , private toaster: ToasterService) {
 
   }
 

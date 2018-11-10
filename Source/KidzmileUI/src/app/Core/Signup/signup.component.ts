@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { User } from '../Model/User/user.model';
 import { NgForm } from '@angular/forms';
 import { UserService } from '../Service/User/user.service'
-import { ToasterServiceService } from '../Service/Toaster/toaster';
+import { ToasterService} from '../Service/Toaster/toaster';
 import { Observable } from 'rxjs';
 import { AppRoutingModule } from '../../app-routing.module';
 import { ServerResponse } from '../Model/Common/server-response';
@@ -33,7 +33,7 @@ export class SignupComponent implements OnInit {
     }
   }
 
-  constructor(private userService: UserService,private router:Router, private toastr: ToasterServiceService) { }
+  constructor(private userService: UserService,private router:Router, private toastr: ToasterService) { }
 
   OnSubmit(form: NgForm) {
 

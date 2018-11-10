@@ -1,5 +1,5 @@
 import { Component, OnInit} from '@angular/core';
-import { ToasterServiceService } from '../../Core/Service/Toaster/toaster';
+import { ToasterService } from '../../Core/Service/Toaster/toaster';
 
 import { CartUpdateService } from '../../Shared/cartupdate.service';
 
@@ -29,7 +29,7 @@ updateItemsCount: Number = 0;
 
 
 
-constructor( private _cartService: CartUpdateService, private toaster: ToasterServiceService) {}
+constructor( private _cartService: CartUpdateService, private toaster: ToasterService) {}
 
   content = [ {
     rating: 4,

@@ -11,20 +11,21 @@ import { NguCarouselModule, NguCarousel } from '@ngu/carousel';
 
 import { AppComponent } from './app.component';
 
-import { HeaderComponent } from './core/Header/header.component';
-import { FooterComponent } from './core/Footer/footer.component';
+import { HeaderComponent } from './Core/Header/header.component';
+import { FooterComponent } from './Core/Footer/footer.component';
 import { LoginComponent } from './Core/Login/login.component';
 import { AppRoutingModule } from './app-routing.module';
 import { SignupComponent } from './Core/signup/signup.component';
 import { HomeComponent } from './Home/home.component';
 import { ProductDetailsComponent } from './Product/product-details/product-details.component';
 import { CartUpdateService } from './Shared/cartupdate.service';
+import { ToasterService } from './Core/Service/Toaster/toaster';
 import { AuthGuard } from './Auth/auth.guard';
 
 import { HttpInterceptorService } from './Core/Interceptors/http-interceptor.service';
 import { HomeService } from './Shared/home.service';
 import { HomebannercarouselComponent } from './Home/homebannercarousel/homebannercarousel.component';
-import { EmptycartcomponentComponent} from './Cart/emptycartcomponent/emptycartcomponent.component';
+import { EmptycartcomponentComponent } from './Cart/emptycartcomponent/emptycartcomponent.component';
 import { SharedModule } from './Shared/index';
 
 
@@ -63,7 +64,7 @@ import { SharedModule } from './Shared/index';
   }, DatePipe,
     CartUpdateService, AuthGuard,
   { provide: HTTP_INTERCEPTORS, useClass: HttpInterceptorService, multi: true },
-  HomeService, NguCarousel],
+    HomeService, NguCarousel, ToasterService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
