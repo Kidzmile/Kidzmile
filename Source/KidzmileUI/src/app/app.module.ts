@@ -13,14 +13,15 @@ import { AppComponent } from './app.component';
 
 import { HeaderComponent } from './core/Header/header.component';
 import { FooterComponent } from './core/Footer/footer.component';
-import { LoginComponent } from './Login/login.component';
+import { LoginComponent } from './Core/Login/login.component';
 import { AppRoutingModule } from './app-routing.module';
-import { SignupComponent } from './Register/signup.component';
+import { SignupComponent } from './Core/Register/signup.component';
 import { HomeComponent } from './Home/home.component';
 import { ProductDetailsComponent } from './Product/product-details/product-details.component';
 import { CartUpdateService } from './Shared/cartupdate.service';
 import { AuthGuard } from './Auth/auth.guard';
-import { AppHttpInterceptorService } from './HttpInterceptor/app-http-interceptor.service';
+
+import { HttpInterceptorService } from './Core/Interceptors/http-interceptor.service';
 import { HomeService } from './Shared/home.service';
 import { HomebannercarouselComponent } from './Home/homebannercarousel/homebannercarousel.component';
 import { EmptycartcomponentComponent} from './Cart/emptycartcomponent/emptycartcomponent.component';
@@ -61,7 +62,7 @@ import { SharedModule } from './Shared/index';
     }
   }, DatePipe,
     CartUpdateService, AuthGuard,
-  { provide: HTTP_INTERCEPTORS, useClass: AppHttpInterceptorService, multi: true },
+  { provide: HTTP_INTERCEPTORS, useClass: HttpInterceptorService, multi: true },
   HomeService, NguCarousel],
   bootstrap: [AppComponent]
 })

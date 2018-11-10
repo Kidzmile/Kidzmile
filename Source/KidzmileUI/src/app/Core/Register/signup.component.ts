@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { User } from '../Model/User/user.model';
+import { User } from '../../Model/User/user.model';
 import { NgForm } from '@angular/forms';
-import { UserService } from '../Service/User/user.service'
-import { ToasterServiceService } from '../Service/Toaster/toaster';
+import { UserService } from '../../Service/User/user.service'
+import { ToasterServiceService } from '../../Service/Toaster/toaster';
 import { Observable } from 'rxjs';
-import { AppRoutingModule } from '../app-routing.module';
-import { ServerResponse } from '../Model/Common/serverresponse';
+import { AppRoutingModule } from '../../app-routing.module';
+import { ServerResponse } from '../../Model/Common/server-response';
 import { Router } from '@angular/router';
 @Component({
   selector: 'app-signup',

@@ -11,7 +11,7 @@ import 'rxjs/Rx';
 @Injectable({
   providedIn: 'root'
 })
-export class AppHttpInterceptorService implements HttpInterceptor {
+export class HttpInterceptorService implements HttpInterceptor {
 
   constructor(private router: Router) {
     console.log("passed through interceptor");

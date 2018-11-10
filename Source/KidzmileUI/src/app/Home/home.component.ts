@@ -4,7 +4,7 @@ import { ToasterServiceService } from '../Service/Toaster/toaster';
 import { HomeService } from '../Shared/home.service';
 import { Product } from '../Model/ProductModel/product.model';
 import { Login } from '../Model/Login/login.model';
-import { ServerResponse } from '../Model/Common/serverresponse';
+import { ServerResponse } from '../Model/Common/server-response';
 import { Observable } from 'rxjs';
 
 @Component({
