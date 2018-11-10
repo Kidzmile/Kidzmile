@@ -1,11 +1,11 @@
-import { Component, OnInit, Output, EventEmitter, ChangeDetectionStrategy } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, ChangeDetectionStrategy, OnDestroy } from '@angular/core';
 import { UserService } from '../Core/Service/User/user.service';
 import { ToasterService } from '../Core/Service/Toaster/toaster';
 import { HomeService } from '../Shared/home.service';
 import { Product } from '../Model/ProductModel/product.model';
 import { Login } from '../Core/Model/Login/login.model';
 import { ServerResponse } from '../Core/Model/Common/server-response';
-import { Observable } from 'rxjs';
+import { Observable, Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-home',
@@ -14,9 +14,10 @@ import { Observable } from 'rxjs';
   changeDetection: ChangeDetectionStrategy.OnPush
 
 })
-export class HomeComponent implements OnInit {
-
-  loggedInUserDetails: any = null;
+export class HomeComponent implements OnInit ,OnDestroy {
+  
+  private _subscription:Subscription
+ private loggedInUserDetails: any = null;
   isUserAuthenticated: boolean = false;
   constructor(private userService: UserService, private homeSharedService: HomeService, private toaster: ToasterService) { }
 
@@ -27,7 +28,7 @@ export class HomeComponent implements OnInit {
   
 
   ngOnInit() {
-    this.userService.getUserClaims().subscribe((data:ServerResponse) => {
+    this._subscription= this.userService.getUserClaims().subscribe((data:ServerResponse) => {
       this.loggedInUserDetails = data['Result'];
       this.isUserAuthenticated = data['Result']['isUserAuthenticated'];
       console.log("data-"+this.isUserAuthenticated);
@@ -37,6 +38,10 @@ export class HomeComponent implements OnInit {
       console.log(error.statusCode+error.errorMessage);
       return Observable.throw(error);
     });
+  }
+
+  ngOnDestroy() {
+    this._subscription.unsubscribe();
   }
 
 }

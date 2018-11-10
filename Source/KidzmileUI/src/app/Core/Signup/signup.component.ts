@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit ,Inject} from '@angular/core';
 import { User } from '../Model/User/user.model';
 import { NgForm } from '@angular/forms';
 import { UserService } from '../Service/User/user.service'
@@ -33,7 +33,7 @@ export class SignupComponent implements OnInit {
     }
   }
 
-  constructor(private userService: UserService,private router:Router, private toastr: ToasterService) { }
+  constructor(private userService: UserService,private router:Router, @Inject(ToasterService) private toaster) { }
 
   OnSubmit(form: NgForm) {
 
@@ -42,17 +42,17 @@ export class SignupComponent implements OnInit {
         console.log(data['Result']);
         if (data['Result'] == "Success") {
           this.resetForm(form);
-          this.toastr.success("User registration successful");
+          this.toaster.success("User registration successful");
           this.router.navigate(['/home']);
         }
         else {
           console.log(data.result);
-          this.toastr.error("Data Error", data['Result']);
+          this.toaster.error("Data Error", data['Result']);
 
         }
       }, (error) => {
         this.handleError(error);
-        this.toastr.info("Error", error.statusText);
+        this.toaster.info("Error", error.statusText);
         return Observable.throw(error);
       },
         () => {
@@ -64,6 +64,6 @@ export class SignupComponent implements OnInit {
   private handleError(error: any) {
     console.log(error);
     let errMsg = (error.message) ? error.message : error.ModelState ? `${error.status} - ${error.statusText}` : 'Server error';
-    this.toastr.error("Error", errMsg);
+    this.toaster.error("Error", errMsg);
   }
 }
