@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { UserService } from '../../Service/User/user.service';
-import { ToasterServiceService } from '../../Service/Toaster/toaster';
+import { UserService } from '../Service/User/user.service';
+import { ToasterServiceService } from '../Service/Toaster/toaster';
 import { Router } from '@angular/router'
 import { HttpErrorResponse } from '@angular/common/http';
 @Component({

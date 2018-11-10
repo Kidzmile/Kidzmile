@@ -1,9 +1,9 @@
 import { Component, Input, Output, EventEmitter, OnChanges, SimpleChanges, OnInit } from '@angular/core';
 import { CartUpdateService } from '../../Shared/cartupdate.service';
 import { Router } from '@angular/router';
-import { ToasterServiceService } from '../../Service/Toaster/toaster';
+import { ToasterServiceService } from '../Service/Toaster/toaster';
 import { HomeService } from '../../Shared/home.service';
-import { Login } from '../../Model/Login/login.model';
+import { Login } from '../Model/Login/login.model';
 
 
 @Component({
@@ -15,8 +15,6 @@ import { Login } from '../../Model/Login/login.model';
 })
 
 export class HeaderComponent implements OnInit {
-
-
   @Input() cartUpdated: Number;
   isUserAuthenticated: boolean = false;
   loggedInUserDetails: Login;

@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Login } from '../Model/Login/login.model';
+import { Login } from '../Core/Model/Login/login.model';
 import { BehaviorSubject } from 'rxjs';
 
 @Injectable({

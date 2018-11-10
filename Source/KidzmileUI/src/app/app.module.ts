@@ -15,7 +15,7 @@ import { HeaderComponent } from './core/Header/header.component';
 import { FooterComponent } from './core/Footer/footer.component';
 import { LoginComponent } from './Core/Login/login.component';
 import { AppRoutingModule } from './app-routing.module';
-import { SignupComponent } from './Core/Register/signup.component';
+import { SignupComponent } from './Core/signup/signup.component';
 import { HomeComponent } from './Home/home.component';
 import { ProductDetailsComponent } from './Product/product-details/product-details.component';
 import { CartUpdateService } from './Shared/cartupdate.service';

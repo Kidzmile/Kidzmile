@@ -1,10 +1,10 @@
 import { Component, OnInit, Output, EventEmitter, ChangeDetectionStrategy } from '@angular/core';
-import { UserService } from '../Service/User/user.service';
-import { ToasterServiceService } from '../Service/Toaster/toaster';
+import { UserService } from '../Core/Service/User/user.service';
+import { ToasterServiceService } from '../Core/Service/Toaster/toaster';
 import { HomeService } from '../Shared/home.service';
 import { Product } from '../Model/ProductModel/product.model';
-import { Login } from '../Model/Login/login.model';
-import { ServerResponse } from '../Model/Common/server-response';
+import { Login } from '../Core/Model/Login/login.model';
+import { ServerResponse } from '../Core/Model/Common/server-response';
 import { Observable } from 'rxjs';
 
 @Component({

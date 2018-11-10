@@ -1,12 +1,12 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { AppComponent } from './app.component';
-import { HeaderComponent } from './core/Header/header.component';
-import { FooterComponent } from './core/Footer/footer.component';
+import { HeaderComponent } from './Core/Header/header.component';
+import { FooterComponent } from './Core/Footer/footer.component';
 import { LoginComponent } from './Core/Login/login.component';
 import { RouterModule, Routes } from '@angular/router';
 import { HashLocationStrategy, LocationStrategy } from '@angular/common';
-import { SignupComponent } from './Core/Register/signup.component';
+import { SignupComponent } from './Core/signup/signup.component';
 import { HomeComponent } from './Home/home.component';
 import { ProductDetailsComponent } from './Product/product-details/product-details.component';
 import { EmptycartcomponentComponent } from './Cart/emptycartcomponent/emptycartcomponent.component';
