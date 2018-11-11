@@ -1,0 +1,22 @@
+ng new NewProject       					      					 // create an angular application with name NewProject  and install some default npm packages.
+ng build  		|ng b												//Build the project for compile time errors not runtime or executable errors
+ng s -o 		|ng serve -open 									//Run the application at the default port(4200)
+
+ng g c signup   |ng generate component abc      					//create a new component with signup.component.ts,signup.component.spec.ts,signup.component.css,signup.component.html 
+																	//files under folder named singnup
+ng g c ABC/abc --flat=true  |ng generate component abc		     //create a new component named abc under ABC folder(Create Login folder if it doesnt exist)
+ctrl+`                                             					//for Terminal toggle(open and close)
+Cls	     															 // clear screen
+cd path 															// to change working directory
+ng -- help 															//lists all ng commands and their purpose
+ng generate - - help                                               //lists only help related to generate command
+ng generate component abc --dry   |ng g c abc --d                   //Lists all the files that CLI is going to create but will not create files           
+																	//If you are happy with the above list of files then remove d and run the command
+ng generate service |ng g s                                         //will generate a service component with spec and ts file but doesn't update app.module
+ng g s  servicename - module=app.module.ts                              //It not only generates employee service, it also registers  service witht the AppModule
+Copy part 10 table
+ng generate module modulename 										//generates a new module
+
+ng g m students - module=app.module                                  //Now to generate and update module with app module
+
+chrome.exe --user-data-dir="C:/Chrome dev session" --disable-web-security  //To run chrome bypassing cors
