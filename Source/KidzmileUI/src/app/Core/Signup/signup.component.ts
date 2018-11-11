@@ -43,7 +43,7 @@ export class SignupComponent implements OnInit {
         if (data['Result'] == "Success") {
           this.resetForm(form);
           this.toaster.success("User registration successful");
-          this.router.navigate(['/home']);
+          this.router.navigate(['/login']);
         }
         else {
           console.log(data.result);

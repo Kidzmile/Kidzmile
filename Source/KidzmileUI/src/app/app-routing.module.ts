@@ -10,7 +10,7 @@ import { SignupComponent } from './Core/signup/signup.component';
 import { HomeComponent } from './Home/home.component';
 import { ProductDetailsComponent } from './Product/product-details/product-details.component';
 import { EmptycartcomponentComponent } from './Cart/emptycartcomponent/emptycartcomponent.component';
-import { AuthGuard } from './Auth/auth.guard';
+import { AuthGuard } from './Core/Gaurds/auth.guard';
 // The last route is the empty path route. This specifies
 // the route to redirect to if the client side path is empty.
 const appRoutes: Routes = [

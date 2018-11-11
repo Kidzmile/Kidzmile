@@ -20,13 +20,16 @@ import { HomeComponent } from './Home/home.component';
 import { ProductDetailsComponent } from './Product/product-details/product-details.component';
 import { CartUpdateService } from './Shared/cartupdate.service';
 import { ToasterService } from './Core/Service/Toaster/toaster';
-import { AuthGuard } from './Auth/auth.guard';
+import { AuthGuard } from './Core/Gaurds/auth.guard';
 
-import { HttpInterceptorService } from './Core/Interceptors/http-interceptor.service';
+import { AppHttpInterceptor } from './Core/Interceptors/http.interceptor';
 import { HomeService } from './Shared/home.service';
 import { HomebannercarouselComponent } from './Home/homebannercarousel/homebannercarousel.component';
 import { EmptycartcomponentComponent } from './Cart/emptycartcomponent/emptycartcomponent.component';
 import { SharedModule } from './Shared/index';
+import { AuthenticationService } from './Core/Authentication/authentication.service';
+import { JwtInterceptor } from './Core/Interceptors/jwt.interceptor';
+import { ErrorInterceptor } from './Core/Interceptors/error.interceptor';
 
 
 
@@ -55,16 +58,20 @@ import { SharedModule } from './Shared/index';
     SharedModule
 
   ],
-  providers: [{
-    provide: ROUND_PROGRESS_DEFAULTS,
-    useValue: {
-      color: '#ffa728',
-      background: '#ffa728'
-    }
-  }, DatePipe,
+  providers: [
+    {
+      provide: ROUND_PROGRESS_DEFAULTS,
+      useValue: {
+        color: '#ffa728',
+        background: '#ffa728'
+      }
+    },
+    DatePipe,
     CartUpdateService, AuthGuard,
-  { provide: HTTP_INTERCEPTORS, useClass: HttpInterceptorService, multi: true },
-    HomeService, NguCarousel, ToasterService],
+    // { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
+    { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
+    { provide: HTTP_INTERCEPTORS, useClass: AppHttpInterceptor, multi: true },
+    HomeService, NguCarousel, AuthenticationService, ToasterService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

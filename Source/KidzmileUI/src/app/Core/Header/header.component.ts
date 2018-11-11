@@ -1,9 +1,10 @@
-import { Component, Input, Output, EventEmitter, OnChanges, SimpleChanges, OnInit } from '@angular/core';
+import { Component, Input, Output, EventEmitter, OnChanges, SimpleChanges, OnInit, Inject } from '@angular/core';
 import { CartUpdateService } from '../../Shared/cartupdate.service';
 import { Router } from '@angular/router';
 import { ToasterService } from '../Service/Toaster/toaster';
 import { HomeService } from '../../Shared/home.service';
 import { Login } from '../Model/Login/login.model';
+import { AuthenticationService } from '../Authentication/authentication.service';
 
 
 @Component({
@@ -19,7 +20,7 @@ export class HeaderComponent implements OnInit {
   isUserAuthenticated: boolean = false;
   loggedInUserDetails: Login;
   cartUpdate: Number;
-  constructor(public _cartDataService: CartUpdateService, private router: Router,private homeSharedService:HomeService , private toaster: ToasterService) {
+  constructor(public _cartDataService: CartUpdateService, private router: Router,private homeSharedService:HomeService ,@Inject(AuthenticationService) private authenticationService, private toaster: ToasterService) {
 
   }
 
@@ -30,8 +31,8 @@ export class HeaderComponent implements OnInit {
   }
 
   logout() {
-    console.log("logout");
-    localStorage.removeItem("userToken");
+    localStorage.removeItem("currentUserToken");
+    this.authenticationService.logout();
     this.isUserAuthenticated = false;
     this.loggedInUserDetails=null;
     this.toaster.success("Log Out", "Logged Out successfully");

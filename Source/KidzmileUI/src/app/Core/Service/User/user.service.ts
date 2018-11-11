@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, OnInit } from '@angular/core';
 import { User } from '../../Model/User/user.model';
 import { HttpClient, HttpHeaders } from '@angular/common/http'
 import { environment } from 'src/environments/environment';
@@ -6,9 +6,16 @@ import { Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
-export class UserService {
-  constructor(private http: HttpClient) { }
+export class UserService  {
+  
+  constructor(private http: HttpClient,private userService: UserService) { }
 
+  getAll() {
+    return this.http.get<User[]>(environment.api+'/users');
+}
+get() {
+  return this.http.get<User>(environment.api+'/user');
+}
   userAuthentication(userName, password) {
     console.log(userName + "- " + password);
     var data = "username=" + userName + "&password=" + password + "&grant_type=password";
@@ -17,7 +24,7 @@ export class UserService {
       'Content-Type': 'application/x-www-urlencoded',
       'No-Auth': 'True'
     });
-
+ 
     console.log(environment.api + '/token' + ' - ' + data + reqHeader);
     return this.http.post(environment.api + '/token', data, { headers: reqHeader });
   }
@@ -38,7 +45,10 @@ export class UserService {
   }
  
   getUserClaims() {
-    return this.http.get(environment.api + '/api/Account/GetUserClaims', { headers: new HttpHeaders({ 'Authorization': 'Bearer' + localStorage.getItem('userToken') }) });
+    console.log('calling claims');
+    return this.http.get(environment.api + '/api/Account/GetUserClaims'
+    // { headers: new HttpHeaders({ 'Authorization': 'Bearer' + localStorage.getItem('currentUserToken') }) }
+     );
   }
 
 }

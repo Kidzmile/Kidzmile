@@ -1,8 +1,11 @@
-import { Component, OnInit,Inject } from '@angular/core';
+import { Component, OnInit,Inject, OnDestroy } from '@angular/core';
 import { UserService } from '../Service/User/user.service';
 import { Router } from '@angular/router'
 import { HttpErrorResponse } from '@angular/common/http';
 import { ToasterService } from '../Service/Toaster/toaster';
+import { AuthenticationService } from '../Authentication/authentication.service';
+import { first } from 'rxjs/operators';
+import { Subscription, Subject } from 'rxjs';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -12,7 +15,9 @@ export class LoginComponent implements OnInit {
   isLoginError: boolean = false;
   username:string="";
   password:string="";
-  constructor(private userService: UserService, private router: Router, @Inject(ToasterService) private toaster) {
+  private httpSubscription:Subscription;
+  constructor(private userService: UserService, private router: Router,@Inject(AuthenticationService) private authenticationService,
+    @Inject(ToasterService) private toaster) {
 
   }
 
@@ -20,15 +25,21 @@ export class LoginComponent implements OnInit {
   }
 
   OnSubmit(userName, password) {
-    this.userService.userAuthentication(userName, password).subscribe((data: any) => {
-      localStorage.setItem('userToken', data.access_token);
+   // this.userService.userAuthentication(userName, password).subscribe((data: any) => {
+   this.httpSubscription= this.authenticationService.login(userName, password)
+     .subscribe((data:any)=>{
+      console.log('access token called');
       this.toaster.info("Login", "Login successful");
       this.router.navigate(['/home']);
     },
-      (err: HttpErrorResponse) => {
-        console.log(err);
+      (err) => {
         this.isLoginError = true;
-        this.toaster.error("Login Failed", err.error.error_description);
+        console.log(err);
+        this.toaster.error("Login Failed", err.error_description);
       });
   }
+ /* ngOnDestroy():void {
+    this.httpSubscription.unsubscribe();
+    
+  }*/
 }
