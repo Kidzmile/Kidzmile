@@ -5,6 +5,7 @@ DROP dbo.SpProductDetails_GetBySKUCode
 DROP dbo.SpProductDetails_Update
 DROP dbo.SpProductDelete
 DROP dbo.SpProductDetails_Insert
+DROP dbo.SpCategory_Get
 -------TABLES----------------------------------------------
 CREATE TABLE dbo.Product
 (
@@ -223,4 +224,12 @@ SET @statusmessage='Product with sku code '+  @sku_code+' didnt get deleted'
 ROLLBACK TRANSACTION
 END
 END CATCH
+GO
+------------------------------------------
+
+ALTER PROCEDURE dbo.SpCategory_Get
+AS									
+BEGIN								
+SELECT id,name FROM dbo.Category
+END									
 GO

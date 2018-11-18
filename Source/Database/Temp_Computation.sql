@@ -52,9 +52,9 @@ spProductDetails_GetBySKUCode @skucode='CCR'
 declare @id int ,
 @statusmessage nvarchar(100)
 execute SpProductDetails_INSERT
-'Giraffe',
-'Giraffe',
-'9',
+'DGCCCCCCCCC',
+'DOG',
+'10',
 '9',
 '9',
 'b',
@@ -62,7 +62,7 @@ execute SpProductDetails_INSERT
 'b',
 'c',
 'C:\asset',
-'Banner',
+'Plush Animals',
 @id  output 
 print @id
 --@statusmessage output

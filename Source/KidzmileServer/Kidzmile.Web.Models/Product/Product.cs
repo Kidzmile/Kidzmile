@@ -1,5 +1,5 @@
 ﻿using Kidzmile.Common.AutoMapper;
-using Kidzmile.Web.Repository.DTO.Product;
+using Kidzmile.Web.Repository.DTO;
 using System;
 using System.Collections.Generic;
 using System.Linq;

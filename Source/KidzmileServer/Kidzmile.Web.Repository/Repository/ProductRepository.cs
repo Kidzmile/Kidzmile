@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Kidzmile.Web.Repository.DTO.Product;
+using Kidzmile.Web.Repository.DTO;
 using Dapper;
 using System.Data;
 using Kidzmile.Common.Uow;

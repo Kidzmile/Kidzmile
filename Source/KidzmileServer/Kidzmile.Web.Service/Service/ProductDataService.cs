@@ -3,7 +3,7 @@ using System.Threading.Tasks;
 using Kidzmile.Web.Models;
 using Kidzmile.Web.Repository;
 using Kidzmile.Common.AutoMapper;
-using Kidzmile.Web.Repository.DTO.Product;
+using Kidzmile.Web.Repository.DTO;
 using System;
 
 namespace Kidzmile.Web.Service
