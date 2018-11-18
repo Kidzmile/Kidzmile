@@ -24,8 +24,20 @@
         </tbody>
     </table>
 
+	<hr width="80%">
+    <h3>Table-2: Category</></h3>
+
+    <table border="1" cellspacing="0" cellpadding="1">
+        <tbody>
+            <tr><td>Field</td><td>Type</td><td>Default</td><td>Description</td></tr>
+            <tr><td>id</td><td>serial</td><td>not null</td><td>&nbsp;</td></tr>
+            <tr><td>name</td><td>varchar(255)</td><td>primary key</td><td>&nbsp;</td></tr>
+        </tbody>
+    </table>
+
+
     <hr width="80%">
-    <h3>Table-2: ProductDetails</></h3>
+    <h3>Table-3: ProductDetails</></h3>
 
     <table border="1" cellspacing="0" cellpadding="1">
         <tbody>
@@ -38,11 +50,12 @@
             <tr><td>created_ts</td><td>timestamp with time zone</td><td>CURRENT_TIMESTAMP</td><td>&nbsp;</td></tr>
             <tr><td>updated_ts</td><td>timestamp with time zone</td><td>CURRENT_TIMESTAMP</td><td>&nbsp;</td></tr>
 			<tr><td>Product_id</td><td>integer</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+			<tr><td>category_name</td><td>nvarchar(20)</td><td>&nbsp;</td><td>&nbsp;</td></tr>
         </tbody>
     </table>
 
     <hr width="80%">
-    <h3>Table-3: User</h3>
+    <h3>Table-4: User</h3>
 
     <table border="1" cellspacing="0" cellpadding="1">
         <tbody>
@@ -58,7 +71,7 @@
     </table>
 
 	<hr width="80%">
-    <h3>Table-4: UserInformation</h3>
+    <h3>Table-5: UserInformation</h3>
 
     <table border="1" cellspacing="0" cellpadding="1">
         <tbody>
@@ -74,7 +87,7 @@
     </table>
 
     <hr width="80%">
-    <h3>Table-5: OrderProducts</h3>
+    <h3>Table-6: OrderProducts</h3>
 
     <table border="1" cellspacing="0" cellpadding="1">
         <tbody>
@@ -90,7 +103,7 @@
     </table>
 
     <hr width="80%">
-    <h3>Table-6: OrderTransactions</></h3>
+    <h3>Table-7: OrderTransactions</></h3>
     
     <table border="1" cellspacing="0" cellpadding="1">
         <tbody>
@@ -109,7 +122,7 @@
     </table>
 
 	 <hr width="80%">
-    <h3>Table-7: CancelledTransactions</></h3>
+    <h3>Table-8: CancelledTransactions</></h3>
     
     <table border="1" cellspacing="0" cellpadding="1">
         <tbody>
@@ -123,7 +136,7 @@
     </table>
 
 	<hr width="80%">
-    <h3>Table-8: ShippingAddress</></h3>
+    <h3>Table-9: ShippingAddress</></h3>
     
     <table border="1" cellspacing="0" cellpadding="1">
         <tbody>
@@ -143,7 +156,7 @@
         </tbody>
     </table>
 	 <hr width="80%">
-    <h3>Table-9: OrderHistory</h3>
+    <h3>Table-10: OrderHistory</h3>
 
     <table border="1" cellspacing="0" cellpadding="1">
         <tbody>
@@ -159,7 +172,7 @@
     </table>
 	
 	 <hr width="80%">
-    <h3>Table-10: Rating</h3>
+    <h3>Table-11: Rating</h3>
 
     <table border="1" cellspacing="0" cellpadding="1">
         <tbody>
