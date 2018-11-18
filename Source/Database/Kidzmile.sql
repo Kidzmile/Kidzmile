@@ -89,7 +89,7 @@ BEGIN TRY
 		BEGIN
 		INSERT INTO Product (name,sku_code,units,product_active,price_per_unit) VALUES(@name,@sku_code,@units,@product_active,@price_per_unit)
 		Select @id=id FROM Product WHERE sku_code=@sku_code
-		INSERT INTO  dbo.ProductDetails (color,size,product_description,material,image_path,category_name,Product_id) VALUES(@color,@size,@product_description,@material,@imagepath,@category,@id)
+		INSERT INTO  dbo.ProductDetails (color,size,product_description,material,image_path,Product_id,category_name) VALUES(@color,@size,@product_description,@material,@imagepath,@id,@category)
 		--SET @statusmessage='Product'+  @sku_code+' added with id '+cast(@id AS NVARCHAR(15))
 		END
 	ELSE
@@ -117,7 +117,7 @@ CREATE PROCEDURE dbo.SpProductDetails_Update
 @product_description  NVARCHAR(100)=NULL,
 @material NVARCHAR(50) = NULL,
 @imagepath NVARCHAR(100)= NULL,
-@category NVARCHAR(20)=NULL,
+@category NVARCHAR(30)=NULL,
 @statusmessage NVARCHAR(100) OUTPUT,
 @isupdated AS BIT OUTPUT
 AS

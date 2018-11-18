@@ -23,6 +23,7 @@ namespace Kidzmile.Web.Models
         public string Description { get; set; }
         public string Material { get; set; }
         public string ImagePath { get; set; }
+        public string Category { get; set; }
 
     }
 }
