@@ -16,7 +16,7 @@ namespace Kidzmile.Consistent_Handler
         protected override async Task<HttpResponseMessage> SendAsync(HttpRequestMessage request, CancellationToken cancellationToken)
         {
             var response = await base.SendAsync(request, cancellationToken);
-
+            
             return BuildApiResponse(request, response);
         }
 

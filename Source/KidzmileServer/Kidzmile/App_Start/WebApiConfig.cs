@@ -9,7 +9,7 @@ using System.Web.Http.ExceptionHandling;
 using System.Diagnostics;
 using Kidzmile.Exception_Handler;
 using Kidzmile.Consistent_Handler;
-
+using System.Web.Http;
 namespace Kidzmile
 {
     public static class WebApiConfig
@@ -34,7 +34,9 @@ namespace Kidzmile
 
             config.MessageHandlers.Add(new WrappingHandler());
             //catch and add exceptions to the logger
-           // config.Services.Replace(typeof(IExceptionHandler),new GlobalExceptionHandler());
+            // config.Services.Replace(typeof(IExceptionHandler),new GlobalExceptionHandler());
+
+            config.EnableCors();
         }
     }
 }

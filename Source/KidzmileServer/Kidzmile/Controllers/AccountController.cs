@@ -16,11 +16,13 @@ using Kidzmile.Models;
 using Kidzmile.Providers;
 using Kidzmile.Results;
 using System.Linq;
+using System.Web.Http.Cors;
 
 namespace Kidzmile.Controllers
 {
     [Authorize]
     [RoutePrefix("api/Account")]
+    [EnableCors(origins: "*", headers: "*", methods: "*")]
     public class AccountController : ApiController
     {
         private const string LocalLoginProvider = "Local";
