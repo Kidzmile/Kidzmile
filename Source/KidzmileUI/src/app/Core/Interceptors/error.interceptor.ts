@@ -11,11 +11,11 @@ export class ErrorInterceptor implements HttpInterceptor {
         return next.handle(request).catch((err: HttpErrorResponse) => {
             if (err instanceof HttpErrorResponse) {
                 console.log(err);
-               /* if (err.status === 401) {
-                    //this.authenticationService.logout();
-                   // location.reload(true);
-                    return Observable.throw(err.error);
-                }*/
+                /* if (err.status === 401) {
+                     //this.authenticationService.logout();
+                    // location.reload(true);
+                     return Observable.throw(err.error);
+                 }*/
                 if (err.status === 400) {
                     return Observable.throw(err.error);
                 }

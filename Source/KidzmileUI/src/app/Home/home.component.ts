@@ -37,8 +37,8 @@ export class HomeComponent implements OnInit {
         this.homeSharedService.isUserAuthenticated.next(this.loggedInUserDetails);
       }, (error: any) => {
         this.homeSharedService.isUserAuthenticated.next(this.loggedInUserDetails)
-       /* this.toaster.error(error.ErrorMessage, "Something went wrong");
-        console.log(error.statusCode + error.errorMessage);*/
+        /* this.toaster.error(error.ErrorMessage, "Something went wrong");
+         console.log(error.statusCode + error.errorMessage);*/
         //return Observable.throw(error);
       }
       );

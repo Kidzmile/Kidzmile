@@ -5,7 +5,8 @@ import { ToasterService } from '../Service/Toaster/toaster';
 import { HomeService } from '../../Shared/home.service';
 import { Login } from '../Model/Login/login.model';
 import { AuthenticationService } from '../Authentication/authentication.service';
-
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { HomeComponent } from '../../Home/home.component';
 
 @Component({
   selector: 'app-header',
@@ -20,7 +21,8 @@ export class HeaderComponent implements OnInit {
   isUserAuthenticated: boolean = false;
   loggedInUserDetails: Login;
   cartUpdate: Number;
-  constructor(public _cartDataService: CartUpdateService, private router: Router,private homeSharedService:HomeService ,@Inject(AuthenticationService) private authenticationService, private toaster: ToasterService) {
+  constructor(public _cartDataService: CartUpdateService, private router: Router,private homeSharedService:HomeService ,@Inject(AuthenticationService) private authenticationService,
+  private modalService: NgbModal, private toaster: ToasterService) {
 
   }
 
@@ -37,5 +39,11 @@ export class HeaderComponent implements OnInit {
     this.loggedInUserDetails=null;
     this.toaster.success("Log Out", "Logged Out successfully");
     this.router.navigate(["\login"]);
+  }
+
+  open() {
+    // const modalRef = this.modalService.open(ModalComponent);
+    const modalRef = this.modalService.open(HomeComponent);
+    modalRef.componentInstance.title = 'About';
   }
 }

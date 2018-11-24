@@ -1,0 +1,34 @@
+<!-- <ul class="list-group" *ngIf="taxonomiList[0]; let catgeory_taxonomy"> -->
+<!-- <div class="list-group" >
+          <p>PrettyName</p>
+      </div> -->
+<!-- <div> -->
+<!-- <h4> Catgeories</h4> -->
+<!-- <li *ngFor="let categoryItem of catgeory_taxonomy.root.taxons" (click)="emitSelection(catgeory_taxonomy)">
+      <a class="list-group-item list-group-item-action" [routerLink]="['.']" [queryParams]="{'q[name_cont]': categoryItem.name, id: categoryItem.id, page: 1}">
+        {{categoryItem.name}}
+      </a>
+    </li> -->
+<!-- <div>
+  <div *ngIf="!isFilterOn">
+    -->
+    <!-- <div class="container">
+    <div class="row"> -->
+      <div *ngIf="!isFilterOn" class="category" > 
+        <!-- <div > -->
+        <ul class="list-group">
+            <h3>Categories</h3>
+          <li  *ngFor="let item of category">
+            <!-- <div><input type="checkbox" [id]="item.Name" />
+              <label [for]="item.Name">{{item.Name}}</label></div> -->
+              <label class="list-group-item list-group-item-action"  [for]="item.Name">
+                  <input lass="maninname" type="checkbox" [id]="item.Name"/>
+                  {{item.Name}}
+                </label>
+          </li>
+        </ul>
+      </div>
+    <!-- </div> -->
+   <!-- </div> -->
+<!-- </div> -->
+<!-- </div> -->

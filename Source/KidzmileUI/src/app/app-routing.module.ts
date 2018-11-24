@@ -11,9 +11,12 @@ import { HomeComponent } from './Home/home.component';
 import { ProductDetailsComponent } from './Product/product-details/product-details.component';
 import { EmptycartcomponentComponent } from './Cart/emptycartcomponent/emptycartcomponent.component';
 import { AuthGuard } from './Core/Gaurds/auth.guard';
+import { ProductListComponent } from './Product/product-list/product-list.component';
+import { NgbdModalFocus } from './Core/Modal/modal-focus/modal-focus.component';
 // The last route is the empty path route. This specifies
 // the route to redirect to if the client side path is empty.
 const appRoutes: Routes = [
+  { path: 'productList', component: ProductListComponent },
   { path: 'login', component: LoginComponent },
   { path: 'signup', component: SignupComponent },
   { path: 'home', component: HomeComponent},

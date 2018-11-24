@@ -28,10 +28,17 @@ import { HomebannercarouselComponent } from './Home/homebannercarousel/homebanne
 import { EmptycartcomponentComponent } from './Cart/emptycartcomponent/emptycartcomponent.component';
 import { SharedModule } from './Shared/index';
 import { AuthenticationService } from './Core/Authentication/authentication.service';
-import { JwtInterceptor } from './Core/Interceptors/jwt.interceptor';
+
 import { ErrorInterceptor } from './Core/Interceptors/error.interceptor';
+import { ProductListComponent } from './Product/product-list/product-list.component';
+import { ModalBasicComponent } from './Core/Modal/modal-basic/modal-basic.component';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
-
+import { NgbdModalFocus, NgbdModalConfirm, NgbdModalConfirmAutofocus } from './Core/Modal/modal-focus/modal-focus.component';
+import { CategoriesComponent } from './sidebar/categories/categories.component';
+import { CategoryService } from './Service/category.service';
+import { ProductService } from './Service/product.service';
+import { ProductItemComponent } from './Product/product-item/product-item.component';
 
 @NgModule({
   declarations: [
@@ -43,7 +50,14 @@ import { ErrorInterceptor } from './Core/Interceptors/error.interceptor';
     HomeComponent,
     ProductDetailsComponent,
     HomebannercarouselComponent,
-    EmptycartcomponentComponent
+    EmptycartcomponentComponent,
+    ProductListComponent,
+    ModalBasicComponent,
+    NgbdModalFocus,
+    NgbdModalConfirm,
+    NgbdModalConfirmAutofocus,
+    CategoriesComponent,
+    ProductItemComponent
   ],
   imports: [
     BrowserModule,
@@ -55,8 +69,8 @@ import { ErrorInterceptor } from './Core/Interceptors/error.interceptor';
     ImageZoomModule,
     CommonModule,
     NguCarouselModule,
-    SharedModule
-
+    SharedModule,
+    NgbModule.forRoot()
   ],
   providers: [
     {
@@ -71,7 +85,8 @@ import { ErrorInterceptor } from './Core/Interceptors/error.interceptor';
     // { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
     { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
     { provide: HTTP_INTERCEPTORS, useClass: AppHttpInterceptor, multi: true },
-    HomeService, NguCarousel, AuthenticationService, ToasterService],
+    HomeService, NguCarousel, AuthenticationService, ToasterService,CategoryService,ProductService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
