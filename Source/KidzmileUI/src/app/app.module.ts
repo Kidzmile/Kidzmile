@@ -39,6 +39,7 @@ import { CategoriesComponent } from './sidebar/categories/categories.component';
 import { CategoryService } from './Service/category.service';
 import { ProductService } from './Service/product.service';
 import { ProductItemComponent } from './Product/product-item/product-item.component';
+import { ProductSortComponent } from './Product/product-sort/product-sort.component';
 
 @NgModule({
   declarations: [
@@ -57,7 +58,8 @@ import { ProductItemComponent } from './Product/product-item/product-item.compon
     NgbdModalConfirm,
     NgbdModalConfirmAutofocus,
     CategoriesComponent,
-    ProductItemComponent
+    ProductItemComponent,
+    ProductSortComponent
   ],
   imports: [
     BrowserModule,

@@ -18,6 +18,7 @@ export class ProductItemComponent implements OnInit {
   ngOnInit() {
   }
   getProductImageUrl(product: Product) {
-    return this._sanitizer.bypassSecurityTrustUrl(product.ImagePath);
+    //return this._sanitizer.bypassSecurityTrustUrl(product.ImagePath);
+    return "";
   }
 }

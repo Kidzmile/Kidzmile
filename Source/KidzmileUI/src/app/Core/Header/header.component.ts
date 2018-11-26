@@ -41,9 +41,9 @@ export class HeaderComponent implements OnInit {
     this.router.navigate(["\login"]);
   }
 
-  open() {
+  /*open() {
     // const modalRef = this.modalService.open(ModalComponent);
     const modalRef = this.modalService.open(HomeComponent);
     modalRef.componentInstance.title = 'About';
-  }
+  }*/
 }
