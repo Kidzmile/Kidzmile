@@ -40,7 +40,7 @@ import { CategoryService } from './Service/category.service';
 import { ProductService } from './Service/product.service';
 import { ProductItemComponent } from './Product/product-item/product-item.component';
 import { ProductSortComponent } from './Product/product-sort/product-sort.component';
-
+import { ModalModule } from 'ngx-bootstrap';
 @NgModule({
   declarations: [
     AppComponent,
@@ -72,7 +72,8 @@ import { ProductSortComponent } from './Product/product-sort/product-sort.compon
     CommonModule,
     NguCarouselModule,
     SharedModule,
-    NgbModule.forRoot()
+    NgbModule.forRoot(),
+    ModalModule.forRoot()
   ],
   providers: [
     {

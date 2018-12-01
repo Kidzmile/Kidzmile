@@ -1,9 +1,13 @@
 
 @import '../../Shared/scss/_selected_theme_variables.scss';
-.catgeory {
-  padding: 4vh 0;
-  border-bottom: 1px solid $gray-10;
+.list-group-item{
+  border:0px solid !important;
   background-color: $gray-100;
+}
+.catgeory {
+  padding: 44vh 0;
+  border-bottom: 1px solid $gray-10;
+  background-color: $gray-100 ;
   .list-group-item {
     border: 0px solid red;
     padding: 0.35rem 0rem;
@@ -35,35 +39,30 @@ $lowest: #000;
   -o-#{$name}: $argument;
 }
 
-// .imageCheckbox {
-// 	input[type="checkbox"] {
-// 	margin: 0px;
-// 	display: none;
-// 	}
 
 
 
-// 	li.checked>div label, li>div label:hover {
-// 		background-color: darken($active, 40%);
-// 		color: $active;
-// 	}
-// 	li.checked>div label:active {
-// 		background-color: darken($active, 60%);
-// 		color: darken($active, 80%);
-// 	}
-// 	li>div label:active {
-// 		background-color: #eee;
-// 		color: $lowest;
-// 	}
-// 	li {
-// 	  img {
-// 	    display: block;
-// 	  }
-//   }
-//   	>div label {
-//     display: inherit;
-//     float: none;
-//   }
+	li.checked>div label, li>div label:hover {
+		background-color: darken($active, 40%);
+		color: $active;
+	}
+	li.checked>div label:active {
+		background-color: darken($active, 60%);
+		color: darken($active, 80%);
+	}
+	li>div label:active {
+		background-color: #eee;
+		color: $lowest;
+	}
+	li {
+	  img {
+	    display: block;
+	  }
+  }
+  	>div label {
+    display: inherit;
+    float: none;
+  }
   
 // }
 
