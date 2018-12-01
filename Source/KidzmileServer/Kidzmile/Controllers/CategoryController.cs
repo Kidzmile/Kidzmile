@@ -26,5 +26,15 @@ namespace Kidzmile.Controllers
            var categories= await _categoryDataService.GetAll();
             return Ok(categories);
         }
+
+        [HttpGet]
+        [Route("Images/GetAsync/code")]
+        public async Task<IHttpActionResult> GetBySKUCode(string code)
+        {
+            List<string> lstImages = await _categoryDataService.GetImagesPath(code);
+            //  return  lstImages.Count>0? Ok(lstImages) :NotFound();
+            return Ok(lstImages);
+        }
     }
+
 }

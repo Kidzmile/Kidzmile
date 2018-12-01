@@ -27,6 +27,14 @@ name				NVARCHAR(20) PRIMARY KEY
 )
 GO
 
+CREATE TABLE [dbo].[Image]
+(
+id					INT IDENTITY(1,1) PRIMARY KEY,
+sku_code			NVARCHAR(20) FOREIGN KEY REFERENCES dbo.Product(sku_code),
+image_path			NVARCHAR(100) NOT NULL
+)
+GO
+
 CREATE TABLE dbo.ProductDetails
 (
 id					INT IDENTITY(1,1) PRIMARY KEY,
@@ -227,9 +235,19 @@ END CATCH
 GO
 ------------------------------------------
 
-ALTER PROCEDURE dbo.SpCategory_Get
+CREATE PROCEDURE dbo.SpCategory_Get
 AS									
 BEGIN								
 SELECT id,name FROM dbo.Category
+END									
+GO
+
+--------------------------------------------
+CREATE PROCEDURE dbo.SpProductImages_GetBySKUCode
+@skucode		NVARCHAR(20)=NULL
+AS									
+BEGIN								
+SELECT image_path as imagepath FROM dbo.Image
+WHERE sku_code=@skucode
 END									
 GO

@@ -11,5 +11,7 @@ namespace Kidzmile.Web.Service
    public interface ICategoryDataService
     {
         Task<IList<Category>> GetAll();
+
+        Task<List<string>> GetImagesPath(string code );
     }
 }

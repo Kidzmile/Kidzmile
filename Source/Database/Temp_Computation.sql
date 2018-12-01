@@ -45,6 +45,12 @@ INSERT INTO ProductDetails (color,size,product_description,material	,created_ts	
 
 
 --------------------------------
+INSERT INTO [dbo].[Image] values('TDB','\assets\images\Product\Plush Animals\1.jpg')
+INSERT INTO [dbo].[Image] values('TDB','\assets\images\Product\Plush Animals\2.jpg')
+INSERT INTO [dbo].[Image] values('TDBc','\assets\images\Product\Plush Animals\3.jpg')
+select * from [dbo].[Image]
+dbo.SpProductImages_GetBySKUCode @skucode='TDB'
+-----------------------------------------------------
 SpProductDetails_Get
 spProductDetails_GetBySKUCode @skucode='CCR'
 

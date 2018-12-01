@@ -10,5 +10,8 @@ namespace Kidzmile.Web.Repository
    public interface ICategoryRepository
     {
       Task<IList<CategoryDTO>>  GetAllCategory();
+
+      Task<List<string>> GetImagesBySKUCode(string code);
     }
 }
+

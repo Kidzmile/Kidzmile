@@ -22,5 +22,14 @@ namespace Kidzmile.Web.Repository
                commandType: CommandType.StoredProcedure);
             return lstCategory.ToList();
         }
+
+        public async Task<List<string>> GetImagesBySKUCode(string code)
+        {
+            var queryParameters = new DynamicParameters();
+            queryParameters.Add("@skucode", code);
+
+            var lstImages = await base.GetMasterDbConnection().QueryAsync<string>("dbo.SpProductImages_GetBySKUCode", param: queryParameters,commandType: CommandType.StoredProcedure);
+            return lstImages.ToList();
+        }
     }
 }

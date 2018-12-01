@@ -23,5 +23,11 @@ namespace Kidzmile.Web.Service
 
             return allCategory.MapTo(categories);
         }
+
+        public async Task<List<string>> GetImagesPath(string code)
+        {
+            List<string> listOfImages = await _categoryRepository.GetImagesBySKUCode(code);
+            return listOfImages;
+        }
     }
 }
