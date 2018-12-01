@@ -25,14 +25,13 @@ import { AuthGuard } from './Core/Gaurds/auth.guard';
 import { AppHttpInterceptor } from './Core/Interceptors/http.interceptor';
 import { HomeService } from './Shared/home.service';
 import { HomebannercarouselComponent } from './Home/homebannercarousel/homebannercarousel.component';
-import { EmptycartcomponentComponent } from './Cart/emptycartcomponent/emptycartcomponent.component';
 import { SharedModule } from './Shared/index';
 import { AuthenticationService } from './Core/Authentication/authentication.service';
 
 import { ErrorInterceptor } from './Core/Interceptors/error.interceptor';
 import { ProductListComponent } from './Product/product-list/product-list.component';
 import { ModalBasicComponent } from './Core/Modal/modal-basic/modal-basic.component';
-import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { NgbdModalFocus, NgbdModalConfirm, NgbdModalConfirmAutofocus } from './Core/Modal/modal-focus/modal-focus.component';
 import { CategoriesComponent } from './sidebar/categories/categories.component';
@@ -41,6 +40,10 @@ import { ProductService } from './Service/product.service';
 import { ProductItemComponent } from './Product/product-item/product-item.component';
 import { ProductSortComponent } from './Product/product-sort/product-sort.component';
 import { ModalModule } from 'ngx-bootstrap';
+import { CartMainComponent } from '../app/Cart/cart-main.component';
+import { EmptycartcomponentComponent} from '../app/Cart/emptycartcomponent/emptycartcomponent.component';
+import { CartComponentComponent} from '../app/Cart/cart-component/cart-component.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -51,7 +54,6 @@ import { ModalModule } from 'ngx-bootstrap';
     HomeComponent,
     ProductDetailsComponent,
     HomebannercarouselComponent,
-    EmptycartcomponentComponent,
     ProductListComponent,
     ModalBasicComponent,
     NgbdModalFocus,
@@ -59,7 +61,10 @@ import { ModalModule } from 'ngx-bootstrap';
     NgbdModalConfirmAutofocus,
     CategoriesComponent,
     ProductItemComponent,
-    ProductSortComponent
+    ProductSortComponent,
+    CartMainComponent,
+    CartComponentComponent,
+    EmptycartcomponentComponent
   ],
   imports: [
     BrowserModule,
@@ -88,7 +93,7 @@ import { ModalModule } from 'ngx-bootstrap';
     // { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
     { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
     { provide: HTTP_INTERCEPTORS, useClass: AppHttpInterceptor, multi: true },
-    HomeService, NguCarousel, AuthenticationService, ToasterService,CategoryService,ProductService
+    HomeService, NguCarousel, AuthenticationService, ToasterService, CategoryService, ProductService
   ],
   bootstrap: [AppComponent]
 })

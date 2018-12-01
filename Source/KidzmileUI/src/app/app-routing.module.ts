@@ -9,7 +9,7 @@ import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 import { SignupComponent } from './Core/signup/signup.component';
 import { HomeComponent } from './Home/home.component';
 import { ProductDetailsComponent } from './Product/product-details/product-details.component';
-import { EmptycartcomponentComponent } from './Cart/emptycartcomponent/emptycartcomponent.component';
+import { CartMainComponent } from './Cart/cart-main.component';
 import { AuthGuard } from './Core/Gaurds/auth.guard';
 import { ProductListComponent } from './Product/product-list/product-list.component';
 import { NgbdModalFocus } from './Core/Modal/modal-focus/modal-focus.component';
@@ -21,7 +21,7 @@ const appRoutes: Routes = [
   { path: 'signup', component: SignupComponent },
   { path: 'home', component: HomeComponent},
   { path: 'product', component: ProductDetailsComponent },
-  { path: 'cart', component: EmptycartcomponentComponent},
+  { path: 'cart', component: CartMainComponent},
   { path: '', redirectTo: '/home', pathMatch: 'full' }
 ];
 
