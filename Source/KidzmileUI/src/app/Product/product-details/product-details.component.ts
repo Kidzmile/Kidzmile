@@ -72,10 +72,9 @@ export class ProductDetailsComponent implements OnInit {
 
   ngOnInit() {
     this._productservice.getImagesBySkuCode(this.sku_code).subscribe((imageUrls) => {
-      this.sideBarImageSrc = imageUrls;
+      this.sideBarImageSrc = imageUrls; // Subscribing to the product service for retrieving image using SKUcode
       console.log(imageUrls);
     });
-    
   }
 
 
