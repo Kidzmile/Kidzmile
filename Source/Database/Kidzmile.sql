@@ -56,7 +56,7 @@ GO
 CREATE PROCEDURE dbo.SpProductDetails_Get
 AS									
 BEGIN								
-SELECT p.id,p.name,sku_code as skucode,units ,product_active as isproductactive,
+SELECT p.id,p.name,sku_code as skucode,units ,product_active as isactive,
 price_per_unit as priceperunit,color,size,
 product_description as [description],material,d.image_path as imagepath,category_name as category
 FROM dbo.Product p INNER JOIN dbo.ProductDetails d ON p.id=d.Product_id		
@@ -68,7 +68,7 @@ CREATE PROCEDURE dbo.SpProductDetails_GetBySKUCode
 @skucode NVARCHAR(20)
 AS									
 BEGIN								
-SELECT Top 1 p.id,p.name,sku_code as skucode,units ,product_active as isproductactive,
+SELECT Top 1 p.id,p.name,sku_code as skucode,units ,product_active as isactive,
 price_per_unit as priceperunit,color,size,
 product_description as [description],material,d.image_path as imagepath,category_name as category
  FROM dbo.Product p INNER JOIN dbo.ProductDetails d ON p.id=d.Product_id
