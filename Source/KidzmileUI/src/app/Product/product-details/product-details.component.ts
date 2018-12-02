@@ -1,6 +1,6 @@
-import { Component, OnInit} from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ToasterService } from '../../Core/Service/Toaster/toaster';
-
+import { Product } from '../../Model/ProductModel/product.model';
 import { CartUpdateService } from '../../Shared/cartupdate.service';
 
 @Component({
@@ -10,46 +10,60 @@ import { CartUpdateService } from '../../Shared/cartupdate.service';
 })
 export class ProductDetailsComponent implements OnInit {
 
-  i  = 0;
+  product: Product = {
+    sku_code: 'TDDY',
+    name: 'Teddy,Pink',
+    average_rating: 4,
+    product_active: true,
+    price_per_unit: 5000
+  };
+
+  discount = 1500;
+  discountedPrice = this.product.price_per_unit - this.discount;
+
   countItems: any = 1;
   updateCountItems: any = 0;
   maxrating = 5;
-  reviewList = 1;
-  imagePath: String = 'https://images-na.ssl-images-amazon.com/images/I/91OvPETRBkL._SY450_.jpg' ;
-  sideBarImageSrc: String[] = [ 'https://images-na.ssl-images-amazon.com/images/I/91OvPETRBkL._SY450_.jpg',
-                                          'https://images-na.ssl-images-amazon.com/images/I/51ohFQJI91L.jpg'];
-
-ratingOne = 0;
-ratingTwo = 0;
-ratingThree = 50;
-ratingFour = 50;
-ratingFive = 0;
-
-updateItemsCount: Number = 0;
 
 
+  imagePath: String = 'https://images-na.ssl-images-amazon.com/images/I/91OvPETRBkL._SY450_.jpg';
+  sideBarImageSrc: String[] = ['https://images-na.ssl-images-amazon.com/images/I/91OvPETRBkL._SY450_.jpg',
+    'https://images-na.ssl-images-amazon.com/images/I/51ohFQJI91L.jpg'];
 
-constructor( private _cartService: CartUpdateService, private toaster: ToasterService) {}
+  ratingOne = 0;
+  ratingTwo = 0;
+  ratingThree = 50;
+  ratingFour = 50;
+  ratingFive = 0;
 
-  content = [ {
+  reviewData = [{
     rating: 4,
     title: 'g',
     review: 'This is on hellva Prodectu',
-    name : 'Kek',
-    created_at : '2017-10-2'
+    name: 'Kek',
+    created_at: '2017-10-2'
 
   }, {
     rating: 3,
     title: 'H',
     review: 'This is one hel Prodect',
-    name : 'lol',
-    created_at : '2016-10-2'
+    name: 'lol',
+    created_at: '2016-10-2'
 
   }];
 
-  reviews_count = this.content.length;
-  reviewPercent = ((this.content[0].rating + this.content[1].rating) * 100 / (this.reviews_count * this.maxrating));
-  totalRating = (this.content[0].rating + this.content[1].rating) / this.reviews_count;
+
+  updateItemsCount: Number = 0;
+
+
+
+  constructor(private _cartService: CartUpdateService, private toaster: ToasterService) { }
+
+  
+
+  reviews_count = this.reviewData.length;
+  reviewPercent = ((this.reviewData[0].rating + this.reviewData[1].rating) * 100 / (this.reviews_count * this.maxrating));
+  totalRating = (this.reviewData[0].rating + this.reviewData[1].rating) / this.reviews_count;
 
 
   ngOnInit() {
@@ -57,29 +71,29 @@ constructor( private _cartService: CartUpdateService, private toaster: ToasterSe
 
   /*Incrementing the number of items in cart*/
   incrementItemCount(): void {
-     if (this.countItems < 100) {
-     this.countItems++;
+    if (this.countItems < 100) {
+      this.countItems++;
     }
-      return;
+    return;
   }
 
-/*Decrementing the number of items in cart*/
-   decrementItemCount(): void {
-      if (this.countItems > 1) {
+  /*Decrementing the number of items in cart*/
+  decrementItemCount(): void {
+    if (this.countItems > 1) {
       this.countItems--;
-       }
-      return;
-   }
+    }
+    return;
+  }
 
-   btnClickImageChange(imgSrcPayload: any): void {
+  btnClickImageChange(imgSrcPayload: any): void {
 
     this.imagePath = imgSrcPayload;
- }
+  }
 
- addToCartEvent () {
-   this._cartService.addData(this.countItems );
-   this.toaster.success('cart successfully updated');
+  addToCartEvent() {
+    this._cartService.addData(this.countItems);
+    this.toaster.success('cart successfully updated');
 
- }
+  }
 
 }

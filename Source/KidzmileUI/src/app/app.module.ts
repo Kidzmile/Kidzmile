@@ -43,6 +43,8 @@ import { ModalModule } from 'ngx-bootstrap';
 import { CartMainComponent } from '../app/Cart/cart-main.component';
 import { EmptycartcomponentComponent} from '../app/Cart/emptycartcomponent/emptycartcomponent.component';
 import { CartComponentComponent} from '../app/Cart/cart-component/cart-component.component';
+import { ProductRatingsComponent } from './Product/product-details/product-ratings/product-ratings.component';
+import { ProductDescriptionComponent } from './Product/product-details/product-description/product-description.component';
 
 @NgModule({
   declarations: [
@@ -64,7 +66,9 @@ import { CartComponentComponent} from '../app/Cart/cart-component/cart-component
     ProductSortComponent,
     CartMainComponent,
     CartComponentComponent,
-    EmptycartcomponentComponent
+    EmptycartcomponentComponent,
+    ProductRatingsComponent,
+    ProductDescriptionComponent
   ],
   imports: [
     BrowserModule,

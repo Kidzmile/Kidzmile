@@ -25,7 +25,7 @@
             <div class="row pt-5 mr-0">
                 <div class="col-12 p-0">
                     <div class="col-12 p-0">
-                        <h1 class="title" itemprop="name">Pink,Teddy</h1>
+                        <h1 class="title" itemprop="name">{{product.name}}</h1>
                         <div _ class="product-subtitle">
                             <!----><a href="/search"><small> By  <span  itemprop="brand"></span></small></a></div>
                     </div>
@@ -52,7 +52,7 @@
 
                                                 </li>
                                                 <li class="unlisted-text-stye">
-                                                    <span class="d-block float-left price-li2-styling">Rs.5000</span>
+                                                    <span class="d-block float-left price-li2-styling">Rs.{{product.price_per_unit}}</span>
                                                 </li>
                                             </ul>
                                         </li>
@@ -62,7 +62,7 @@
 
                                                 </li>
                                                 <li class="unlisted-text-stye">
-                                                    <span class="d-block float-left price-li2-styling">Rs.3500</span>
+                                                    <span class="d-block float-left price-li2-styling">Rs.{{discountedPrice}}</span>
                                                 </li>
                                             </ul>
 
@@ -73,7 +73,7 @@
 
                                                 </li>
                                                 <li class="unlisted-text-stye">
-                                                    <span class="d-block float-left price-li2-styling">Rs.1500</span>
+                                                    <span class="d-block float-left price-li2-styling">Rs.{{discount}}</span>
                                                 </li>
                                             </ul>
 
@@ -151,134 +151,9 @@
 </div>
 
 <div class="conatiner m-2">
-    <div class="">
-        <div class="col-12">
-            <h1>Description </h1>
-            <h4>Product Description</h4>
-            <p></p>
-            <h4>Features</h4>
-            <p></p>
-            <h4>Dimensions</h4>
-            <p></p>
-
-            <ul class="p-0 m-0" style="display:inline-table;">
-                <li style="list-style:none">
-                    <ul style="">
-                        <li style="list-style:none;display:inline">
-                            Height:
-                        </li>
-                        <li style="list-style:none;display:inline">-</li>
-                    </ul>
-                </li>
-                <li style="list-style:none">
-                    <ul>
-                        <li style="list-style:none;display:inline">
-                            Weight:
-                        </li>
-                        <li style="list-style:none;display:inline">-</li>
-                    </ul>
-                </li>
-                <li style="list-style:none">
-                    <ul>
-                        <li style="list-style:none;display:inline">
-                            Manufacturer:
-                        </li>
-                        <li style="list-style:none;display:inline">-</li>
-                    </ul>
-                </li>
-            </ul>
-
-        </div>
-    </div>
+    <app-product-description></app-product-description>
 </div>
 
 <div class="container pt-10 m-2">
-    <div class="cust-reviews">
-        <h1>Customer Reviews</h1>
-        <div class="row">
-            <div class="col-12 col-md-6 pl-4">
-
-                <div class="avg-review" id="review">
-                    <div class="row">
-                        <div class="review col-12 col-md-5 col-lg-5 p-0">
-                            <ngx-input-star-rating disabled="true" value="{{totalRating}}"> </ngx-input-star-rating> {{reviews_count}} Reviews </div>
-
-                        <div class="out-review col-12 col-md-5 col-lg-5 "> {{totalRating}} out of 5 star </div>
-                    </div>
-                </div>
-                <div class="progress" style="height: 1.6rem">
-                    <div class="progress-bar bg-warning" style="width:0%;">0%</div>
-                </div>
-                <br/>
-                <div class="progress" style="height: 1.6rem">
-                    <div class="progress-bar bg-warning" style="width:50%;">50%</div>
-                </div>
-                <br/>
-                <div class="progress" style="height: 1.6rem">
-                    <div class="progress-bar bg-warning" style="width:50%;">50%</div>
-                </div>
-                <br/>
-                <div class="progress" style="height: 1.6rem">
-                    <div class="progress-bar bg-warning" style="width:0%;">0%</div>
-                </div>
-                <br/>
-                <div class="progress" style="height: 1.6rem">
-                    <div class="progress-bar bg-warning" style="width:0%;">0%</div>
-                </div>
-                <br/>
-
-
-
-            </div>
-            <div _ngcontent-c10="" class="col-12 col-md-4 offset-md-1 mt-5 pt-5">
-                <div class="row">
-                    <div class="col-12">
-                        <div class="row">
-
-                            <div class="float-left review-percentage ">
-                                <div class="percent">
-                                    <div class="num"> {{reviewPercent}} <span>%</span></div><small _ngcontent-c10="">RECOMMENDED</small></div>
-                                <round-progress [current]="reviewPercent" [max]="100" [color]="'#fe9700'" [background]="'#eaeaea'" [radius]="55" [stroke]="5" [semicircle]="false" [rounded]="true" [clockwise]="true" [responsive]="false" [duration]="800" [animation]="'easeInOutQuart'"
-                                    [animationDelay]="0"></round-progress>
-                            </div>
-                            <div class="float-left p-0 write-review " style="border:none">
-                                <p _ngcontent-c10="" class="ng-star-inserted">{{reviewPercent}} % OF REVIEWERS RECOMMEND THIS PRODUCT</p><button _ngcontent-c10="" class="btn themebtnprimary themebtnprimarysade m-auto">Write Review</button></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="review-display">
-            <div class="row">
-                <div class="col-md-10">
-                    <div class="review-sort-filter mt-5 mb-4">
-                        <div class="row">
-                            <div class="float-left col-md-4 pt-2">Showing {{reviews_count}} Reviews</div>
-                        </div>
-
-
-                    </div>
-                    <!-- {{reviews}} -->
-                    <div *ngIf="reviewList">
-                        <div *ngFor="let item of content" class="rating-inner">
-                            <div class="rating-head">
-                                <ngx-input-star-rating disabled="true" value="{{item.rating }}" required></ngx-input-star-rating>
-                                <span class="pl-3">{{item.title}}</span>
-                            </div>
-                            <div class="rating-by">
-                                By {{item?.name.split('@')[0]}} on {{item.created_at | date}}
-                            </div>
-                            <p class="description">
-                                {{item.review}}
-                            </p>
-                        </div>
-
-                    </div>
-                </div>
-            </div>
-
-
-        </div>
-    </div>
-
+    <app-product-ratings [content]="reviewData" [reviews_count]="reviews_count" [reviewPercent]="reviewPercent" [totalRating]="totalRating"></app-product-ratings>
 </div>
