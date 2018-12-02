@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ToasterService } from '../../Core/Service/Toaster/toaster';
 import { Product } from '../../Model/ProductModel/product.model';
 import { CartUpdateService } from '../../Shared/cartupdate.service';
+import { ProductService } from 'src/app/Service/product.service';
 
 @Component({
   selector: 'app-product-details',
@@ -10,6 +11,7 @@ import { CartUpdateService } from '../../Shared/cartupdate.service';
 })
 export class ProductDetailsComponent implements OnInit {
 
+  sku_code = 'TDB';
   product: Product = {
     sku_code: 'TDDY',
     name: 'Teddy,Pink',
@@ -26,9 +28,12 @@ export class ProductDetailsComponent implements OnInit {
   maxrating = 5;
 
 
-  imagePath: String = 'https://images-na.ssl-images-amazon.com/images/I/91OvPETRBkL._SY450_.jpg';
-  sideBarImageSrc: String[] = ['https://images-na.ssl-images-amazon.com/images/I/91OvPETRBkL._SY450_.jpg',
-    'https://images-na.ssl-images-amazon.com/images/I/51ohFQJI91L.jpg'];
+  constructor(private _cartService: CartUpdateService, private toaster: ToasterService, private _productservice: ProductService) { }
+
+
+  sideBarImageSrc: String[] = [];
+  imagePath: any;
+
 
   ratingOne = 0;
   ratingTwo = 0;
@@ -57,17 +62,22 @@ export class ProductDetailsComponent implements OnInit {
 
 
 
-  constructor(private _cartService: CartUpdateService, private toaster: ToasterService) { }
 
-  
 
   reviews_count = this.reviewData.length;
   reviewPercent = ((this.reviewData[0].rating + this.reviewData[1].rating) * 100 / (this.reviews_count * this.maxrating));
   totalRating = (this.reviewData[0].rating + this.reviewData[1].rating) / this.reviews_count;
 
 
+
   ngOnInit() {
+    this._productservice.getImagesBySkuCode(this.sku_code).subscribe((imageUrls) => {
+      this.sideBarImageSrc = imageUrls;
+      console.log(imageUrls);
+    });
+    
   }
+
 
   /*Incrementing the number of items in cart*/
   incrementItemCount(): void {

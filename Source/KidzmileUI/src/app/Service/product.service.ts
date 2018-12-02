@@ -9,16 +9,27 @@ import { Observable } from 'rxjs';
 })
 export class ProductService {
 
-  constructor(private _http:HttpClient) { }
-  getAllProducts(){
-   return this._http.get<ServerResponse>(environment.api+"/api/product/GetAsync")
-   .map(res=>{
-    return res["Result"];
-    })
-    .catch(
-      (error: Response) => {
-        return Observable.throw(error);
-      });
+  constructor(private _http: HttpClient) { }
+  getAllProducts() {
+    return this._http.get<ServerResponse>(environment.api + "/api/product/GetAsync")
+      .map(res => {
+        return res["Result"];
+      })
+      .catch(
+        (error: Response) => {
+          return Observable.throw(error);
+        });
   }
-  
+
+  getImagesBySkuCode(code: string ) {
+    return this._http.get<ServerResponse>(environment.api + "/api/category/Images/GetAsync/code?code=" + code )
+      .map(res => {
+        return res["Result"];
+      })
+      .catch(
+        (error: Response) => {
+          return Observable.throw(error);
+        });
+  }
+
 }

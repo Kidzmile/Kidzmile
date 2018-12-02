@@ -11,7 +11,7 @@
                         </div>
                     </div>
                     <div class="col-11">
-                        <img [imageZoom]="imagePath" class="thumbnails-selected-image img-fluid mt-5" src="{{imagePath}}">
+                        <img [imageZoom]="imagePath?imagePath:sideBarImageSrc[0]" class="thumbnails-selected-image img-fluid mt-5" src="{{imagePath?imagePath:sideBarImageSrc[0]}}">
                     </div>
 
 
