@@ -1,5 +1,8 @@
 @import '../../Shared/scss/selected_theme_variables';
-
+.show{
+  top: 38px;
+  left: -45px;
+}
 .product-base {
   @media screen and (min-width: 320px) and (max-width: 767px) {
     margin: 0px !important;

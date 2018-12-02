@@ -1,22 +1,20 @@
 <div class="container-fluid backgroundcolor">
     <div class="row">
-        <div class="col-md-3 categoryy">
+        <div class="col-md-3 margintop">
             <app-categories></app-categories>
         </div>
-        <div class="col-md-9">
-                <div class="row ">
-                <app-product-sort class="sortOption"></app-product-sort>
+        <div class="col-md-9 ">
+            <div class="row float-right margintop">
+                <app-product-sort></app-product-sort>
+            </div>
+            <br/>
+            <br/>
+            <br/>
             <div class="row results-base m-0">
                 <div class="col-12 col-sm-4 col-lg-3 p-2 m-0" *ngFor="let product of products" itemscope itemtype="https://schema.org/Product">
                     <app-product-item [product]="product"></app-product-item>
                 </div>
-                <!-- <div class="col-12 mt-3">
-                    <div class="row"> -->
-                        <!-- <pagination *ngIf="paginationData.total_count > paginationData.per_page" [totalItems]="paginationData.total_count" [itemsPerPage]="paginationData.per_page"
-                          [(ngModel)]="paginationData.current_page" (pageChanged)="pageChanged($event)" class="m-auto" [maxSize]="5"></pagination> -->
-                    <!-- </div>
-                </div> -->
-            </div>
             </div>
         </div>
     </div>
+</div>
