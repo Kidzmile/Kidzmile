@@ -1,7 +1,10 @@
 @import '../../Shared/scss/selected_theme_variables';
 
 .margintop{
-    margin-top: 25px;
+    margin-top: 24px;
+  //  display: flex;
+  //   flex-direction: row-reverse;
+  justify-content: flex-end;
   }
 .backgroundcolor{
   background-color: $gray-100 ;
@@ -158,4 +161,9 @@
     padding: 0 0px;
     background-color: $white;
   }
+}
+
+app-product-sort{
+display: flex;
+    justify-content: flex-end;
 }

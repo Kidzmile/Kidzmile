@@ -1,4 +1,9 @@
 @import '../../shared/scss/selected_theme_variables';
+.sort-left{
+  display: flex;
+    flex-direction: row-reverse;
+    margin-left: 0;
+}
 .content {
   .search-btns {
     text-transform: uppercase;
@@ -28,7 +33,7 @@
   .dropdown-toggle::after {
     display: inline-block;
     position: absolute;
-   // right: 10px;
+    right: 10px;
     top: 15px;
   }
   .dropdown-item.active,

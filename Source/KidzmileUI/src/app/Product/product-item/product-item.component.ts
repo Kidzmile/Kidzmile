@@ -19,6 +19,6 @@ export class ProductItemComponent implements OnInit {
   }
   getProductImageUrl(product: Product) {
     //return this._sanitizer.bypassSecurityTrustUrl(product.ImagePath);
-    return "";
+   return "";
   }
 }

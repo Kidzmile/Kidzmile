@@ -2,6 +2,7 @@ interface Product {
       ID: number;
       Name: string;
       SKUCode: string;
+      Category: string;
       Units: number;
       IsActive: boolean;
       PricePerUnit: number;
@@ -10,4 +11,5 @@ interface Product {
       Description: string;
       Material: string;
       ImagePath: string;
+
 }
