@@ -22,7 +22,7 @@ export const DEFAULT_CONFIG = {
   // payuBizSalt: 'eCwWELxi',
   // payuBizKey: 'gtKFFx',
   // freeShippingAmount: 50,
-  currency_symbol: '$', // INR ₹
+  currency_symbol: 'fa fa-inr', // INR ₹
   // PaymentMethodCod: 'COD',
   // PaymentMethodPayubiz: 'Payubiz',
   // defaultPaymentMethod: 'Payubiz',

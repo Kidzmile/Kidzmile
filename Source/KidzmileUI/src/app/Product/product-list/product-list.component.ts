@@ -1,10 +1,9 @@
+import { Router } from '@angular/router';
 import {
   Component,
   OnInit,
   OnChanges,
-  SimpleChanges,
-  Output,
-  EventEmitter
+  SimpleChanges
 } from "@angular/core";
 import { ProductService } from "src/app/Service/product.service";
 
@@ -19,7 +18,7 @@ export class ProductListComponent implements OnInit, OnChanges {
   selectedValues: Object;
   sortFilter = 'Name';
 
-  constructor(private _productservice: ProductService) {}
+  constructor(private _productservice: ProductService, private _router: Router) {}
 
   ngOnInit() {
     this._productservice.getAllProducts().subscribe(data => {
@@ -72,5 +71,9 @@ export class ProductListComponent implements OnInit, OnChanges {
         return 0;
       }
     });
+  }
+
+  productClicked(product: Product) {
+      this._router.navigate(['/product', product.SKUCode]);
   }
 }

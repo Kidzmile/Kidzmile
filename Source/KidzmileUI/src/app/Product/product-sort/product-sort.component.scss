@@ -1,4 +1,5 @@
 @import '../../shared/scss/selected_theme_variables';
+
 .sort-left{
   display: flex;
     flex-direction: row-reverse;
@@ -403,4 +404,12 @@ input[type="checkbox"]:checked+span .fake-checkbox:after {
   .showcount {
     font-size: 10px;
   }
+}
+.dropdown-item {
+  white-space: normal;
+  font-size: 0.85rem;
+}
+
+select::-ms-expand {
+  display: none !important;
 }

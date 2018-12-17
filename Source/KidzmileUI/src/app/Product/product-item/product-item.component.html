@@ -2,23 +2,24 @@
   <a itemprop="url"  class="product-base p-1 d-block">
     <img itemprop="image" class="product-thumb" alt="{{product.Name}}" [src]="getProductImageUrl(product)">
     <div class="product-productMetaInfo">
-      <!-- <div class="morechoices">
-        More Choices Available
-      </div> -->
+      <div class="morechoices">
+        See available choices
+      </div>
       <div itemprop="name" class="product-brand">{{ product.Name }}</div>
       <div itemprop="offers" itemscope itemtype="https://schema.org/Offer" class="product-price">
         <span>
-          <span itemprop="price" class="product-discountedPrice">{{currency}} {{ product.PricePerUnit }}</span>
+          <span itemprop="price" class="product-discountedPrice"><i aria-hidden="true " class="fa fa-inr"> </i>{{ product.PricePerUnit }}</span>
           <span *ngIf="product; let cost_price">
-            <span itemprop="price" class="disableprize">{{currency}} {{product.PricePerUnit}}</span>
+            <span itemprop="price" class="disableprize"><i aria-hidden="true " class="fa fa-inr"> </i>{{product.PricePerUnit}}</span>
           </span>
         </span>
+
       </div>
       <div class="ngrating">
-        <ngx-input-star-rating disabled="true" value="1"></ngx-input-star-rating>
+        <ngx-input-star-rating disabled="true" value="4"></ngx-input-star-rating>
       </div>
       <small class="shipping">
-        FREE 1-2 day shipping over 
+       You save 41 rupees
       </small>
     </div>
   </a>

@@ -1,18 +1,20 @@
-// .navbar {
-//     transition: all 500ms;
-//     padding: 0px;
-//     padding-top: 1rem;
-//     &.page-scroll-header {
-//         position: fixed;
-//         z-index: 100;
-//         width: 100%;
-//     }
-//     &:not(#main),
-//     &.page-scroll-header {
-//         box-shadow: 0 8px 6px -8px;
-//         z-index: 1;
-//     }
-// }
+@import "../../Shared/scss/selected_theme_variables";
+
+.navbar {
+    transition: all 500ms;
+    padding: 0px;
+    padding-top: 1rem;
+    &.page-scroll-header {
+        position: fixed;
+        z-index: 100;
+        width: 100%;
+    }
+    &:not(#main),
+    &.page-scroll-header {
+        box-shadow: 0 8px 6px -8px;
+        z-index: 1;
+    }
+}
 .shippingbtn {
     font-size: 1.1em !important;
     background-color: inherit;
@@ -54,8 +56,7 @@
 }
 
 .header {
-    background-color: #f0f0;
-    width: auto;
+  background-color: $theme-main-color;
     .resheader {
         width: calc(100vw - 15vw);
         @media screen and(width: 768px) {
@@ -363,4 +364,10 @@
 
 .badge-cart {
     background-color: #ffbc5f;
+}
+
+.display-flex-left{
+  display: flex;
+flex-direction: column;
+margin-left: auto;
 }

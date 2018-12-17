@@ -20,7 +20,7 @@ const appRoutes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'signup', component: SignupComponent },
   { path: 'home', component: HomeComponent},
-  { path: 'product', component: ProductDetailsComponent },
+  { path: 'product/:skucode', component: ProductDetailsComponent },
   { path: 'cart', component: CartMainComponent},
   { path: '', redirectTo: '/home', pathMatch: 'full' }
 ];

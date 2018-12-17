@@ -26,6 +26,7 @@
   }
 }
 
+
 //consider this
 //@import "compass/css3";
 
@@ -64,7 +65,7 @@ $lowest: #000;
     display: inherit;
     float: none;
   }
-  
+
 // }
 
 ul {
@@ -76,7 +77,7 @@ ul {
 	padding: 0px;
 	clear: both;
   list-style: none;
-	  
+
 	// img {
 	//     float: left;
 
@@ -88,10 +89,10 @@ ul {
 	// }
 	// >div label {
   //   display: inline-block;
-	//   padding: 5px 5px 0px 5px;  
+	//   padding: 5px 5px 0px 5px;
 	//   height: 20px;
 	//   transition: .24s all;
 	//   @include vendor-prefix(user-select,none);
-	// }  
+	// }
 }
 }

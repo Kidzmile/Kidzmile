@@ -14,7 +14,7 @@
     -->
     <!-- <div class="container">
     <div class="row"> -->
-      <div *ngIf="!isFilterOn" class="category" > 
+      <div *ngIf="!isFilterOn" class="category" >
         <!-- <div > -->
         <ul class="list-group">
             <label>Categories</label>
@@ -22,7 +22,7 @@
             <!-- <div><input type="checkbox" [id]="item.Name" />
               <label [for]="item.Name">{{item.Name}}</label></div> -->
               <label class="list-group-item list-group-item-action"  [for]="item.Name">
-                  <input class="maninname" type="checkbox" value="{{item.Name}}"  (change)="categoriesChanged($event,item.Name)"/>
+                  <input class="maninname " type="checkbox" value="{{item.Name}}"  (change)="categoriesChanged($event,item.Name)"/>
                   {{item.Name}}
                 </label>
           </li>

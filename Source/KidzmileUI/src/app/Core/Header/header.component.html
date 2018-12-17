@@ -1,7 +1,6 @@
-<div class="header custom-bg-color">
-
-    <nav class="navbar navbar-expand-lg navbar-light custom-bg-color navbar-height-2 fixed-top">
-        <div class="container-fluid">
+<div class="header">
+    <nav class="navbar navbar-expand-lg navbar-light custom-bg-color navbar-height-2 fixed-top" id="main">
+        <div class="container">
             <a class="navbar-brand" class="navbar-brand ng-star-inserted">
                 <img class="d-inline-block align-top " alt="kidzmile logo" src="/assets/default/logo.svg" width="140" height="40" /></a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent " aria-expanded="false " aria-label="Toggle navigation ">
@@ -9,26 +8,17 @@
         </button>
             <div class="collapse navbar-collapse row" id="navbarSupportedContent">
 
-                <div class="input-group stylish-input-group col-6 custom-search-styling ">
+              <div class="input-group stylish-input-group col-6 custom-search-styling ">
                     <input class="form-control mb-3 form-control-borderless" type="search " placeholder="Search " aria-label="Search ">
 
                     <span class="input-group-addon search-icon-dim ">
-
                     <i class="fa fa-search h6 "></i>
-
                 </span>
-
                 </div>
 
-
-
-
-
-
-                <div class="col-6 ">
-
+                <div class="col-6  display-flex-left">
                     <ul class="navbar-nav mr-auto align-items-end ">
-                        <li class="nav-item dropdown custom-row-spacing " class="pl-2 border-left">
+                        <li class="nav-item dropdown custom-row-spacing " >
                             <a class="nav-link " href="# " id="navbarDropdown1 " role="button" data-toggle="dropdown" aria-haspopup="true " aria-expanded="false ">
                                 <strong>24/7 help</strong>
                                 <i class="fa pl-3 fa-chevron-down "></i> </a>
@@ -77,8 +67,9 @@
                             </div>
                         </li>
                         <div class="collapse navbar-collapse justify-content-end" id="navbarNavDropdown">
-                            <div class="pl-2 border-left"> <button class="btn cart"><a class="nav-link" href="#" routerLink="cart"><i aria-hidden="true "
-                                        class="fa fa-shopping-cart "></i>Cart
+                            <div class="pl-2 border-left">
+                               <button class="btn cart"><a class="nav-link" href="#" routerLink="cart">
+                                 <i aria-hidden="true " class="fa fa-shopping-cart "></i>Cart
                                     <span class="badge badge badge-pill shadow-sm badge-cart">{{!(_cartDataService.getData())?0:_cartDataService.getData()}}</span></a></button>
                             </div>
 
@@ -95,22 +86,14 @@
     </nav>
 
 
-
-
-
-
-
-
-
-
     <!--<div class="container custom-height ">-->
-    <nav class="navbar navbar-expand-lg navbar-light custom-bg-color custom-height-2 ">
-        <div class="container-fluid">
+    <nav class="navbar navbar-expand-lg navbar-light custom-bg-color custom-height-2" id="sub-header">
+        <div class="container">
             <div class="collapse navbar-collapse left-content-start ">
                 <div class="col text-right ">
-                    <button type="button " class="btn shippingbtn "> FREE 1-2 DAY SHIPPING OVER <i class="fa ml-2 fa-truck "
+                    <button type="button " class="btn shippingbtn"> FREE 1-2 DAY SHIPPING OVER <i class="fa ml-2 fa-truck "
                                 aria-hidden="true "></i>
-                        </button>
+                      </button>
                 </div>
             </div>
         </div>

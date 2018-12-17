@@ -1,3 +1,4 @@
+import { ActivatedRoute } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { ToasterService } from '../../Core/Service/Toaster/toaster';
 import { Product } from '../../Model/ProductModel/product.model';
@@ -28,8 +29,9 @@ export class ProductDetailsComponent implements OnInit {
   maxrating = 5;
 
 
-  constructor(private _cartService: CartUpdateService, private toaster: ToasterService, private _productservice: ProductService) { }
-
+  constructor(private _cartService: CartUpdateService, private _productservice: ProductService, private _router: ActivatedRoute, private toaster: ToasterService) {
+    this.sku_code = this._router.snapshot.paramMap.get('skucode');
+  }
 
   sideBarImageSrc: String[] = [];
   imagePath: any;
