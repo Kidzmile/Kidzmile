@@ -1,16 +1,19 @@
 <div role="document" class="modal-dialog">
   <div class="modal-content">
     <div class="modal-header">
-      <h4 class="modal-title">{{title}}</h4>
+      <h4 class="modal-title">Log Out</h4>
       <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss('Cross click')">
         <span aria-hidden="true">&times;</span>
       </button>
     </div>
     <div class="modal-body">
+      <p><b>Do you want to LogOut?</b></p>
       <ng-content></ng-content>
     </div>
     <div class="modal-footer">
-      <button type="button" class="btn btn-outline-dark" (click)="activeModal.close('Close click')">Close</button>
+      <div class="yes">
+      <button type="button" class="btn btn-outline-dark " (click)="activeModal.close('Close click')">Yes</button></div>
+      <button type="button" class="btn btn-outline-dark" (click)="activeModal.close('Close click')">No</button>
     </div>
   </div>
 </div>

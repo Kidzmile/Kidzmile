@@ -48,6 +48,13 @@ INSERT INTO ProductDetails (color,size,product_description,material	,created_ts	
 INSERT INTO [dbo].[Image] values('TDB','\assets\images\Product\Plush Animals\1.jpg')
 INSERT INTO [dbo].[Image] values('TDB','\assets\images\Product\Plush Animals\2.jpg')
 INSERT INTO [dbo].[Image] values('TDBc','\assets\images\Product\Plush Animals\3.jpg')
+
+INSERT INTO [dbo].[Image] values('BBT','\assets\images\Product\Plush Animals\IMG_3429.jpg')
+INSERT INTO [dbo].[Image] values('BBT','\assets\images\Product\Plush Animals\IMG_3430.jpg')
+INSERT INTO [dbo].[Image] values('BBT','\assets\images\Product\Plush Animals\IMG_3455.jpg')
+INSERT INTO [dbo].[Image] values('BBT','\assets\images\Product\Plush Animals\IMG_3459.jpg')
+
+
 select * from [dbo].[Image]
 dbo.SpProductImages_GetBySKUCode @skucode='TDB'
 -----------------------------------------------------

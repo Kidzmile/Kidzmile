@@ -8,7 +8,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class ProductService {
-
+  code: "";
   constructor(private _http: HttpClient) { }
   getAllProducts() {
     return this._http.get<ServerResponse>(environment.api + "/api/product/GetAsync")
@@ -21,8 +21,20 @@ export class ProductService {
         });
   }
 
-  getImagesBySkuCode(code: string ) {
-    return this._http.get<ServerResponse>(environment.api + "/api/category/Images/GetAsync/code?code=" + code )
+  getProductBySkucode(code: string) {
+    return this._http.get<ServerResponse>(environment.api + "/api/product/GetAsync/", { params: { "code": code } })
+      .map(res => {
+        return res["Result"] as Product;
+      })
+      .catch(
+        (error: Response) => {
+          return Observable.throw(error);
+        });
+  }
+
+
+  getImagesBySkuCode(code: string) {
+    return this._http.get<ServerResponse>(environment.api + "/api/category/Images/GetAsync/code?code=" + code)
       .map(res => {
         return res["Result"];
       })
@@ -31,5 +43,4 @@ export class ProductService {
           return Observable.throw(error);
         });
   }
-
 }

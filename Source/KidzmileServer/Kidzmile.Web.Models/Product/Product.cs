@@ -12,7 +12,7 @@ namespace Kidzmile.Web.Models
     public class Product
     {
 
-        public int? ID { get; set; }
+        public int ID { get; set; }
         public string Name { get; set; }
         public string SKUCode { get; set; }
         public int? Units { get; set; }

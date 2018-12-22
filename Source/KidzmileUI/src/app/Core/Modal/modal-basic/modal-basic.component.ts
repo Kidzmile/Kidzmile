@@ -7,14 +7,16 @@ import { NgbModal, ModalDismissReasons, NgbActiveModal } from '@ng-bootstrap/ng-
 })
 export class ModalBasicComponent implements OnInit {
   @Input() title = `Information`;
-  
+
   constructor(
     public activeModal: NgbActiveModal
-  ) { }
+  ) {
+    console.log("called");
+  }
 
   ngOnInit() {
   }
 
-  
+
 }
 

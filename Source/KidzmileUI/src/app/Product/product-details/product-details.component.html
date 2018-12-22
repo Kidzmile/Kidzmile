@@ -1,159 +1,168 @@
+
 <div class="container pl-0 ml-5 mt-2 ">
-    <div class="row">
-        <div class="col-12 col-md-5">
-            <div class="image-container">
-                <div class="row">
-                    <div class="col-1">
-                        <div class="thumbnails-vertical-container d-none d-lg-block ">
-                            <button class="thumbnails-thumbnail-button" (click)="btnClickImageChange(sideBarImageSrc[0])" type="button"><img  class="thumbnails-thumbnail-button img-fluid" src="{{sideBarImageSrc[0]}}"  ></button>
-                            <button class="thumbnails-thumbnail-button" (click)="btnClickImageChange(sideBarImageSrc[1])" type="button"><img  class="thumbnails-thumbnail-button img-fluid" src="{{sideBarImageSrc[1]}}"  ></button>
-                            <button class="thumbnails-thumbnail-button" (click)="btnClickImageChange(sideBarImageSrc[1])" type="button"><img  class="thumbnails-thumbnail-button img-fluid"  src="{{sideBarImageSrc[1]}}"  ></button>
-                        </div>
-                    </div>
-                    <div class="col-11">
-                        <img [imageZoom]="imagePath?imagePath:sideBarImageSrc[0]" class="thumbnails-selected-image img-fluid mt-5" src="{{imagePath?imagePath:sideBarImageSrc[0]}}">
-                    </div>
-
-
-                </div>
-
-
+  <div class="row">
+    <div class="col-12 col-md-5">
+      <div class="image-container">
+        <div class="row">
+          <div class="col-1">
+            <div class="thumbnails-vertical-container d-none d-lg-block ">
+              <button class="thumbnails-thumbnail-button" (click)="btnClickImageChange(sideBarImageSrc[0])" type="button"><img
+                  class="thumbnails-thumbnail-button img-fluid" src="{{sideBarImageSrc[0]}}"></button>
+              <button class="thumbnails-thumbnail-button" (click)="btnClickImageChange(sideBarImageSrc[1])" type="button"><img
+                  class="thumbnails-thumbnail-button img-fluid" src="{{sideBarImageSrc[1]}}"></button>
+              <button class="thumbnails-thumbnail-button" (click)="btnClickImageChange(sideBarImageSrc[1])" type="button"><img
+                  class="thumbnails-thumbnail-button img-fluid" src="{{sideBarImageSrc[1]}}"></button>
             </div>
+          </div>
+          <div class="col-11">
+            <img [imageZoom]="imagePath?imagePath:sideBarImageSrc[0]" class="thumbnails-selected-image img-fluid mt-5"
+              src="{{imagePath?imagePath:sideBarImageSrc[0]}}">
+          </div>
+
 
         </div>
-        <div class="col-md-7 col-12">
-            <div class="row pt-5 mr-0">
-                <div class="col-12 p-0">
-                    <div class="col-12 p-0">
-                        <h1 class="title" itemprop="name">{{product.name}}</h1>
-                        <div _ class="product-subtitle">
-                            <!----><a href="/search"><small> By  <span  itemprop="brand"></span></small></a></div>
-                    </div>
-                    <div class="col-12 p-0">
-                        <div class="product-header-extras">
-                            <div class="ugc pr-3">
-                                <a class="hide-phone js-revScrollTo">
-                                    <ngx-input-star-rating class="ml-4" disabled="true" [value]="totalRating"></ngx-input-star-rating>
-                                </a>
 
-                            </div>
-                        </div>
+      </div>
 
-                    </div>
-
-                    <div class="col-12 d-flex p-0">
-                        <div class="buybox-wrapper row">
-                            <div class="product-vitals col-md-6 col-12 pr-30">
-                                <div id="pricing">
-                                    <ul class="product-price">
-                                        <li>
-                                            <ul>
-                                                <li><span class="price-li-styling ">List Price:</span>
-
-                                                </li>
-                                                <li class="unlisted-text-stye">
-                                                    <span class="d-block float-left price-li2-styling">Rs.{{product.price_per_unit}}</span>
-                                                </li>
-                                            </ul>
-                                        </li>
-                                        <li>
-                                            <ul>
-                                                <li><span class="price-li-styling ">Price:</span>
-
-                                                </li>
-                                                <li class="unlisted-text-stye">
-                                                    <span class="d-block float-left price-li2-styling">Rs.{{discountedPrice}}</span>
-                                                </li>
-                                            </ul>
-
-                                        </li>
-                                        <li>
-                                            <ul>
-                                                <li><span class="price-li-styling">You Save:</span>
-
-                                                </li>
-                                                <li class="unlisted-text-stye">
-                                                    <span class="d-block float-left price-li2-styling">Rs.{{discount}}</span>
-                                                </li>
-                                            </ul>
-
-                                        </li>
-
-                                    </ul>
-
-                                </div>
-
-                                <div class="row m-0">
-                                    <div class="col-12 p-3 p-sm-0">
-                                        <h4 style="font-size: 1em ; "> Check COD Availability</h4>
-                                        <form class="d-block ">
-                                            <div class="form-inline">
-                                                <div class="form-group mr-sm-3 mr-3 mt-3 mt-sm-0"><input class="form-control" formcontrolname="pincode" name="pincode" placeholder="Postal/Pin code" type="text"></div><button class="btn themebtnprimarybasic" type="submit">Check</button></div>
-
-                                            <div class="mt-2 msg ">
-
-
-
-                                            </div>
-                                        </form>
-                                    </div>
-                                </div>
-
-
-                            </div>
-
-                            <div class="mx-20 col-md-6  col-12">
-                                <div id="buybox">
-                                    <div class="bordered">
-                                        <div class="buybox-purchased">
-                                            <form>
-
-                                                <div class="buy-quantity">
-                                                    <a class="btn quantity-minus" (click)="decrementItemCount()"> - </a>
-                                                    <span class="quantity-input">
-                                                      <span class="quantity-number">
-                                                          {{countItems}}
-                                                        </span>
-                                                    <span>
-                                                        Quantity
-                                                        
-                                                    </span>
-                                                    </span>
-                                                    <a class="btn quantity-minus" (click)="incrementItemCount()">+</a>
-                                                </div>
-
-                                                <div class="buttons row row-adjust">
-                                                    <input class="btn col-12 themebtnprimary themebtnprimarysade js-add-cart" type="submit" value="Add to Cart" (click)="addToCartEvent()">
-                                                    <button class="btn col-12 themebtnprimary themebtnprimarysade mt-1">Buy Now</button>
-                                                </div>
-
-                                            </form>
-                                        </div>
-
-                                    </div>
-                                </div>
-
-
-                            </div>
-
-
-                        </div>
-
-                    </div>
-
-
-                </div>
-            </div>
-        </div>
     </div>
+    <div class="col-md-7 col-12" *ngIf="product" >
+      <div class="row pt-5 mr-0">
+        <div class="col-12 p-0">
+          <div class="col-12 p-0">
+            <h1 class="title" itemprop="name">{{product.Name}}</h1>
+            <div _ class="product-subtitle">
+              <!----><a href="/search"><small> By <span itemprop="brand"></span></small></a></div>
+          </div>
+          <div class="col-12 p-0">
+            <div class="product-header-extras">
+              <div class="ugc pr-3">
+                <a class="hide-phone js-revScrollTo">
+                  <ngx-input-star-rating class="ml-4" disabled="true" [value]="totalRating"></ngx-input-star-rating>
+                </a>
+
+              </div>
+            </div>
+
+          </div>
+
+          <div class="col-12 d-flex p-0" *ngIf="product">
+            <div class="buybox-wrapper row">
+              <div class="product-vitals col-md-6 col-12 pr-30">
+                <div id="pricing">
+                  <ul class="product-price">
+                    <li>
+                      <ul>
+                        <li><span class="price-li-styling ">List Price:</span>
+
+                        </li>
+                        <li class="unlisted-text-stye">
+                          <span class="d-block float-left price-li2-styling">Rs.{{product?.PricePerUnit}}</span>
+                        </li>
+                      </ul>
+                    </li>
+                    <li>
+                      <ul>
+                        <li><span class="price-li-styling ">Price:</span>
+
+                        </li>
+                        <li class="unlisted-text-stye">
+                          <span class="d-block float-left price-li2-styling">Rs.{{discountedPrice}}</span>
+                        </li>
+                      </ul>
+
+                    </li>
+                    <li>
+                      <ul>
+                        <li><span class="price-li-styling">You Save:</span>
+
+                        </li>
+                        <li class="unlisted-text-stye">
+                          <span class="d-block float-left price-li2-styling">Rs.{{discount}}</span>
+                        </li>
+                      </ul>
+
+                    </li>
+
+                  </ul>
+
+                </div>
+
+                <div class="row m-0">
+                  <div class="col-12 p-3 p-sm-0">
+                    <h4 style="font-size: 1em ; "> Check COD Availability</h4>
+                    <form class="d-block ">
+                      <div class="form-inline">
+                        <div class="form-group mr-sm-3 mr-3 mt-3 mt-sm-0"><input class="form-control" formcontrolname="pincode"
+                            name="pincode" placeholder="Postal/Pin code" type="text"></div><button class="btn themebtnprimarybasic"
+                          type="submit">Check</button>
+                      </div>
+
+                      <div class="mt-2 msg ">
+
+
+
+                      </div>
+                    </form>
+                  </div>
+                </div>
+
+
+              </div>
+
+              <div class="mx-20 col-md-6  col-12">
+                <div id="buybox">
+                  <div class="bordered">
+                    <div class="buybox-purchased">
+                      <form>
+
+                        <div class="buy-quantity">
+                          <a class="btn quantity-minus" (click)="decrementItemCount()"> - </a>
+                          <span class="quantity-input">
+                            <span class="quantity-number">
+                              {{countItems}}
+                            </span>
+                            <span>
+                              Quantity
+
+                            </span>
+                          </span>
+                          <a class="btn quantity-minus" (click)="incrementItemCount()">+</a>
+                        </div>
+
+                        <div class="buttons row row-adjust">
+                          <input class="btn col-12 themebtnprimary themebtnprimarysade js-add-cart" type="submit" value="Add to Cart"
+                            (click)="addToCartEvent()">
+                          <button class="btn col-12 themebtnprimary themebtnprimarysade mt-1">Buy Now</button>
+                        </div>
+
+                      </form>
+                    </div>
+
+                  </div>
+                </div>
+
+
+              </div>
+
+
+            </div>
+
+          </div>
+
+
+        </div>
+      </div>
+    </div>
+  </div>
 
 
 </div>
 
 <div class="conatiner m-2">
-    <app-product-description></app-product-description>
+  <app-product-description></app-product-description>
 </div>
 
 <div class="container pt-10 m-2">
-    <app-product-ratings [content]="reviewData" [reviews_count]="reviews_count" [reviewPercent]="reviewPercent" [totalRating]="totalRating"></app-product-ratings>
+  <app-product-ratings [content]="reviewData" [reviews_count]="reviews_count" [reviewPercent]="reviewPercent"
+    [totalRating]="totalRating"></app-product-ratings>
 </div>

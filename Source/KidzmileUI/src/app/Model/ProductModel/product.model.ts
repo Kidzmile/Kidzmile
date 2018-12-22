@@ -1,11 +1,11 @@
-export class Product {
+export interface Product {
 id?: number;
-sku_code?: string;
-name?: string;
-imageUrl?: string;
-average_rating?: number;
-units?: number;
-product_active?: boolean;
-price_per_unit?: number;
 
+Name: string;
+imageUrl?: string;
+averageRating?: number;
+Units?: number;
+IsActive?: boolean;
+PricePerUnit?: number;
+SKUCode: string;
 }

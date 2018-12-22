@@ -40,7 +40,7 @@ namespace Kidzmile.Controllers
         }
 
         [HttpGet]
-        [Route("GetAsync/code")]
+        [Route("GetAsync")]
         public async Task<IHttpActionResult> GetBySKUCode(string code)
         {
             var product = await productDataService.GetBySKUCode(code);

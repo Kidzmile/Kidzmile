@@ -45,6 +45,7 @@ import { EmptycartcomponentComponent} from '../app/Cart/emptycartcomponent/empty
 import { CartComponentComponent} from '../app/Cart/cart-component/cart-component.component';
 import { ProductRatingsComponent } from './Product/product-details/product-ratings/product-ratings.component';
 import { ProductDescriptionComponent } from './Product/product-details/product-description/product-description.component';
+import { ProductDetailsResolver } from '../app/Service/productdetails.resolver.service';
 
 @NgModule({
   declarations: [
@@ -84,6 +85,7 @@ import { ProductDescriptionComponent } from './Product/product-details/product-d
     NgbModule.forRoot(),
     ModalModule.forRoot()
   ],
+  entryComponents: [ ModalBasicComponent ],
   providers: [
     {
       provide: ROUND_PROGRESS_DEFAULTS,
@@ -97,7 +99,8 @@ import { ProductDescriptionComponent } from './Product/product-details/product-d
     // { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
     { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
     { provide: HTTP_INTERCEPTORS, useClass: AppHttpInterceptor, multi: true },
-    HomeService, NguCarousel, AuthenticationService, ToasterService, CategoryService, ProductService
+    HomeService, NguCarousel, AuthenticationService,
+    ToasterService, CategoryService, ProductService,ProductDetailsResolver
   ],
   bootstrap: [AppComponent]
 })

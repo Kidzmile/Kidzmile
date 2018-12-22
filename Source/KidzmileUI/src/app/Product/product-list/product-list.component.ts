@@ -18,22 +18,25 @@ export class ProductListComponent implements OnInit, OnChanges {
   selectedValues: Object;
   sortFilter = 'Name';
 
-  constructor(private _productservice: ProductService, private _router: Router) {}
+  constructor(private _productservice: ProductService, private _router: Router) { }
 
   ngOnInit() {
     this._productservice.getAllProducts().subscribe(data => {
       this.products = this.allProducts = data;
       this.sortChanged('1');
-    });
+    },
+      (err) => {
+        console.log(err);
+      });
   }
 
-  ngOnChanges(changes: SimpleChanges): void {}
+  ngOnChanges(changes: SimpleChanges): void { }
 
   categoriesChanged(categories: string[]) {
     const productCategories = categories;
     if (categories.length > 0) {
-      this.products = this.allProducts.filter(function(
-        element: Product ) {
+      this.products = this.allProducts.filter(function (
+        element: Product) {
         if (productCategories.indexOf(element['Category']) !== -1) {
           return true;
         } else {
@@ -74,6 +77,6 @@ export class ProductListComponent implements OnInit, OnChanges {
   }
 
   productClicked(product: Product) {
-      this._router.navigate(['/product', product.SKUCode]);
+    this._router.navigate(['/product', product.SKUCode]);
   }
 }

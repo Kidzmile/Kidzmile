@@ -1,3 +1,4 @@
+import { ModalBasicComponent } from './../Modal/modal-basic/modal-basic.component';
 import { Component, Input, Output, EventEmitter, OnChanges, SimpleChanges, OnInit, Inject } from '@angular/core';
 import { CartUpdateService } from '../../Shared/cartupdate.service';
 import { Router } from '@angular/router';
@@ -41,9 +42,9 @@ export class HeaderComponent implements OnInit {
     this.router.navigate(["\login"]);
   }
 
-  /*open() {
+  open() {
     // const modalRef = this.modalService.open(ModalComponent);
-    const modalRef = this.modalService.open(HomeComponent);
+    const modalRef = this.modalService.open(ModalBasicComponent);
     modalRef.componentInstance.title = 'About';
-  }*/
+  }
 }
