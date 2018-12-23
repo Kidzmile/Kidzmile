@@ -21,4 +21,8 @@ export class ProductItemComponent implements OnInit {
     return this._sanitizer.bypassSecurityTrustUrl(product.ImagePath);
   // return "";
   }
+
+  OnLoading(){
+    console.log('called');
+  }
 }

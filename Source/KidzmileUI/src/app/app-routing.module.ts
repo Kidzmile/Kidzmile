@@ -1,9 +1,5 @@
-//import { ProductDetailsResolver } from './Service/productdetails.resolver.service';
+
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { AppComponent } from './app.component';
-import { HeaderComponent } from './Core/Header/header.component';
-import { FooterComponent } from './Core/Footer/footer.component';
 import { LoginComponent } from './Core/Login/login.component';
 import { RouterModule, Routes } from '@angular/router';
 import { HashLocationStrategy, LocationStrategy } from '@angular/common';
@@ -15,14 +11,41 @@ import { ProductListComponent } from './Product/product-list/product-list.compon
 import { ProductDetailsResolver } from './Service/productdetails.resolver.service';
 
 const appRoutes: Routes = [
-  { path: 'productList', component: ProductListComponent },
-  { path: 'login', component: LoginComponent },
-  { path: 'signup', component: SignupComponent },
-  { path: 'home', component: HomeComponent },
- { path: 'product/:skucode', component: ProductDetailsComponent, resolve: { productdetail: ProductDetailsResolver } },
- // { path: 'product/:skucode', component: ProductDetailsComponent},
-  { path: 'cart', component: CartMainComponent },
-  { path: '', redirectTo: '/home', pathMatch: 'full' }
+  {
+    path: 'productList',
+    component: ProductListComponent
+  },
+  {
+    path: 'login',
+    component: LoginComponent
+  },
+  {
+    path: 'signup',
+    component: SignupComponent
+  },
+  {
+    path: 'home',
+    component: HomeComponent
+  },
+  {
+    path: 'product/:skucode',
+    component: ProductDetailsComponent,
+    resolve:
+    {
+      productdetail: ProductDetailsResolver
+    }
+  },
+
+  {
+    path: 'cart',
+    component: CartMainComponent
+  },
+
+  {
+    path: '',
+    redirectTo: '/home',
+    pathMatch: 'full'
+  }
 ];
 
 @NgModule({
