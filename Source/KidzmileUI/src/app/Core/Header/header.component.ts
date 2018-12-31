@@ -1,5 +1,6 @@
+import { ChangePasswordComponent } from './../ChangePassword/change-password.component';
 import { ModalBasicComponent } from './../Modal/modal-basic/modal-basic.component';
-import { Component, Input, Output, EventEmitter, OnChanges, SimpleChanges, OnInit, Inject } from '@angular/core';
+import { Component, Input, Output, EventEmitter,OnInit, Inject } from '@angular/core';
 import { CartUpdateService } from '../../Shared/cartupdate.service';
 import { Router } from '@angular/router';
 import { ToasterService } from '../Service/Toaster/toaster';
@@ -7,7 +8,6 @@ import { HomeService } from '../../Shared/home.service';
 import { Login } from '../Model/Login/login.model';
 import { AuthenticationService } from '../Authentication/authentication.service';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
-import { HomeComponent } from '../../Home/home.component';
 
 @Component({
   selector: 'app-header',
@@ -35,16 +35,25 @@ export class HeaderComponent implements OnInit {
 
   logout() {
     localStorage.removeItem("currentUserToken");
-    this.authenticationService.logout();
     this.isUserAuthenticated = false;
-    this.loggedInUserDetails=null;
+    this.loggedInUserDetails = null;
     this.toaster.success("Log Out", "Logged Out successfully");
     this.router.navigate(["\login"]);
   }
 
-  openModal() {
+  openLogOutModal() {
     const modalRef = this.modalService.open(ModalBasicComponent);
     modalRef.componentInstance.title = 'LogOut';
+    modalRef.result.then(result=>{
+      if(result=="True"){
+        this.logout();
+      }
+    })
+  }
+
+  openChangePasswordModal(){
+    const modalRef = this.modalService.open(ChangePasswordComponent);
+    modalRef.componentInstance.title = 'ChangePassword';
     modalRef.result.then(result=>{
       if(result=="True"){
         this.logout();

@@ -45,7 +45,7 @@
                                         <h6>Login</h6>
                                     </a>
                                     <div class="dropdown-divider "></div>
-                                    <a class="dropdown-item " routerLink="signup">
+                                    <a class="dropdown-item" routerLink="signup">
                                         <h6>Sign Up</h6>
                                     </a>
                                 </div>
@@ -62,7 +62,12 @@
 
                                 <div class="dropdown-divider "></div>
                                 <a class="dropdown-item " href="#">
-                                    <h6><a (click)="openModal()">Log Out</a></h6>
+                                    <h6><a [routerLink]="['/changepassword']" >Change Password</a></h6>
+                                </a>
+
+                                <div class="dropdown-divider "></div>
+                                <a class="dropdown-item " href="#">
+                                    <h6><a (click)="openLogOutModal()">Log Out</a></h6>
                                 </a>
                             </div>
                         </li>

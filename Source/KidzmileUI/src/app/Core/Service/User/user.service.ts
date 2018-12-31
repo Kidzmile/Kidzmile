@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class UserService  {
-  
+
   constructor(private http: HttpClient,private userService: UserService) { }
 
   getAll() {
@@ -24,16 +24,16 @@ get() {
       'Content-Type': 'application/x-www-urlencoded',
       'No-Auth': 'True'
     });
- 
+
     console.log(environment.api + '/token' + ' - ' + data + reqHeader);
     return this.http.post(environment.api + '/token', data, { headers: reqHeader });
   }
 
   registerUser(user: User) {
     const body: User = {
-      userName: user.email,
+      userName: user.userName,
       password: user.password,
-      email: user.email,
+      email: user.userName,
       firstName: user.firstName,
       lastName: user.lastName,
       phoneNumber: user.phoneNumber
@@ -43,12 +43,22 @@ get() {
     return this.http.post(environment.api + '/api/Account/Register', body,
       { headers: new HttpHeaders({ 'No-Auth': 'True' }) });
   }
- 
+
   getUserClaims() {
     console.log('calling claims');
     return this.http.get(environment.api + '/api/Account/GetUserClaims'
     // { headers: new HttpHeaders({ 'Authorization': 'Bearer' + localStorage.getItem('currentUserToken') }) }
      );
+  }
+
+  changePassword(currentpwd:string,newpassword:string){
+    const body={
+      "OldPassword":currentpwd,
+      "NewPassword":newpassword,
+      "ConfirmPassword":newpassword,
+    }
+    console.log(body);
+   return this.http.post( environment.api + '/api/Account/ChangePassword',body);
   }
 
 }

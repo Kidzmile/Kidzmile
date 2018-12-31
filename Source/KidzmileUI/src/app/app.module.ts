@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { NgxInputStarRatingModule } from 'ngx-input-star-rating';
 import { RoundProgressModule, ROUND_PROGRESS_DEFAULTS_PROVIDER, ROUND_PROGRESS_DEFAULTS } from 'angular-svg-round-progressbar';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ImageZoomModule } from 'angular2-image-zoom';
 import { DatePipe, CommonModule } from '@angular/common';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
@@ -46,6 +46,7 @@ import { CartComponentComponent} from '../app/Cart/cart-component/cart-component
 import { ProductRatingsComponent } from './Product/product-details/product-ratings/product-ratings.component';
 import { ProductDescriptionComponent } from './Product/product-details/product-description/product-description.component';
 import { ProductDetailsResolver } from '../app/Service/productdetails.resolver.service';
+import { ChangePasswordComponent } from './Core/ChangePassword/change-password.component';
 
 @NgModule({
   declarations: [
@@ -69,7 +70,8 @@ import { ProductDetailsResolver } from '../app/Service/productdetails.resolver.s
     CartComponentComponent,
     EmptycartcomponentComponent,
     ProductRatingsComponent,
-    ProductDescriptionComponent
+    ProductDescriptionComponent,
+    ChangePasswordComponent
   ],
   imports: [
     BrowserModule,
@@ -82,6 +84,7 @@ import { ProductDetailsResolver } from '../app/Service/productdetails.resolver.s
     CommonModule,
     NguCarouselModule,
     SharedModule,
+    ReactiveFormsModule,
     NgbModule.forRoot(),
     ModalModule.forRoot()
   ],

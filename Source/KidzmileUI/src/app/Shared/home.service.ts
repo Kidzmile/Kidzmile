@@ -11,4 +11,8 @@ public isUserAuthenticated: BehaviorSubject<any> = new BehaviorSubject<any>(fals
   constructor() {
     console.log(this.sharedData);
    }
+
+   homeservicenext(value:string){
+     this.isUserAuthenticated.next(value);
+   }
 }

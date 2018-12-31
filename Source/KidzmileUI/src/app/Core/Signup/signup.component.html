@@ -18,90 +18,41 @@
                   </button>
                 </div>
               </div>
-              
+
               <p class="register-button-info-text register-info-text">- OR USING EMAIL -</p>
-              <form #userRegistrationForm="ngForm" class="register-register-form" (ngSubmit)="OnSubmit(userRegistrationForm)">
+              <form class="register-register-form" (ngSubmit)="OnSubmit()" [formGroup]="registrationForm">
 
                 <fieldset class="register-input-container">
-
-                  <!-- <div  [class.has-error]="email.invalid && email.touched"> -->
-                    <input required id="email" name="email" type="text" class="register-user-input-mobile register-user-input" 
-                    [(ngModel)]="user.email" #email="ngModel" pattern="^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$" placeholder="Email">
-                   <!--<span class="register-error-message" *ngIf="email.invalid && email.touched">
-                      Email is required
-                    </span> -->
-                     <!-- <div *ngIf="email.invalid ">
-                        <span class="register-error-icon">sdsadsadasda!</span>
-                        <p class="register-error-message" *ngIf="email.errors?.required && email.touched" >Email is Invalid
-                        </p>
-                      </div> -->
-                  <!-- </div> -->
-                  <!-- <div class="register-input-item">
-                    <input type="email" class="register-user-input-email register-user-input" name="email" placeholder="Your Email Address"
-                      autocomplete="off"> -->
-                    <!-- <div *ngIf="signUpForm.get('email').errors && signUpForm.get('email').touched">
-                        <span class="register-error-icon">!</span>
-                        <p class="register-error-message">{{signUpForm.get('email').errors.msg || 'Please enter a valid email
-                          id'}}
-                        </p>
-                      </div> -->
-                  <!-- </div> -->
-                  
-                  
                   <div class="register-input-item">
-                    <input id="firstname" required type="text" class="register-user-input-mobile register-user-input"   placeholder="First Name" name="firstName" [(ngModel)]="user.firstName" #firstName="ngModel">
-                    <!-- <span class="help-block" *ngIf="firstname.touched">
-                      First Name is required
-                    </span> -->
-                    <!-- <div *ngIf="signUpForm.get('user.firstname').errors && signUpForm.get('user.firstname').touched">
-                      <span class="register-error-icon">!</span>
-                      <p class="register-error-message">{{signUpForm.get('user.firstname').errors.msg || 'Please enter
-                        first
-                        Name'}}
-                      </p>
-                    </div> -->
+                    <input  type="text" class="register-user-input-mobile register-user-input"
+                    placeholder="Email" formControlName="userName" (blur)="validationErrors()" >
+                    <span *ngIf="formErrors.userName" class="register-error-icon"> {{formErrors.userName }}</span>
                   </div>
-              
+                  <div class="register-input-item">
+                    <input type="text" class="register-user-input-mobile register-user-input"   placeholder="First Name" formControlName="firstName" (blur)="validationErrors()">
+                    <span *ngIf="formErrors.firstName" class="register-error-icon"> {{formErrors.firstName }}</span>
+                  </div>
+
 
                   <div class="register-input-item">
-                    <input type="text" class="register-user-input-mobile register-user-input"  placeholder="Your Last Name" name="lastName" #lastName="ngModel"  [(ngModel)]="user.lastName">
-                    <!-- <div *ngIf="signUpForm.get('user.lastname').errors && signUpForm.get('user.lastname').touched">
-                      <span class="register-error-icon">!</span>
-                      <p class="register-error-message">{{signUpForm.get('user.lastname').errors.msg || 'Please enter Last
-                        Name'}}</p>
-                    </div> -->
+                    <input type="text" class="register-user-input-mobile register-user-input"  placeholder="Your Last Name" name="lastName" formControlName="lastName" (blur)="validationErrors()">
+                    <span *ngIf="formErrors.lastName" class="register-error-icon"> {{formErrors.lastName }}</span>
                   </div>
 
                   <div class="register-input-item">
                     <input type="password" class="register-user-input-password register-user-input" name="password"
-                      placeholder="Choose Password" autocomplete="off"  [(ngModel)]="user.password" #password="ngModel">
-                    <!-- <div *ngIf="signUpForm.get('password').errors && signUpForm.get('password').touched">
-                      <span class="register-error-icon">!</span>
-                      <p class="register-error-message">{{signUpForm.get('password').errors.msg || 'Password must be at
-                        least
-                        8 characters'}}</p>
-                    </div> -->
+                      placeholder="Choose Password" formControlName="password" (blur)="validationErrors()">
+                      <span *ngIf="formErrors.password" class="register-error-icon"> {{formErrors.password }}</span>
                   </div>
 
                   <div class="register-input-item">
-                    <input type="password" class="register-user-input-password register-user-input" name="passwordconfirmation"
-                      placeholder="Confirm Password" autocomplete="off">
-                    <!-- <div *ngIf="(signUpForm.get('password_confirmation').errors || signUpForm.hasError('mismatchedPasswords')) && signUpForm.get('password_confirmation').touched">
-                      <span class="register-error-icon">!</span>
-                      <p class="register-error-message">{{ 'Password must match'}}</p>
-                    </div> -->
-
+                    <input type="password" class="register-user-input-password register-user-input" name="passwordconfirmation" placeholder="Confirm Password" formControlName="cnfrmpassword" (blur)="validationErrors()">
+                      <span *ngIf="formErrors.cnfrmpassword" class="register-error-icon"> {{formErrors.cnfrmpassword }}</span>
                     <div class="register-input-item">
-                      <input type="text" class="register-user-input-mobile register-user-input" name="phoneNumber"
-                        placeholder="Mobile Number (For order status updates)"  [(ngModel)]="user.phoneNumber" #phonenumber="ngModel">
-                      <!-- <div *ngIf="signUpForm.get('first_name').errors && signUpForm.get('phonenumber').touched">
-                        <span class="register-error-icon">!</span>
-                        <p class="register-error-message">{{signUpForm.get('phonenumber').errors.msg || 'Plese enter a valid mobile number (10 digits)'}}
-                        </p>
-                      </div> -->
+                      <input type="number" class="register-user-input-mobile register-user-input" name="phoneNumber"
+                        placeholder="Mobile Number (For order status updates)" formControlName="phoneNumber" (blur)="validationErrors()">
+                        <span *ngIf="formErrors.phoneNumber" class="register-error-icon"> {{formErrors.phoneNumber }}</span>
                     </div>
-
-
                   </div>
                 </fieldset>
                 <fieldset class="register-register-button-container">
@@ -112,7 +63,7 @@
                 <small>
                   <div class="register-login-link">
                     <span class="register-info-text">Already have an account?</span>
-                    <a class="register-create-account-link register-link text-danger" [routerLink]="['/auth','login']">Login!</a>
+                    <a class="register-create-account-link register-link text-danger" [routerLink]="['/login']">Login!</a>
                   </div>
                 </small>
               </div>
@@ -123,4 +74,3 @@
     </div>
   </div>
 </div>
-<!-- Angular Generated Form Model :{{userRegistrationForm.value|json}} -->
