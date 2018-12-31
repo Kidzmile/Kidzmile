@@ -1,5 +1,7 @@
 CREATE DATABASE KidzmileDb
+GO
 USE  KidzmileDb
+GO
 DROP dbo.SpProductDetails_Get
 DROP dbo.SpProductDetails_GetBySKUCode
 DROP dbo.SpProductDetails_Update
