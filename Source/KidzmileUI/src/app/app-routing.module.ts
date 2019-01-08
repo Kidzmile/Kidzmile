@@ -1,5 +1,4 @@
-import { ChangePasswordComponent } from './Core/ChangePassword/change-password.component';
-
+import { Router } from '@angular/router';
 import { NgModule } from '@angular/core';
 import { LoginComponent } from './Core/Login/login.component';
 import { RouterModule, Routes } from '@angular/router';
@@ -11,6 +10,12 @@ import { CartMainComponent } from './Cart/cart-main.component';
 import { ProductListComponent } from './Product/product-list/product-list.component';
 import { ProductDetailsResolver } from './Service/productdetails.resolver.service';
 import { AuthGuard } from './Core/Gaurds/auth.guard';
+import { ChangePasswordComponent } from './Core/ChangePassword/change-password.component';
+import { ForgotPasswordComponent } from './Core/ForgotPassword/forgot-password.component';
+import { FaqsComponent } from './Core/FAQs/faqs.component';
+import { ReturnpolicyComponent } from './Core/ReturnPolicy/returnpolicy.component';
+import { AboutusComponent } from './Core/Aboutus/aboutus.component';
+import { PageNotFoundComponent } from './Core/PageNotFound/page-not-found.component';
 
 const appRoutes: Routes = [
   {
@@ -32,6 +37,12 @@ const appRoutes: Routes = [
     //canActivate:[AuthGuard]
   },
   {
+    path: 'forgotpassword',
+    component: ForgotPasswordComponent,
+    //commenting as on refresh loosing username
+    //canActivate:[AuthGuard]
+  },
+  {
     path: 'home',
     component: HomeComponent
   },
@@ -48,7 +59,22 @@ const appRoutes: Routes = [
     path: 'cart',
     component: CartMainComponent
   },
-
+  {
+    path: 'aboutus',
+    component: AboutusComponent
+  },
+  {
+    path: 'returnpolicy',
+    component: ReturnpolicyComponent
+  },
+  {
+    path: 'faqs',
+    component: FaqsComponent
+  },
+  {
+    path: 'error',
+    component: PageNotFoundComponent
+  },
   {
     path: '',
     redirectTo: '/home',
@@ -61,4 +87,11 @@ const appRoutes: Routes = [
   imports: [RouterModule.forRoot(appRoutes, { useHash: true })],
   exports: [RouterModule]
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {
+
+  constructor(private _router:Router) {
+    this._router.errorHandler=(error:any)=>{
+      this._router.navigate(['/error'])
+    }
+  }
+}

@@ -13,7 +13,6 @@ import { ProductService } from "../../Service/product.service";
 export class ProductDetailsComponent implements OnInit {
   sku_code = "";
   product: Product ;
-
   discount = 1500;
   //discountedPrice = this.product.pricePerUnit - this.discount;
   discountedPrice:Number;

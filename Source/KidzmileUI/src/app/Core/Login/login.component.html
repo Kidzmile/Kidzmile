@@ -22,7 +22,7 @@
           </span>
         </div>
         <div class="wrap-input100 validate-input" data-validate = "Username is required">
-          <input class="input100" type="text" name="username" formControlName="userid" (blur)="validationErrors()" >
+          <input class="input100" type="text"  formControlName="userid" (blur)="validationErrors()" >
           <span *ngIf="formErrors.userid" class="register-error-icon"> {{formErrors.userid }}</span>
         </div>
 
@@ -31,7 +31,7 @@
             Password
           </span>
 
-          <a href="#" class="txt2 bo1 m-l-5">
+          <a href="#" class="txt2 bo1 m-l-5" [routerLink]="['/forgotpassword']">
             Forgot?
           </a>
         </div>

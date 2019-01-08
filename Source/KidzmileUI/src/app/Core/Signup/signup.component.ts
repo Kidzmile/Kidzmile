@@ -1,6 +1,6 @@
 import { Component, OnInit ,Inject} from '@angular/core';
 import { User } from '../Model/User/user.model';
-import { NgForm ,FormGroup,Validators,FormBuilder} from '@angular/forms';
+import { NgForm ,FormGroup,Validators,FormBuilder,AbstractControl} from '@angular/forms';
 import { UserService } from '../Service/User/user.service'
 import { ToasterService} from '../Service/Toaster/toaster';
 import { Observable } from 'rxjs';
@@ -29,23 +29,34 @@ export class SignupComponent implements OnInit {
     lastName: {
       required: "Required"
     },
-    password: {
-      required: "Required"
+    newpassword: {
+      required: "Required",
+      minlength: "Minimum 6 characters",
+      maxlength: "Maximum 10 characters"
     },
-    cnfrmpassword: {
-      required: "Required"
+    confirmpwd: {
+      required: "Required",
+      minlength: "Minimum 6 characters",
+      maxlength: "Maximum 10 characters"
+    },
+    cnfrmpwdGroup:{
+        'passwordmismatch':'Password and confirm password dont match'
     },
     phoneNumber: {
-      required: "Required"
+      required: "Required",
+      minlength:"Enter valid mobile number",
+      maxlength:"Enter valid mobile number"
     }
   };
 
   formErrors = {
     userName: '',
-    password: '',
     firstName: '',
     lastName: '',
-    phoneNumber: ''
+    phoneNumber: '',
+    newpassword: "",
+    confirmpwd: "",
+    cnfrmpwdGroup:""
   };
 
   constructor(private userService: UserService,private router:Router,private _fb: FormBuilder, @Inject(ToasterService) private toaster) { }
@@ -58,14 +69,6 @@ export class SignupComponent implements OnInit {
         [Validators.required,Validators.pattern('^[^\\s@]+@[^\\s@]+\\.[^\\s@]{2,}$')]
       ],
 
-      password: [
-        "",
-        [Validators.required]
-      ],
-      cnfrmpassword: [
-        "",
-        [Validators.required]
-      ],
       firstName:[
         "",
         [Validators.required]
@@ -76,9 +79,27 @@ export class SignupComponent implements OnInit {
       ],
       phoneNumber:[
         "",
-        [Validators.required]
+        [Validators.required,Validators.minLength(10), Validators.maxLength(10)]
       ]
-    });
+    , cnfrmpwdGroup: this._fb.group({
+      newpassword: [
+        "",
+        [
+          Validators.required,
+          Validators.minLength(6),
+          Validators.maxLength(10)
+        ]
+      ],
+      confirmpwd: [
+        "",
+        [
+          Validators.required,
+          Validators.minLength(6),
+          Validators.maxLength(10)
+        ]
+      ]
+    },{validator:this.checkPasswords})
+  });
 
     this.registrationForm.valueChanges.subscribe((data:string)=>{
       this.validationErrors(this.registrationForm);
@@ -137,11 +158,7 @@ export class SignupComponent implements OnInit {
       const abstractControl = group.get(key);
 
       this.formErrors[key] = "";
-      if (
-        abstractControl &&
-        !abstractControl.valid &&
-        (abstractControl.touched || abstractControl.dirty)
-      ) {
+      if (abstractControl && !abstractControl.valid && (abstractControl.touched || abstractControl.dirty)) {
         const message = this.validationMessage[key];
         for (const errorkey in abstractControl.errors) {
           if (errorkey) {
@@ -155,4 +172,17 @@ export class SignupComponent implements OnInit {
       }
     });
   }
+
+
+  checkPasswords(group: AbstractControl):{[key:string]:any }|null {
+    let newPwdCtrl = group.get('newpassword');
+    let cnfrmPwdCtrl = group.get('confirmpwd');
+   if( newPwdCtrl.value === cnfrmPwdCtrl.value || cnfrmPwdCtrl.pristine){
+     return null;
+   }
+   else{
+     return {'passwordmismatch':true};
+   }
+  }
+
 }

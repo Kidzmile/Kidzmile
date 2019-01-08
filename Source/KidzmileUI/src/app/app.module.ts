@@ -47,6 +47,11 @@ import { ProductRatingsComponent } from './Product/product-details/product-ratin
 import { ProductDescriptionComponent } from './Product/product-details/product-description/product-description.component';
 import { ProductDetailsResolver } from '../app/Service/productdetails.resolver.service';
 import { ChangePasswordComponent } from './Core/ChangePassword/change-password.component';
+import { ForgotPasswordComponent } from './Core/ForgotPassword/forgot-password.component';
+import { AboutusComponent } from './Core/Aboutus/aboutus.component';
+import { FaqsComponent } from './Core/FAQs/faqs.component';
+import { ReturnpolicyComponent } from './Core/ReturnPolicy/returnpolicy.component';
+import { PageNotFoundComponent } from './Core/PageNotFound/page-not-found.component';
 
 @NgModule({
   declarations: [
@@ -71,7 +76,12 @@ import { ChangePasswordComponent } from './Core/ChangePassword/change-password.c
     EmptycartcomponentComponent,
     ProductRatingsComponent,
     ProductDescriptionComponent,
-    ChangePasswordComponent
+    ChangePasswordComponent,
+    ForgotPasswordComponent,
+    AboutusComponent,
+    FaqsComponent,
+    ReturnpolicyComponent,
+    PageNotFoundComponent
   ],
   imports: [
     BrowserModule,

@@ -29,15 +29,14 @@ get() {
     return this.http.post(environment.api + '/token', data, { headers: reqHeader });
   }
 
-  registerUser(user: User) {
+  registerUser(user: any) {
     const body: User = {
       userName: user.userName,
-      password: user.password,
+      password: user.cnfrmpwdGroup.newpassword,
       email: user.userName,
       firstName: user.firstName,
       lastName: user.lastName,
       phoneNumber: user.phoneNumber
-
     }
     console.log("callig api " + environment.api + '/api/Account/Register');
     return this.http.post(environment.api + '/api/Account/Register', body,

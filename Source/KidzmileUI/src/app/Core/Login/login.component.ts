@@ -18,7 +18,7 @@ export class LoginComponent implements OnInit {
   validationMessage = {
     userid: {
       required: "Required",
-      pattern:"email is invalid"
+      pattern: "email is invalid"
     },
     password: {
       required: "Required"
@@ -44,7 +44,7 @@ export class LoginComponent implements OnInit {
     this.loginForm = this._fb.group({
       userid: [
         "",
-        [Validators.required,Validators.pattern('^[^\\s@]+@[^\\s@]+\\.[^\\s@]{2,}$')]
+        [Validators.required, Validators.pattern('^[^\\s@]+@[^\\s@]+\\.[^\\s@]{2,}$')]
       ],
 
       password: [
@@ -53,7 +53,7 @@ export class LoginComponent implements OnInit {
       ]
     });
 
-    this.loginForm.valueChanges.subscribe((data)=>{
+    this.loginForm.valueChanges.subscribe((data) => {
       this.validationErrors(this.loginForm);
     });
   }
