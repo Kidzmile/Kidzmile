@@ -1,7 +1,3 @@
-CREATE database [KidzmileDb3]
-GO
-USE [KidzmileDb3]
-GO
 
 
 SET ANSI_NULLS ON

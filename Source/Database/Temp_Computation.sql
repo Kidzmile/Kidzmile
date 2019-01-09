@@ -1,120 +1,74 @@
+-----------data Insertion script----------
+--delete [ProductDetails]
+--delete [Image]
+--delete [Category]
+--delete product
+-----------------------
+INSERT INTO [dbo].[Category](name) VALUES('Baby Toys')
+INSERT INTO [dbo].[Category](name) VALUES('Banner')
+INSERT INTO [dbo].[Category](name) VALUES('Plush Animals')
+INSERT INTO [dbo].[Category](name) VALUES('Plush Pillows')
+INSERT INTO [dbo].[Category](name) VALUES('Soft Toys')	
 
--------
-DROP TABLE dbo.ProductDetails
-DROP TABLE dbo.Category
-DROP TABLE dbo.Product
+-----------------------
+INSERT INTO Product (name,sku_code,units,product_active,price_per_unit) values ('Soft Teddy Bear, 4ft/112cm (Brown)','TDB',20,1,20)
 
+INSERT INTO [dbo].[Image] values('TDB','\assets\images\Product\Soft Toys\teddy_4.jpg')
+INSERT INTO [dbo].[Image] values('TDB','\assets\images\Product\Soft Toys\teddy_5.jpg')
+INSERT INTO [dbo].[Image] values('TDB','\assets\images\Product\Soft Toys\teddy_2.jpg')
+INSERT INTO [dbo].[Image] values('TDB','\assets\images\Product\Soft Toys\teddy_1.jpg')
 
-------------------
+INSERT INTO ProductDetails (color,size,product_description,material	,created_ts	,updated_ts,Product_id,image_path,category_name)	values
+('Brown','112cm','teddy toy-It is made with child safe fabrics and wears a bow around its neck','NA',GETDATE(),GETDATE(),IDENT_CURRENT('Product'),'\assets\images\Product\Soft Toys\teddy_4.jpg','Soft toys' )
+
+--------------------------
+
+INSERT INTO Product (name,sku_code,units,product_active,price_per_unit) values ('CIVIZ Mickey Mouse Soft Toy (3ft)','B075MG7J93',23,1,1500)
+INSERT INTO [dbo].[Image] values('B075MG7J93','\assets\images\Product\Baby Toys\bt.jpg')
+INSERT INTO [dbo].[Image] values('B075MG7J93','\assets\images\Product\Baby Toys\bt_1.jpg')
+INSERT INTO [dbo].[Image] values('B075MG7J93','\assets\images\Product\Baby Toys\bt_2.jpg')
+INSERT INTO [dbo].[Image] values('B075MG7J93','\assets\images\Product\Baby Toys\bt_3.jpg')
+
+INSERT INTO ProductDetails (color,size,product_description,material	,created_ts	,updated_ts,Product_id,image_path,category_name)	values
+('Red','182cm','Light weighted, attractive, colourful, vibrant','NA',GETDATE(),GETDATE(),IDENT_CURRENT('Product'),'\assets\images\Product\Baby Toys\bt.jpg','Baby Toys' )
+
+-----
+
+INSERT INTO Product (name,sku_code,units,product_active,price_per_unit) values ('Hot Toys Gift Pack  (Multicolor)-a set of 10 pieces','85231HBANT',10,1,3500)
+INSERT INTO [dbo].[Image] values('85231HBANT','\assets\images\Product\Banner\1.jpeg')
+INSERT INTO [dbo].[Image] values('85231HBANT','\assets\images\Product\Banner\2.jpeg')
+INSERT INTO [dbo].[Image] values('85231HBANT','\assets\images\Product\Banner\3.jpeg')
+
+INSERT INTO ProductDetails (color,size,product_description,material	,created_ts	,updated_ts,Product_id,image_path,category_name)	values
+('Multi','Variety*152cm','League TCG Collection Bonanza Pack 2018/19 by Topps, colourful, vibrant','NA',GETDATE(),GETDATE(),IDENT_CURRENT('Product'),'\assets\images\Product\Banner\1.jpeg','Banner' )
+
+----------
+
+INSERT INTO Product (name,sku_code,units,product_active,price_per_unit) values ('Cuddly Toys Plush Animal Hand Puppets for Kids ','91AHFTZPL',5,1,895)
+INSERT INTO [dbo].[Image] values('91AHFTZPL','\assets\images\Product\Plush Animals\5.jpg')
+INSERT INTO [dbo].[Image] values('91AHFTZPL','\assets\images\Product\Plush Animals\4.jpg')
+INSERT INTO [dbo].[Image] values('91AHFTZPL','\assets\images\Product\Plush Animals\3.jpg')
+INSERT INTO [dbo].[Image] values('91AHFTZPL','\assets\images\Product\Plush Animals\2.jpg')
+
+INSERT INTO ProductDetails (color,size,product_description,material	,created_ts	,updated_ts,Product_id,image_path,category_name)	values
+('Black','122cm','Montessori Storytelling Educational Puppet For Preschoolers (Small- For Kids)','NA',GETDATE(),GETDATE(),IDENT_CURRENT('Product'),'\assets\images\Product\Plush Animals\2.jpg','Plush Animals' )
+------------------------------------------------
+
+INSERT INTO Product (name,sku_code,units,product_active,price_per_unit) values ('EZ Life Soft Plush Smiling Star Illuminating 7 Colour LED Light Pillow Toy (Yellow)','PPLFK33AE',5,1,895)
+INSERT INTO [dbo].[Image] values('PPLFK33AE','\assets\images\Product\Plush Pillows\2.jpg')
+INSERT INTO [dbo].[Image] values('PPLFK33AE','\assets\images\Product\Plush Pillows\1.jpg')
+INSERT INTO [dbo].[Image] values('PPLFK33AE','\assets\images\Product\Plush Pillows\3.jpg')
+INSERT INTO [dbo].[Image] values('PPLFK33AE','\assets\images\Product\Plush Pillows\4.jpg')
+
+INSERT INTO ProductDetails (color,size,product_description,material	,created_ts	,updated_ts,Product_id,image_path,category_name)	values
+('Pink','122cm','Pretty, squishy and cuddly-- perfect gift for your kids and adults too. The LED lights keep changing colors','NA',GETDATE(),GETDATE(),IDENT_CURRENT('Product'),'\assets\images\Product\Plush Pillows\2.jpg','Plush Pillows' )
+-----------------------------------------
+---SpProductImages_GetBySKUCode @skucode='TDB'
+--SpProductDetails_Get
+--spProductDetails_GetBySKUCode @skucode='CCR'
+------------------------------------------
+select * from Category
 select * from Product
 select * from ProductDetails
-select * from Category
--------------------
-delete ProductDetails
-delete Product
-delete Category
-
--------------------
-INSERT INTO Category(name) VALUES('Baby Toys')
-INSERT INTO Category(name) VALUES('Banner')
-INSERT INTO Category(name) VALUES('Plush Animals')
-INSERT INTO Category(name) VALUES('Plush Pillows')
-INSERT INTO Category(name) VALUES('Soft Toys')	
-
-INSERT INTO Product (name,sku_code,units,product_active,price_per_unit) values ('Teddy Bear','TDB',20,1,20)
-INSERT INTO ProductDetails (color,size,product_description,material	,created_ts	,updated_ts,Product_id,image_path,category_name)	values
-('Red','20*20','teddy toy','NA',GETDATE(),GETDATE(),SCOPE_IDENTITY(),'C:\asset','Soft toys' )
-INSERT INTO Category(name) values('Soft Toys')
-
-INSERT INTO Product (name,sku_code,units,product_active,price_per_unit) values ('Car','CCR',10,1,5)
-INSERT INTO ProductDetails (color,size,product_description,material,image_path ,created_ts	,updated_ts,Product_id,category_name)	values
-('blue','10*20','blue toy','NA', 'c:/' ,GETDATE(),GETDATE(),SCOPE_IDENTITY(),'Plush Animals')
-
-
-INSERT INTO Product (name,sku_code,units,product_active,price_per_unit) values ('Camel','CCA',5,1,20)
-INSERT INTO ProductDetails (color,size,product_description,material	,created_ts	,updated_ts,Product_id)	values
-('green','20*40','green toy','NA',GETDATE(),GETDATE(),SCOPE_IDENTITY())
-
-INSERT INTO Product (name,sku_code,units,product_active,price_per_unit) values ('Ladder','CLA',35,0,25)
-INSERT INTO ProductDetails (color,size,product_description,material	,created_ts	,updated_ts,Product_id)	values
-('yellow','20','yellow color toy','NA',GETDATE(),GETDATE(),SCOPE_IDENTITY())
-
-INSERT INTO Product (name,sku_code,units,product_active,price_per_unit) values ('Apple','CAP',56,1,90)
-INSERT INTO ProductDetails (color,size,product_description,material	,created_ts	,updated_ts,Product_id)	values
-('orange','15','orange color toy','NA',GETDATE(),GETDATE(),SCOPE_IDENTITY())
-
-
---------------------------------
-INSERT INTO [dbo].[Image] values('TDB','\assets\images\Product\Plush Animals\1.jpg')
-INSERT INTO [dbo].[Image] values('TDB','\assets\images\Product\Plush Animals\2.jpg')
-INSERT INTO [dbo].[Image] values('TDBc','\assets\images\Product\Plush Animals\3.jpg')
-
-INSERT INTO [dbo].[Image] values('BBT','\assets\images\Product\Plush Animals\IMG_3429.jpg')
-INSERT INTO [dbo].[Image] values('BBT','\assets\images\Product\Plush Animals\IMG_3430.jpg')
-INSERT INTO [dbo].[Image] values('BBT','\assets\images\Product\Plush Animals\IMG_3455.jpg')
-INSERT INTO [dbo].[Image] values('BBT','\assets\images\Product\Plush Animals\IMG_3459.jpg')
-
-
 select * from [dbo].[Image]
-dbo.SpProductImages_GetBySKUCode @skucode='TDB'
------------------------------------------------------
-SpProductDetails_Get
-spProductDetails_GetBySKUCode @skucode='CCR'
-
-------------------------------------
-declare @id int ,
-@statusmessage nvarchar(100)
-execute SpProductDetails_INSERT
-'DGCCCCCCCCC',
-'DOG',
-'10',
-'9',
-'9',
-'b',
-'9',
-'b',
-'c',
-'C:\asset',
-'Plush Animals',
-@id  output 
-print @id
---@statusmessage output
-print @statusmessage
-
-
-
-SpProductDetails_Get
-
-
-declare @isupdated  bit
-declare @statusmessage nvarchar(100)
-execute SpProductDetails_Update
-'CCR',
-'a',
-'9',
-'9',
-'9',
-'b',
-'',
-'10000.1234567898',
-'c',
-'C:\',
-'Plush Animals',
-@statusmessage output,
-@isupdated output
---@id  output 
-print @statusmessage
-print @isupdated
----
-
-SpProductDetails_Get
-
-declare @isdeleted  bit
- declare @statusmessage nvarchar(100)
-execute SpProductDelete
-'CCR',
-@statusmessage output,
-@isdeleted output
---@id  output 
-print @statusmessage
-print @isdeleted
+-------------------
