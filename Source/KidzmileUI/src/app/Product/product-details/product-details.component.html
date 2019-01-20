@@ -51,31 +51,29 @@
                   <ul class="product-price">
                     <li>
                       <ul>
-                        <li><span class="price-li-styling ">List Price:</span>
+                        <li><span class="price-li-styling ">Original Price:</span>
 
                         </li>
                         <li class="unlisted-text-stye">
-                          <span class="d-block float-left price-li2-styling">Rs.{{product?.PricePerUnit}}</span>
+                          <span class="d-block float-left price-li2-styling"><i aria-hidden="true " class="fa fa-inr"> </i>{{product?.PricePerUnit | number:'1.2-2'}}</span>
                         </li>
                       </ul>
                     </li>
                     <li>
                       <ul>
-                        <li><span class="price-li-styling ">Price:</span>
-
+                        <li><span class="price-li-styling ">Discounted Price:</span>
                         </li>
                         <li class="unlisted-text-stye">
-                          <span class="d-block float-left price-li2-styling">Rs.{{discountedPrice}}</span>
+                          <span class="d-block float-left price-li2-styling"><i aria-hidden="true " class="fa fa-inr"> </i>{{product?.Discount | number:'1.2-2'}}</span>
                         </li>
                       </ul>
                     </li>
                     <li>
                       <ul>
                         <li><span class="price-li-styling">You Save:</span>
-
                         </li>
                         <li class="unlisted-text-stye">
-                          <span class="d-block float-left price-li2-styling">Rs.{{discount}}</span>
+                          <span class="d-block float-left price-li2-styling"><i aria-hidden="true " class="fa fa-inr"> </i>{{discount | number:'1.2-2'}}</span>
                         </li>
                       </ul>
 
@@ -113,7 +111,6 @@
                             </span>
                             <span>
                               Quantity
-
                             </span>
                           </span>
                           <a class="btn quantity-minus" (click)="incrementItemCount()">+</a>

@@ -13,7 +13,7 @@ import { ProductService } from "../../Service/product.service";
 export class ProductDetailsComponent implements OnInit {
   sku_code = "";
   product: Product ;
-  discount = 1500;
+  discount = 0;
   //discountedPrice = this.product.pricePerUnit - this.discount;
   discountedPrice:Number;
   countItems: any = 1;
@@ -71,6 +71,15 @@ export class ProductDetailsComponent implements OnInit {
         this.sideBarImageSrc = imageUrls; // Subscribing to the product service for retrieving image using SKUcode
         console.log(imageUrls);
       });
+
+
+      this._productservice.getProductBySkucode(this.sku_code).subscribe((data)=>{
+        let pricepu=data["PricePerUnit"];
+        let discountedPrice=data["Discount"];
+        this.discount= pricepu-discountedPrice;
+      });
+
+
   }
 
   /*Incrementing the number of items in cart*/
@@ -97,4 +106,5 @@ export class ProductDetailsComponent implements OnInit {
     this._cartService.addData(this.countItems);
     this.toaster.success("cart successfully updated");
   }
+
 }

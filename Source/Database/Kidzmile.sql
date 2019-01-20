@@ -1,7 +1,7 @@
-CREATE DATABASE KidzmileDb
+CREATE DATABASE KidzmileDb1
 GO
 
-USE  KidzmileDb
+USE  KidzmileDb1
 GO
 
 IF EXISTS(
@@ -82,7 +82,7 @@ sku_code		NVARCHAR(20) NOT NULL UNIQUE,
 name			NVARCHAR(100) NOT NULL ,
 units			SMALLINT  DEFAULT(0),
 product_active  BIT  DEFAULT(0),
-price_per_unit  NUMERIC DEFAULT(0),
+price_per_unit  DECIMAL(9,4) DEFAULT(0),
 created_ts		DATETIME DEFAULT GETDATE(),
 updated_ts		DATETIME DEFAULT GETDATE(),
 )
@@ -108,6 +108,7 @@ CREATE TABLE [dbo].[ProductDetails]
 id					INT IDENTITY(1,1) PRIMARY KEY,
 color				NVARCHAR(20) NOT NULL,
 size				NVARCHAR(20) NOT NULL,
+discount			DECIMAL(9,4) DEFAULT(0),
 product_description NVARCHAR(400) NOT NULL,
 material			NVARCHAR(50) ,
 created_ts			DATETIME DEFAULT GETDATE(),
@@ -123,7 +124,7 @@ CREATE PROCEDURE dbo.SpProductDetails_Get
 AS									
 BEGIN								
 SELECT p.id,p.name,p.sku_code as skucode,units ,product_active as isactive,
-price_per_unit as priceperunit,color,size,
+price_per_unit as priceperunit,color,size,discount,
 product_description as [description],material,image_path as imagepath,category_name as category
 FROM 
 	dbo.Product p 
@@ -139,7 +140,7 @@ CREATE PROCEDURE dbo.SpProductDetails_GetBySKUCode
 AS									
 BEGIN								
 SELECT Top 1 p.id,p.name,sku_code as skucode,units ,product_active as isactive,
-price_per_unit as priceperunit,color,size,
+price_per_unit as priceperunit,color,size,discount,
 product_description as [description],material,d.image_path as imagepath,category_name as category
  FROM dbo.Product p INNER JOIN dbo.ProductDetails d ON p.id=d.Product_id
  WHERE  p.sku_code=@skucode	
@@ -155,6 +156,7 @@ CREATE PROCEDURE dbo.SpProductDetails_Insert
 @price_per_unit  NUMERIC,
 @color NVARCHAR(50) ,
 @size NVARCHAR(20), 
+@discount DECIMAL(9,4),
 @product_description  NVARCHAR(400),
 @material NVARCHAR(50),
 @imagepath NVARCHAR(80),
@@ -168,7 +170,7 @@ BEGIN TRY
 		BEGIN
 		INSERT INTO Product (name,sku_code,units,product_active,price_per_unit) VALUES(@name,@sku_code,@units,@product_active,@price_per_unit)
 		Select @id=id FROM Product WHERE sku_code=@sku_code
-		INSERT INTO  dbo.ProductDetails (color,size,product_description,material,image_path,Product_id,category_name) VALUES(@color,@size,@product_description,@material,@imagepath,@id,@category)
+		INSERT INTO  dbo.ProductDetails (color,size,product_description,discount,material,image_path,Product_id,category_name) VALUES(@color,@size,@discount,@product_description,@material,@imagepath,@id,@category)
 		--SET @statusmessage='Product'+  @sku_code+' added with id '+cast(@id AS NVARCHAR(15))
 		END
 	ELSE
@@ -190,9 +192,10 @@ CREATE PROCEDURE dbo.SpProductDetails_Update
 @name NVARCHAR(100)=NULL,
 @units SMALLINT=NULL,
 @product_active BIT=NULL,
-@price_per_unit  NUMERIC=NULL,
+@price_per_unit  DECIMAL(9,4)=NULL,
 @color NVARCHAR(50) =NULL,
 @size NVARCHAR(20)=NULL, 
+@discount DECIMAL(9,4)=NULL,
 @product_description  NVARCHAR(400)=NULL,
 @material NVARCHAR(50) = NULL,
 @imagepath NVARCHAR(50),
@@ -218,7 +221,7 @@ BEGIN TRY
 						WHERE id=@pid
 
 						UPDATE  ProductDetails 
-						SET color=@color,size=@size,product_description=@product_description,
+						SET color=@color,size=@size,discount=@discount,product_description=@product_description,
 						material=@material,image_path=@imagepath,category_name=@category,updated_ts=GETDATE()
 						WHERE Product_id=@pdid			
 

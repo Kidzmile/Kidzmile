@@ -8,9 +8,9 @@
       <div itemprop="name" class="product-brand">{{ product.Name }}</div>
       <div itemprop="offers" itemscope itemtype="https://schema.org/Offer" class="product-price">
         <span>
-          <span itemprop="price" class="product-discountedPrice"><i aria-hidden="true " class="fa fa-inr"> </i>{{ product.PricePerUnit }}</span>
+          <span *ngIf="product && product.Discount>0" itemprop="price" class="product-discountedPrice"><i aria-hidden="true " class="fa fa-inr"> </i>{{ product.Discount | number:'1.2-2' }}</span>
           <span *ngIf="product; let cost_price">
-            <span itemprop="price" class="disableprize"><i aria-hidden="true " class="fa fa-inr"> </i>{{product.PricePerUnit}}</span>
+            <span itemprop="price" [class.disableprize]="product.Discount>0" class="prize"><i aria-hidden="true " class="fa fa-inr"> </i>{{product.PricePerUnit | number:'1.2-2'}}</span>
           </span>
         </span>
 
@@ -18,9 +18,9 @@
       <div class="ngrating">
         <ngx-input-star-rating disabled="true" value="4"></ngx-input-star-rating>
       </div>
-      <small class="shipping">
-       You save 41 <i aria-hidden="true " class="fa fa-inr"> </i>
-      </small>
+      <small class="shipping" *ngIf="calculateDiscountPercentage(product)>0;" >
+       You save <i aria-hidden="true " class="fa fa-inr"> </i> {{calculateDiscountPercentage(product) | number:'1.2-2'}}      </small>
     </div>
   </a>
 </div>
+

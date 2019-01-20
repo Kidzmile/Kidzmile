@@ -7,7 +7,8 @@ interface Product {
       IsActive: boolean;
       PricePerUnit: number;
       Color: string;
-      size: string;
+      Size: string;
+      Discount: number;
       Description: string;
       Material: string;
       ImagePath: string;

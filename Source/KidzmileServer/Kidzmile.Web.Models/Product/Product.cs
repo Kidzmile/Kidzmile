@@ -19,7 +19,8 @@ namespace Kidzmile.Web.Models
         public bool IsActive { get; set; }
         public decimal? PricePerUnit { get; set; }
         public string Color { get; set; }
-        public string size { get; set; }
+        public string Size { get; set; }
+        public decimal? Discount { get; set; }
         public string Description { get; set; }
         public string Material { get; set; }
         public string ImagePath { get; set; }

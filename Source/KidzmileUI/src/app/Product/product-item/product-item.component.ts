@@ -25,4 +25,21 @@ export class ProductItemComponent implements OnInit {
   OnLoading(){
     console.log('called');
   }
+
+  calculateDiscountPercentage(product:Product):number{
+   /* let differencePercentage=0;
+    if (product.Discount<=0){
+      return differencePercentage;
+    }
+    const difference=product.PricePerUnit-product.Discount;
+     differencePercentage=(difference/product.PricePerUnit)*100;
+    return differencePercentage>0?differencePercentage:0;*/
+
+    let difference=0;
+    if (product.Discount<=0){
+      return difference;
+    }
+    return product.PricePerUnit-product.Discount;
+
+  }
 }

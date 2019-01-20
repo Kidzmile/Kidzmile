@@ -14,6 +14,7 @@ namespace Kidzmile.Web.Repository.DTO
         public int? Units { get; set; }
         public bool IsActive { get; set; }
         public Decimal? PricePerUnit { get; set; }
+        public Decimal? Discount { get; set; }
         public string Color { get; set; }
         public string Size { get; set; }
         public string Description { get; set; }

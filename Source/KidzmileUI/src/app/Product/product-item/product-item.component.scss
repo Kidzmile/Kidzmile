@@ -64,7 +64,7 @@
     .product-brand,
     .product-product {
       overflow: hidden; // text-overflow: ellipsis;
-      // white-space: nowrap;
+      white-space: normal;
       font-size: 0.8rem;
       font-weight: 500;
       line-height: 1.2rem;
@@ -126,6 +126,13 @@
   margin-left: 10px;
 }
 
+.prize {
+  font-size: 1rem;
+  line-height: 1;
+  color: $gray-700;
+  //text-decoration: line-through;
+  margin-left: 10px;
+}
 .results-base {
   @media screen and (min-width: 320px) and (max-width: 768px) {
     padding: 0 0px;

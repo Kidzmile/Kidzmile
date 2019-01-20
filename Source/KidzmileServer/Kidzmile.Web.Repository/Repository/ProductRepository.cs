@@ -44,6 +44,7 @@ namespace Kidzmile.Web.Repository
             queryParameters.Add("@price_per_unit", productdto.PricePerUnit);
             queryParameters.Add("@color", productdto.Color);
             queryParameters.Add("@size", productdto.Size);
+            queryParameters.Add("@discount", productdto.Discount);
             queryParameters.Add("@product_description", productdto.Description);
             queryParameters.Add("@material", productdto.Material);
             queryParameters.Add("@imagepath", productdto.ImagePath);
@@ -64,6 +65,7 @@ namespace Kidzmile.Web.Repository
             queryParameters.Add("@price_per_unit", productdto.PricePerUnit);
             queryParameters.Add("@color", productdto.Color);
             queryParameters.Add("@size", productdto.Size);
+            queryParameters.Add("@discount", productdto.Discount);
             queryParameters.Add("@product_description", productdto.Description);
             queryParameters.Add("@material", productdto.Material);
             queryParameters.Add("@imagepath", productdto.ImagePath);
