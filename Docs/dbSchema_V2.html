@@ -1,0 +1,267 @@
+﻿<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <base href=".">
+    <title>Database documentation</title>
+</head>
+<body>
+    <h1>Data Dictionary for Kidzmile</h1>
+    <hr width="80%">
+    <h2>Table details</h2>
+	<h3>Table-1: User</h3>
+
+    <table border="1" cellspacing="0" cellpadding="1">
+        <tbody>
+            <tr><td>Field</td><td>Type</td><td>Default</td><td>Description</td></tr>
+            <tr><td>user_id*</td><td>serial</td><td>not null</td><td>&nbsp;</td></tr>
+            <tr><td>full_name</td><td>varchar(255)</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+            <tr><td>email</td><td>varchar(255)</td><td>not null</td><td>&nbsp;</td></tr>
+            <tr><td>phone_number</td><td>varchar(255)</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+            <tr><td>password</td><td>varchar(255)</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+            <tr><td>created_ts</td><td>timestamp with time zone</td><td>CURRENT_TIMESTAMP</td><td>&nbsp;</td></tr>
+            <tr><td>updated_ts</td><td>timestamp with time zone</td><td>CURRENT_TIMESTAMP</td><td>&nbsp;</td></tr>
+        </tbody>
+    </table>
+
+	<hr width="80%">
+    <h3>Table-2: UserInformation</h3>
+
+    <table border="1" cellspacing="0" cellpadding="1">
+        <tbody>
+            <tr><td>Field</td><td>Type</td><td>Default</td><td>Description</td></tr>
+            <tr><td>id*</td><td>serial</td><td>not null</td><td>&nbsp;</td></tr>
+			<tr><td>user_id*</td><td>serial</td><td>not null</td><td>&nbsp;</td></tr>
+            <tr><td>active</td><td>bool</td><td>true</td><td>&nbsp;</td></tr>
+            <tr><td>personal_address</td><td>varchar(255)</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+            <tr><td>session_id</td><td>varchar(255)</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+            <tr><td>last_login</td><td>varchar(255)</td><td>&nbsp</td><td>&nbsp;</td></tr>
+			<tr><td>number_of_visits</td><td>integer</td><td>&nbsp</td><td>&nbsp;</td></tr>
+            <tr><td>created_ts</td><td>timestamp with time zone</td><td>CURRENT_TIMESTAMP</td><td>&nbsp;</td></tr>
+            <tr><td>updated_ts</td><td>timestamp with time zone</td><td>CURRENT_TIMESTAMP</td><td>&nbsp;</td></tr>			                        
+        </tbody>
+    </table>
+
+    <hr width="80%">
+	
+	<h3>Table-3: Category</></h3>
+
+    <table border="1" cellspacing="0" cellpadding="1">
+        <tbody>
+            <tr><td>Field</td><td>Type</td><td>Default</td><td>Description</td></tr>
+            <tr><td>id*</td><td>serial</td><td>not null</td><td>&nbsp;</td></tr>
+            <tr><td>name</td><td>varchar(255)</td><td>primary key</td><td>&nbsp;</td></tr>
+			<tr><td>created_ts</td><td>timestamp with time zone</td><td>CURRENT_TIMESTAMP</td><td>&nbsp;</td></tr>
+            <tr><td>updated_ts</td><td>timestamp with time zone</td><td>CURRENT_TIMESTAMP</td><td>&nbsp;</td></tr>			                        
+        </tbody>
+    </table>
+
+	<hr width="80%">
+	
+    <h3>Table-4: Products</></h3>
+
+    <table border="1" cellspacing="0" cellpadding="1">
+        <tbody>
+            <tr><td>Field</td><td>Type</td><td>Default</td><td>Description</td></tr>
+            <tr><td>id*</td><td>serial</td><td>not null</td><td>&nbsp;</td></tr>
+			<tr><td>category_id*</td><td>serial</td><td>not null</td><td>&nbsp;</td></tr>
+            <tr><td>name</td><td>varchar(255)</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+            <tr><td>sku_code</td><td>varchar(255)</td><td>not null</td><td>&nbsp;</td></tr>
+            <tr><td>units</td><td>integer</td><td></td><td>&nbsp;</td></tr>
+            <tr><td>product_active</td><td>bool</td><td>true</td><td>&nbsp;</td></tr>
+            <tr><td>price_per_unit</td><td>numeric</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+			<tr><td>discount</td><td>numeric</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+            <tr><td>created_ts</td><td>timestamp with time zone</td><td>CURRENT_TIMESTAMP</td><td>&nbsp;</td></tr>
+            <tr><td>updated_ts</td><td>timestamp with time zone</td><td>CURRENT_TIMESTAMP</td><td>&nbsp;</td></tr>
+        </tbody>
+    </table>
+
+	<hr width="80%">
+    
+    <h3>Table-5: ProductsDetails</></h3>
+
+    <table border="1" cellspacing="0" cellpadding="1">
+        <tbody>
+            <tr><td>Field</td><td>Type</td><td>Default</td><td>Description</td></tr>
+            <tr><td>id</td><td>serial</td><td>not null</td><td>&nbsp;</td></tr>            
+            <tr><td>color</td><td>varchar(15)</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+            <tr><td>size</td><td>varchar(255)</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+            <tr><td>description</td><td>text</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+            <tr><td>material</td><td>varchar(255)</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+            <tr><td>created_ts</td><td>timestamp with time zone</td><td>CURRENT_TIMESTAMP</td><td>&nbsp;</td></tr>
+            <tr><td>updated_ts</td><td>timestamp with time zone</td><td>CURRENT_TIMESTAMP</td><td>&nbsp;</td></tr>
+			<tr><td>Product_id</td><td>integer</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+			<tr><td>category_name</td><td>nvarchar(20)</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+        </tbody>
+    </table>
+
+    <hr width="80%">
+	<h3>Table-6: ProductsImages</></h3>
+
+    <table border="1" cellspacing="0" cellpadding="1">
+        <tbody>
+            <tr><td>Field</td><td>Type</td><td>Default</td><td>Description</td></tr>
+            <tr><td>id*</td><td>serial</td><td>not null</td><td>&nbsp;</td></tr>
+			<tr><td>product_id*</td><td>serial</td><td>not null</td><td>&nbsp;</td></tr>
+            <tr><td>sku_code</td><td>varchar(100)</td><td>not null</td><td>Foreign Key</td></tr>
+            <tr><td>image_path</td><td>varchar(255)</td><td></td><td>&nbsp;</td></tr>
+			<tr><td>created_ts</td><td>timestamp with time zone</td><td>CURRENT_TIMESTAMP</td><td>&nbsp;</td></tr>
+            <tr><td>updated_ts</td><td>timestamp with time zone</td><td>CURRENT_TIMESTAMP</td><td>&nbsp;</td></tr>			                        			
+        </tbody>
+    </table>	
+    
+
+    <hr width="80%">
+	
+	<h3>Table-7: Cart</></h3>
+
+    <table border="1" cellspacing="0" cellpadding="1">
+        <tbody>
+            <tr><td>Field</td><td>Type</td><td>Default</td><td>Description</td></tr>
+            <tr><td>cart_id*</td><td>serial</td><td>not null</td><td>&nbsp;</td></tr>
+            <tr><td>user_id*</td><td>serial</td><td>not null</td><td>&nbsp;</td></tr>
+			<tr><td>product_id*</td><td>serial</td><td>not null</td><td>&nbsp;</td></tr>            
+            <tr><td>units</td><td>integer</td><td></td><td>&nbsp;</td></tr>           
+            <tr><td>created_ts</td><td>timestamp with time zone</td><td>CURRENT_TIMESTAMP</td><td>&nbsp;</td></tr>
+            <tr><td>updated_ts</td><td>timestamp with time zone</td><td>CURRENT_TIMESTAMP</td><td>&nbsp;</td></tr>
+        </tbody>
+    </table>
+
+	<hr width="80%">
+	<h3>Table-8: ShippingAddress</></h3>
+    
+    <table border="1" cellspacing="0" cellpadding="1">
+        <tbody>
+            <tr><td>Field</td><td>Type</td><td>Default</td><td>Description</td></tr>
+            <tr><td>shipping_id*</td><td>serial</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+			<tr><td>user_id*</td><td>serial</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+			<tr><td>address_1</td><td>varchar(255)</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+			<tr><td>address_2</td><td>varchar(255)</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+			<tr><td>country</td><td>varchar(255)</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+			<tr><td>state</td><td>varchar(255)</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+			<tr><td>city</td><td>varchar(255)</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+			<tr><td>pincode</td><td>numeric</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+			<tr><td>phone</td><td>varchar(255)</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+            <tr><td>created_ts</td><td>timestamp with time zone</td><td>CURRENT_TIMESTAMP</td><td>&nbsp;</td></tr>
+            <tr><td>updated_ts</td><td>timestamp with time zone</td><td>CURRENT_TIMESTAMP</td><td>&nbsp;</td></tr>			                        
+        </tbody>
+    </table>
+	 <hr width="80%">
+    
+    <h3>Table-9: Order</h3>
+
+    <table border="1" cellspacing="0" cellpadding="1">
+        <tbody>
+            <tr><td>Field</td><td>Type</td><td>Default</td><td>Description</td></tr>
+            <tr><td>id*</td><td>serial</td><td>not null</td><td>&nbsp;</td></tr>
+			<tr><td>user_id*</td><td>serial</td><td>not null</td><td>&nbsp;</td></tr>
+			<tr><td>shipping_id*</td><td>serial</td><td>not null</td><td>&nbsp;</td></tr>
+			<tr><td>orderNumber</td><td>serial</td><td>not null</td><td>Generate Randomly, will be helpful for tracking</td></tr>
+			<tr><td>total_amount_to_be_paid</td><td>numeric</td><td>not null</td><td>Before Discount and Taxes</td></tr>
+			<tr><td>total_amount_after_discount_and_taxes</td><td>numeric</td><td>&nbsp;</td><td>After Discount and Taxes</td></tr>
+			<tr><td>amount_paid_online</td><td>numeric</td><td>&nbsp;</td><td>50% to be paid online</td></tr>
+			<tr><td>amount_due_to_be_paid</td><td>numeric</td><td>&nbsp;</td><td>On-Delivery</td></tr>
+			<tr><td>due_date</td><td>timestamp with time zone</td><td>CURRENT_TIMESTAMP</td><td>&nbsp;</td></tr>
+			<tr><td>delivery_status</td><td>bool</td><td>false</td><td>&nbsp;</td></tr>			                                    
+            <tr><td>created_ts</td><td>timestamp with time zone</td><td>CURRENT_TIMESTAMP</td><td>&nbsp;</td></tr>
+            <tr><td>updated_ts</td><td>timestamp with time zone</td><td>CURRENT_TIMESTAMP</td><td>&nbsp;</td></tr>			
+        </tbody>
+    </table>
+
+    <hr width="80%">
+    <h3>Table-10: OrderItems</></h3>
+    
+    <table border="1" cellspacing="0" cellpadding="1">
+        <tbody>
+            <tr><td>Field</td><td>Type</td><td>Default</td><td>Description</td></tr>
+            <tr><td>id*</td><td>serial</td><td>not null</td><td>&nbsp;</td></tr>
+			<tr><td>order_id*</td><td>serial</td><td>not null</td><td>&nbsp;</td></tr>            
+            <tr><td>product_id*</td><td>serial</td><td>not null</td><td>&nbsp;</td></tr>
+            <tr><td>quantity</td><td>integer</td><td>&nbsp;</td><td>No of product to be delivered</td></tr>
+			<tr><td>price_per_unit</td><td>numeric</td><td>&nbsp;</td><td>&nbsp;</td></tr>			
+            <tr><td>created_ts</td><td>timestamp with time zone</td><td>CURRENT_TIMESTAMP</td><td>&nbsp;</td></tr>
+            <tr><td>updated_ts</td><td>timestamp with time zone</td><td>CURRENT_TIMESTAMP</td><td>&nbsp;</td></tr>
+        </tbody>
+    </table>
+
+	 <hr width="80%">
+	 
+	 <h3>Table-11: OrderHistory/OrderTracking</h3>
+
+    <table border="1" cellspacing="0" cellpadding="1">
+        <tbody>
+            <tr><td>Field</td><td>Type</td><td>Default</td><td>Description</td></tr>
+            <tr><td>id*</td><td>serial</td><td>not null</td><td>&nbsp;</td></tr>
+			<tr><td>order_id*</td><td>serial</td><td>&nbsp;</td><td>&nbsp;</td></tr>            
+            <tr><td>delivery_status</td><td>bool</td><td>&nbsp;</td><td>&nbsp;</td></tr>        
+            <tr><td>notes</td><td>varchar(255)</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+			<tr><td>location</td><td>varchar(255)</td><td>&nbsp;</td><td>Current location of products</td></tr>
+            <tr><td>created_ts</td><td>timestamp with time zone</td><td>CURRENT_TIMESTAMP</td><td>&nbsp;</td></tr>
+            <tr><td>updated_ts</td><td>timestamp with time zone</td><td>CURRENT_TIMESTAMP</td><td>&nbsp;</td></tr>
+        </tbody>
+    </table>
+	
+	 <hr width="80%">
+	 <h3>Table-12: RepaymentStatus</></h3>
+    
+    <table border="1" cellspacing="0" cellpadding="1">
+        <tbody>
+            <tr><td>Field</td><td>Type</td><td>Default</td><td>Description</td></tr>
+            <tr><td>id*</td><td>serial</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+			<tr><td>repaymentStatus</td><td>varchar(255)</td><td>&nbsp;</td><td>Eg: Initiated, Reviewing, Pending, Success, Failed</td></tr>                        			
+            <tr><td>created_ts</td><td>timestamp with time zone</td><td>CURRENT_TIMESTAMP</td><td>&nbsp;</td></tr>
+            <tr><td>updated_ts</td><td>timestamp with time zone</td><td>CURRENT_TIMESTAMP</td><td>&nbsp;</td></tr>            
+        </tbody>
+    </table>
+
+	<hr width="80%">
+    <h3>Table-13: CancelledOrders</></h3>
+    
+    <table border="1" cellspacing="0" cellpadding="1">
+        <tbody>
+            <tr><td>Field</td><td>Type</td><td>Default</td><td>Description</td></tr>
+            <tr><td>id*</td><td>serial</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+			<tr><td>order_id*</td><td>serial</td><td>&nbsp;</td><td>&nbsp;</td></tr>            
+            <tr><td>repaymentStatus_id*</td><td>serial</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+			<tr><td>total_amount_to_be_repaid_online</td><td>numeric</td><td>&nbsp;</td><td>To be Paid</td></tr>
+			<tr><td>actual_amount_repaid_online</td><td>numeric</td><td>&nbsp;</td><td>Amount Paid after any deductions</td></tr>
+            <tr><td>created_ts</td><td>timestamp with time zone</td><td>CURRENT_TIMESTAMP</td><td>&nbsp;</td></tr>
+            <tr><td>updated_ts</td><td>timestamp with time zone</td><td>CURRENT_TIMESTAMP</td><td>&nbsp;</td></tr>            
+        </tbody>
+    </table>
+
+	<hr width="80%">
+    <h3>Table-14: Rating</h3>
+
+    <table border="1" cellspacing="0" cellpadding="1">
+        <tbody>
+            <tr><td>Field</td><td>Type</td><td>Default</td><td>Description</td></tr>
+            <tr><td>id*</td><td>serial</td><td>not null</td><td>&nbsp;</td></tr>
+			<tr><td>user_id*</td><td>serial</td><td>not null</td><td>&nbsp;</td></tr>
+			<tr><td>order_id</td><td>numeric</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+			<tr><td>product_id</td><td>numeric</td><td>&nbsp;</td><td>&nbsp;</td></tr>			
+            <tr><td>rating</td><td>numeric</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+			<tr><td>comment</td><td>varchar(1000)</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+            <tr><td>created_ts</td><td>timestamp with time zone</td><td>CURRENT_TIMESTAMP</td><td>&nbsp;</td></tr>
+			<tr><td>updated_ts</td><td>timestamp with time zone</td><td>CURRENT_TIMESTAMP</td><td>&nbsp;</td></tr>
+        </tbody>
+    </table>
+   <div style="padding-top:10px"><b>Payment Gateway and its table needs to be decided and discussed</b></div>
+   <div style="padding-top:10px"><b>We should never save customers card/account details as per my discussions with my team members in my company</b></div>
+    <hr width="80%">
+	
+	<h3 color="red">Table-15: PaymentGatewayDetails</h3>
+    <table border="1" cellspacing="0" cellpadding="1" >
+        <tbody>
+            <tr><td>Field</td><td>Type</td><td>Default</td><td>Description</td></tr>
+            <tr><td>id*</td><td>serial</td><td>not null</td><td>&nbsp;</td></tr>
+			<tr><td>user_id*</td><td>serial</td><td>not null</td><td>&nbsp;</td></tr>
+			<tr><td>order_id*</td><td>serial</td><td>not NULL</td><td>&nbsp;</td></tr>			
+            <tr><td>amount_paid</td><td>varchar(1000)</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+			<tr><td>transaction_number</td><td>varchar(1000)</td><td>Not Null</td><td>Should be Provided by gateways</td></tr>
+            <tr><td>created_ts</td><td>timestamp with time zone</td><td>CURRENT_TIMESTAMP</td><td>&nbsp;</td></tr>
+			<tr><td>updated_ts</td><td>timestamp with time zone</td><td>CURRENT_TIMESTAMP</td><td>&nbsp;</td></tr>
+        </tbody>
+    </table>
+	<hr width="80%">
+</body>
+</html>
